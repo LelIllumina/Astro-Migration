@@ -8,6 +8,23 @@
     "dist"
   ],
   "compilerOptions": {
+    "paths": {
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@scripts/*": [
+        "src/scrripts/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ]
+    },
     "types": [
       "unplugin-icons/types/astro"
     ]
