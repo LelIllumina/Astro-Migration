@@ -1,0 +1,26 @@
+---
+import Base from "@layouts/Base.astro";
+import Gallery from "@components/Gallery.astro";
+import Header from "@components/Header.astro";
+---
+
+<Base
+    title="Lel@Nekoweb"
+    description="All Nekos are mine."
+    keywords="Nekoweb, Lel, Blog, Personal"
+    image="https://lel.nekoweb.org/index.png"
+>
+    <Header />
+
+    <main>
+        <article>
+            <section>
+                <h1>Blogs</h1>
+                <p>
+                    List of blogs.
+                    <Gallery />
+                </p>
+            </section>
+        </article>
+    </main>
+</Base>

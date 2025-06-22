@@ -1,85 +1,99 @@
+@layer base, typography;
+
 @import url("./colors.css");
 @import url("./fonts.css");
 
-:root {
-	color-scheme: dark;
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--night);
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2% 5%;
+  }
+
+  article > section {
+    border-top: 1px var(--tan) solid;
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 0 50px;
+  }
 }
 
-*, ::before, ::after {
-  box-sizing: border-box;
-}
+@layer typography {
+  body {
+    font-family: "Computer Says No", "Iosevka Etoile", -apple-system,
+      BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto, sans-serif;
+  }
 
-/* Typography */
+  /* heading and subtitle */
+  h1 {
+    letter-spacing: -0.03em;
+    font-size: 2.6rem;
+    color: var(--lavender-blush);
+    padding: 20px 0 0;
 
-body {
-	font-family:
-		"Computer Says No",
-		"Iosevka Etoile",
-		-apple-system,
-		BlinkMacSystemFont,
-		Avenir Next,
-		Segoe UI,
-		Roboto,
-		sans-serif;
-}
+    &,
+    + p {
+      text-align: center;
+      text-wrap: balance;
+      max-width: 40rem;
+      margin: 0 auto 0.2em;
+    }
 
-/* heading and subtitle */
-h1 {
-	letter-spacing: -0.03em;
-	font-size: 2.6rem;
-	color: var(--lavender-blush);
+    + p {
+      font-size: 2.25em;
+      font-weight: 300;
+      margin-bottom: 2em;
+    }
+  }
 
-	&,
-	+ p {
-		text-align: center;
-		text-wrap: balance;
-		max-width: 40rem;
-		margin: 0 auto 0.2em;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Mica Valo", sans-serif;
+  }
 
-	+ p {
-		font-size: 2.25em;
-		font-weight: 300;
-		margin-bottom: 2em;
-	}
-}
+  /* links */
+  a {
+    text-decoration: none;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: "Mica Valo", sans-serif;
-}
+    /* navigational links */
+    nav & {
+      font-family: Lemon Milk, sans-serif;
+      font-weight: 500;
+      color: var(--lavender-blush);
+      text-shadow: 1px 1px var(--raisin-black);
 
-/* links */
-a {
-	text-decoration: none;
+      &[aria-current] {
+        text-decoration: 2px underline var(--tan);
+        text-underline-offset: 8px;
+      }
+    }
+  }
 
-	/* navigational links */
-	nav & {
-		font-family:
-			Lemon Milk,
-			sans-serif;
-		font-weight: 500;
-		color: var(--lavender-blush);
-		text-shadow: 1px 1px var(--raisin-black);
+  /* bulk content */
+  p,
+  li {
+    color: var(--ash-gray);
+    line-height: 0.95;
+    font-size: 2rem;
 
-		&[aria-current] {
-			text-decoration: 2px underline var(--tan);
-			text-underline-offset: 8px;
-		}
-	}
-}
-
-/* bulk content */
-p,
-li {
-	color: var(--ash-gray);
-	line-height: 0.95;
-	font-size: 2rem;
-	strong {
-		color: var(--marker);
-	}
+    strong {
+      color: var(--marker);
+    }
+  }
 }

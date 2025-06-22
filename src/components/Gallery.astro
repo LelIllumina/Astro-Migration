@@ -1,0 +1,106 @@
+---
+type Props = Record<string, never>;
+import { getCollection } from "astro:content";
+const isArchive = new URL(Astro.request.url).pathname.includes("/archive");
+const collectionName = isArchive ? "archive" : "blogs";
+const posts = await getCollection(collectionName);
+
+// Sort posts by date
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<ul class="gallery">
+  {
+    sortedPosts.map((post) => (
+      <li>
+        <a
+          href={isArchive ? `/blogs/archive/${post.id}` : `/blogs/${post.id}`}
+          data-astro-prefetch
+        >
+          <figure>
+            <img src={post.data.thumb} alt="" />
+            <figcaption>
+              <time datetime={new Date(post.data.date).toISOString()}>
+                {new Date(post.data.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+<style>
+  /*
+  Reusable gallery component. Used on front page
+*/
+
+  .gallery {
+    margin-block: 4rem;
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10%;
+    }
+
+    figure {
+      transition: transform 0.1s;
+      align-items: flex-start;
+      display: flex;
+      gap: 3rem;
+      margin: 3em 0;
+
+      &:hover {
+        transform: scale(1.01);
+      }
+      figcaption {
+        margin: auto;
+      }
+
+      @media (width < 900) {
+        img {
+          display: none;
+        }
+      }
+    }
+
+    time {
+      color: var(--tan);
+      font-weight: 300;
+      font-size: 85%;
+    }
+
+    h2 {
+      color: var(--lavender-blush);
+      text-wrap: balance;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 0;
+      text-decoration: underline var(--ash-gray)1px;
+}
+    }
+
+    p {
+      margin-block: 0.5em;
+    }
+
+    img {
+      max-width: 400px;
+      min-width: 200px;
+      height: auto;
+      border-radius: 4px;
+      margin: auto;
+      box-shadow: #313029 0px 48px 100px 0px;
+    }
+  }
+</style>
