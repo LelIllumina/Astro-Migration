@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.0",
+    "@astrojs/partytown": "^2.1.4",
     "@astrojs/sitemap": "^3.4.1",
     "astro": "^5.10.0",
     "unplugin-icons": "^22.1.0"

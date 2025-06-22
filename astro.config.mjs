@@ -7,6 +7,9 @@ import sitemap from '@astrojs/sitemap';
 import Icons from "unplugin-icons/vite";
 
 
+import partytown from "@astrojs/partytown";
+
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: {
@@ -17,7 +20,7 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap({ xslURL: "/sitemap.xsl" })],
+  integrations: [mdx(), sitemap({ xslURL: "/sitemap.xsl" }), partytown()],
 
   vite: {
     build: {
