@@ -1,0 +1,66 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import "/src/styles/widget.css";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blogs");
+  return posts.map((post) => ({
+    params: { blog: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, date, thumb } = post.data;
+---
+
+<Base {title} {description} image={thumb ?? ""}>
+  <Header />
+  <main>
+    <article>
+      <header>
+        <figure><img src={thumb ?? ""} alt={description} /></figure>
+        <div id="heroText">
+          <h1>{title}</h1>
+          <p>
+            {post.data.description}
+            <br /><br />
+            <time datetime={date.toISOString()}
+              >{
+                date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }</time
+            >
+          </p>
+        </div>
+      </header>
+      <section>
+        <Content />
+        <div id="c_widget"></div>
+        <script is:inline src="/blogs/comment-widget.js"></script>
+      </section>
+    </article>
+  </main>
+</Base>
+
+<style>
+  header img {
+    z-index: -1;
+    position: absolute;
+    object-fit: cover;
+    mask-image: linear-gradient(#000000a6 0%, #0000 100%);
+    width: 100vw;
+    height: 400px;
+    top: 0;
+    left: 0;
+  }
+  #heroText {
+    padding-bottom: 10px;
+  }
+</style>
