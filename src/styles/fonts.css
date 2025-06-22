@@ -1,0 +1,59 @@
+@font-face {
+	font-family: "Lemon Milk";
+	src: url(/fonts/LEMONMILK.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "Iosevka Etoile";
+	src: url(/fonts/IosevkaEtoile.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "Computer says no";
+	src: url(/fonts/ComputerSaysNo.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "Amplitude";
+	src: url(/fonts/AmplitudeCondensed.ttf) format("truetype");
+}
+
+@font-face {
+	font-family: "plexifont";
+	src: url(/fonts/plexifont.woff) format("woff2");
+}
+
+@font-face {
+	font-family: "Mica";
+	src: url(/fonts/Mica.woff) format("woff2");
+}
+
+@font-face {
+	font-family: "Mica Valo";
+	src: url(/fonts/MicaValo.otf) format("opentype");
+}
+
+@font-face {
+	font-family: "Blaster";
+	src: url(/fonts/Blaster.otf) format("opentype");
+}
+
+@font-face {
+	font-family: "Archoblast";
+	src: url(/fonts/Archoblast.otf) format("opentype");
+}
+
+@font-face {
+	font-family: "Gunsan Script";
+	src: url(/fonts/gunsan-script.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "Gunsan";
+	src: url(/fonts/gunsan-regular.woff2) format("woff2");
+}
+
+@font-face {
+	font-family: "Fasad";
+	src: url(/fonts/fasad.ttf) format("truetype");
+}
