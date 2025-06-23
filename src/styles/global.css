@@ -1,4 +1,4 @@
-@layer base, typography;
+@layer typography, base;
 
 @import url("./colors.css");
 @import url("./fonts.css");
@@ -27,6 +27,18 @@
     max-width: 70vw;
     margin: 0 auto;
     padding: 0 50px;
+  }
+
+  blockquote {
+    border-left: 5px solid var(--tan);
+    text-wrap: balance;
+    margin: 2.5em 0;
+    padding-left: 1.5em;
+    p {
+      color: var(--tan);
+      font-size: 1.5rem;
+      line-height: 1.5;
+    }
   }
 }
 

@@ -22,7 +22,9 @@ const { title, description, date, thumb } = post.data;
   <main>
     <article>
       <header>
-        <figure><img src={thumb ?? ""} alt={description} /></figure>
+        <figure>
+          <img id="bgImg" src={thumb ?? ""} alt={description} />
+        </figure>
         <div id="heroText">
           <h1>{title}</h1>
           <p>
@@ -37,18 +39,25 @@ const { title, description, date, thumb } = post.data;
                 })
               }</time
             >
+            <span id="scrollWarn">
+              <br /><br />
+              Note: Firefox/Your Browser dosent natively support scroll-timeline.
+              So the background image scrolling wont work as expected even with a
+              polyfill
+            </span>
           </p>
         </div>
       </header>
       <section>
         <Content />
         <div id="c_widget"></div>
-        <script is:inline src="/blogs/comment-widget.js"></script>
+        <!-- <script is:inline src="/blogs/comment-widget.js"></script> -->
       </section>
     </article>
   </main>
 </Base>
-
+<script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
+></script>
 <style>
   header img {
     z-index: -1;
@@ -62,5 +71,40 @@ const { title, description, date, thumb } = post.data;
   }
   #heroText {
     padding-bottom: 10px;
+  }
+
+  #bgImg {
+    position: fixed;
+    top: 0;
+
+    animation: parallax linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 90vh;
+  }
+
+  @keyframes parallax {
+    from {
+      background-position: 50% 0;
+      height: 100vh;
+      font-size: calc(4vw + 1em);
+    }
+    to {
+      background-position: 50% 100%;
+      background-color: #0b1584;
+      height: 10vh;
+      font-size: 2em;
+    }
+  }
+  #scrollWarn {
+    font-size: 1.5rem;
+    line-height: 0.1px;
+    color: var(--tan);
+    font-weight: bold;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    #scrollWarn {
+      display: none;
+    }
   }
 </style>
