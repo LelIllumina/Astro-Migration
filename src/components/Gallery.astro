@@ -11,21 +11,16 @@ const sortedPosts = posts.sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 
-
 // const thumbs = await Astro.glob('../assets/images/blog/**');
 // const getThumb = (path: string | undefined) =>
 //   thumbs.find((t) => t.default.src.includes(path))?.default;
-
 ---
 
 <ul class="gallery">
   {
     sortedPosts.map((post) => (
       <li>
-        <a
-          href={`/blogs/${post.id}`}
-          data-astro-prefetch
-        >
+        <a href={`/blogs/${post.id}`} data-astro-prefetch>
           <figure>
             <img src={post.data.thumb} alt="" />
             {/* <Image src={getThumb(post.data.thumb) || ""} alt={post.data.description}  /> */}
@@ -94,21 +89,20 @@ const sortedPosts = posts.sort(
       font-weight: 500;
       line-height: 1.5;
       margin: 0;
-      text-decoration: underline var(--ash-gray)1px;
-}
+      text-decoration: underline var(--ash-gray) 1px;
     }
+  }
 
-    p {
-      margin-block: 0.5em;
-    }
+  p {
+    margin-block: 0.5em;
+  }
 
-    img {
-      max-width: 400px;
-      min-width: 200px;
-      height: auto;
-      border-radius: 4px;
-      margin: auto;
-      box-shadow: #313029 0px 48px 100px 0px;
-    }
+  img {
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    margin: auto;
+    box-shadow: #313029 0px 48px 100px 0px;
   }
 </style>
