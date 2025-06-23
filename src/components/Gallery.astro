@@ -12,9 +12,9 @@ const sortedPosts = posts.sort(
 );
 
 
-const thumbs = await Astro.glob('../assets/images/blog/**');
-const getThumb = (path: string | undefined) =>
-  thumbs.find((t) => t.default.src.includes(path))?.default;
+// const thumbs = await Astro.glob('../assets/images/blog/**');
+// const getThumb = (path: string | undefined) =>
+//   thumbs.find((t) => t.default.src.includes(path))?.default;
 
 ---
 
@@ -27,8 +27,8 @@ const getThumb = (path: string | undefined) =>
           data-astro-prefetch
         >
           <figure>
-            {/* <img src={post.data.thumb} alt="" /> */}
-            <Image src={getThumb(post.data.thumb) || ""} alt={post.data.description}  />
+            <img src={post.data.thumb} alt="" />
+            {/* <Image src={getThumb(post.data.thumb) || ""} alt={post.data.description}  /> */}
             <figcaption>
               <time datetime={new Date(post.data.date).toISOString()}>
                 {new Date(post.data.date).toLocaleDateString("en-US", {
