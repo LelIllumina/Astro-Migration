@@ -1,6 +1,10 @@
 ---
 import Base from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+
+import Image from "astro/components/Image.astro";
+
+import hand from "@assets/images/etc/hand.gif";
 ---
 
 <Base
@@ -8,7 +12,40 @@ import Header from "@components/Header.astro";
   description="Moving to astro now"
   image=""
 >
-  <Header />
-  <h1>Migrating to Astro</h1>
-  <h2 style="text-align: center;">Under Construction</h2>
+  <div id="text">
+    <h1>Migrating to Astro</h1>
+    <h2 style="text-align: center;">Under Construction</h2>
+    <p><a href="/">Back to main page</a></p>
+  </div>
+  <Image draggable="false" src={hand} alt="Giant Woman" id="giant-woman" />
 </Base>
+
+<style>
+  #text {
+    float: left;
+    padding: 25vh 10vw;
+    text-align: center;
+    a {
+      border-radius: 10px;
+      transition: all 100ms ease-in-out;
+      background: var(--falu-red);
+      margin: 7.5vh auto;
+      padding: 0.75em 1.5em;
+      color: var(--lavender-blush);
+      mix-blend-mode: hard-light;
+    }
+    a:hover {
+      background: var(--navy-blue);
+    }
+  }
+  #giant-woman {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: 100vh;
+    margin: 0;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+</style>
