@@ -3,7 +3,6 @@ name: Deploy to NekoWeb and GitHub Pages
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
 
 permissions:
   contents: read
