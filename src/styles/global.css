@@ -40,6 +40,37 @@
       line-height: 1.5;
     }
   }
+  figure {
+    margin: 2.5em 0;
+    text-align: center;
+    img {
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--raisin-black);
+    }
+    figcaption {
+      color: var(--ash-gray);
+      font-size: 1.5rem;
+      margin-top: 0.5em;
+    }
+  }
+  ::marker {
+    color: var(--tan);
+  }
+
+  li:not(.gallery li) {
+    text-wrap: balance;
+    margin-bottom: 0.5rem;
+    list-style: hebrew;
+  }
+  li p {
+    margin: 0;
+  }
+  summary {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 }
 
 @layer typography {

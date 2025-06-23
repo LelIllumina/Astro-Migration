@@ -4,75 +4,77 @@ import Header from "@components/Header.astro";
 
 <Header />
 <main>
-    <article>
-        <section>
-            <h1 title="Lel@NekoWEB" id="Lel-nekoweb">Lel@NekoWEB</h1>
-            <div id="subtext"><p>Welcome to lel.nekoweb.org</p></div>
-            <a id="mainButton" role="button" href="/main/">Enter</a>
-        </section>
-        <section>
-            <h2>Bewarned potential NSFW and WIP ahead</h2>
-        </section>
-    </article>
+  <article>
+    <section>
+      <h1 title="Lel@NekoWEB" id="Lel-nekoweb">Lel@NekoWEB</h1>
+      <div id="subtext"><p>Welcome to lel.nekoweb.org</p></div>
+      <a id="mainButton" role="button" href="/main/">Enter</a>
+    </section>
+    <section>
+      <h2>Bewarned potential NSFW and WIP ahead</h2>
+    </section>
+  </article>
 </main>
 
 <style>
-    body {
-        max-width: 100vw;
-        background: var(--night) center/cover no-repeat
-            url(/src/assets/images/background.jpg);
-        overflow-x: hidden;
-        min-height: 100vh;
-        margin: 0 auto;
-        padding: 2% 5%;
-    }
+  body {
+    max-width: 100vw;
+    background: var(--night) center/cover no-repeat
+      url(/src/assets/images/background.jpg);
+    overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2% 5%;
+  }
 
-    h1 {
-        mix-blend-mode: color-dodge;
-        color: var(--tan);
-        text-shadow: 2px 2px #adff2f;
-        font-feature-settings:
-            "liga" 1,
-            "clig" 1,
-            "dlig" 1,
-            "ss01" 1,
-            "ss02" 1;
-        width: 80vw;
-        max-width: 50rem;
-        margin: auto;
-        font-family: Archoblast, fantasy;
-        font-size: 10rem;
-    }
-    h2 {
-        font-family: "Amplitude", Cochin, Georgia, Times, "Times New Roman",
-            serif;
-        text-align: center;
-    }
+  h1 {
+    mix-blend-mode: color-dodge;
+    color: var(--tan);
+    text-shadow: 2px 2px #adff2f;
+    font-feature-settings:
+      "liga" 1,
+      "clig" 1,
+      "dlig" 1,
+      "ss01" 1,
+      "ss02" 1;
+    width: 80vw;
+    max-width: 50rem;
+    margin: auto;
+    font-family: Archoblast, fantasy;
+    font-size: 10rem;
+  }
+  h2 {
+    font-family: "Amplitude", Cochin, Georgia, Times, "Times New Roman", serif;
+    text-align: center;
+  }
 
-    #subtext p {
-        mix-blend-mode: hard-light;
-        margin: 7.5vh auto;
-        font-size: 2rem;
-        font-family: Gunsan, sans-serif;
-        color: var(--lavender-blush);
-        text-align: center;
-    }
+  #subtext p {
+    mix-blend-mode: hard-light;
+    margin: 7.5vh auto;
+    font-size: 2rem;
+    font-family: Gunsan, sans-serif;
+    color: var(--lavender-blush);
+    text-align: center;
+  }
 
-    #mainButton {
-        mix-blend-mode: hard-light;
-        display: block;
-        text-align: center;
-        width: fit-content;
-        font-size: 2rem;
-        line-height: 0.5;
-        color: #fff;
-        border-radius: 4px;
-        transition: all 100ms ease-in-out;
-        margin: 7.5vh auto;
-        padding: 0.75em 1.5em;
-        background: var(--falu-red);
-    }
-    #mainButton:hover {
-        background: var(--navy-blue);
-    }
+  #mainButton {
+    mix-blend-mode: hard-light;
+    display: block;
+    text-align: center;
+    width: fit-content;
+    font-size: 2rem;
+    line-height: 0.5;
+    color: #fff;
+    border-radius: 4px;
+    transition: all 100ms ease-in-out;
+    margin: 7.5vh auto;
+    padding: 0.75em 1.5em;
+    background: var(--falu-red);
+  }
+  #mainButton:hover {
+    background: var(--navy-blue);
+  }
+  section {
+    border: none;
+  }
 </style>

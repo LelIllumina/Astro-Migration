@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 import Icons from "unplugin-icons/vite";
 
+import rehypeFigure from 'rehype-figure';
 
 import partytown from "@astrojs/partytown";
 
@@ -22,6 +23,9 @@ export default defineConfig({
 
   integrations: [mdx(), sitemap({ xslURL: "/sitemap.xsl" }), partytown()],
 
+  markdown: {
+    rehypePlugins: [rehypeFigure]
+  },
   vite: {
     build: {
       target: "esnext",
@@ -29,6 +33,7 @@ export default defineConfig({
       cssCodeSplit: true,
       assetsInlineLimit: 0,
     },
+    
     optimizeDeps: {
       include: [],
     },
