@@ -1,14 +1,119 @@
 ---
 import Base from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+import Sidebar from "@components/main/Sidebar.astro";
+import Footer from "@components/main/Footer.astro";
+
+import { Image } from "astro:assets";
+
+import me from "@assets/images/main/lel.png";
+import github from "@assets/images/main/gijinka/github.jpg";
+import discord from "@assets/images/main/gijinka/discord.jpg";
+import twitter from "@assets/images/main/gijinka/twitter.png";
 ---
 
-<Base
-  title="I still fucking hate nuejs"
-  description="Moving to astro now"
-  image=""
->
+<Base title="Hello My Leltards" description="Moving to astro now" image="">
   <Header />
-  <h1>Migrating to Astro</h1>
-  <h2 style="text-align: center;">Under Construction</h2>
+  <main>
+    <Sidebar />
+    <article>
+      <section>
+        <h1>Hello My Leltards</h1>
+        <p>Under Construction</p>
+        <figure>
+          <Image
+            src={me}
+            alt="Me IRL"
+            width="500"
+            height="500"
+            loading="eager"
+          />
+          <figcaption>Me IRL</figcaption>
+        </figure>
+        <p>
+          I made this layout on NueJs before, but it kinda sucked, so I decided
+          to make it in Astro. I will be adding more content soon.
+        </p>
+        <div id="socials">
+          <h2>Socials</h2>
+          <div id="grid">
+            <figure>
+              <a
+                href="https://github.com/LelIllumina/NueNekos/"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image src={github} alt="Github" />
+                <figcaption>Github</figcaption>
+              </a>
+            </figure>
+            <figure>
+              <a
+                href="https://discord.com/channels/@me/1331059585896677378"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image src={discord} alt="Discord" />
+                <figcaption>Discord</figcaption>
+              </a>
+            </figure>
+            <figure>
+              <a
+                href="https://twitter.com/Lel_illumina"
+                target="_blank"
+                rel="noopener"
+              >
+                <Image src={twitter} alt="Twitter" />
+                <figcaption>Twitter</figcaption>
+              </a>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <Footer />
+
+  <style>
+    /* Aside Styles */
+    main {
+      display: grid;
+      gap: 0px 0px;
+      grid-template-rows: 1fr;
+      grid-template-columns: 0.5fr 1.5fr;
+      grid-template-areas:
+        "aside article"
+        "aside article"
+        "aside article";
+      grid-auto-flow: row;
+    }
+
+    aside {
+      grid-area: aside;
+    }
+
+    article {
+      grid-area: article;
+    }
+    marquee img {
+      border-radius: 0;
+      image-rendering: pixelated;
+    }
+    #socials {
+      text-align: center;
+      padding: 50px;
+    }
+
+    #grid {
+      display: inline-flex;
+      gap: 20px;
+      img {
+        height: 150px;
+        width: 150px;
+        object-fit: cover;
+        object-position: top left;
+        border-radius: 10px;
+      }
+    }
+  </style>
 </Base>

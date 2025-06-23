@@ -44,7 +44,6 @@
     margin: 2.5em 0;
     text-align: center;
     img {
-      max-width: 400px;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 0 10px var(--raisin-black);
@@ -54,6 +53,15 @@
       font-size: 1.5rem;
       margin-top: 0.5em;
     }
+  }
+  img {
+    max-width: 100%;
+    /* min-width: 200px; */
+    height: auto;
+    border-radius: 10px;
+    margin: auto;
+    filter: drop-shadow(0 0 10px var(--night))
+      drop-shadow(0 0px 40px var(--van-dyke));
   }
   ::marker {
     color: var(--tan);
