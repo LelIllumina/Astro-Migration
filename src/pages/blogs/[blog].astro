@@ -58,6 +58,14 @@ const { title, description, date, thumb } = post.data;
 </Base>
 <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
 ></script>
+<style is:inline>
+  figure img {
+    max-width: 50%;
+  }
+  header figure img {
+    max-width: 100%;
+  }
+</style>
 <style>
   header img {
     z-index: -1;
@@ -70,9 +78,6 @@ const { title, description, date, thumb } = post.data;
     left: 0;
   }
 
-  img {
-    max-width: 50%;
-  }
   #heroText {
     padding-bottom: 10px;
   }

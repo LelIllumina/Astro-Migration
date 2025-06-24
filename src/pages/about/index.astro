@@ -1,5 +1,137 @@
 ---
-import WIP from "@layouts/WIP.astro";
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import FigureImg from "@components/FigureImg.astro";
 ---
 
-<WIP />
+<Base title="About" description="About - Index" image="">
+  <Header />
+  <main>
+    <article>
+      <section>
+        <div id="grid">
+          <FigureImg
+            src="images/about/1451227473225.jpg"
+            alt="Anime"
+            href="/about/Anime"
+          />
+          <FigureImg
+            src="images/about/FESu8xuVkAQoySP.jpg"
+            alt="Manga"
+            href="/about/Manga"
+          />
+          <FigureImg
+            src="images/about/p-model_poster.jpg"
+            alt="Music"
+            href="/about/Music"
+          />
+          <div id="title">
+            <h2>About</h2>
+            <h1>Index</h1>
+          </div>
+          <FigureImg
+            src="images/about/106510771_p0_master1200.jpg"
+            alt="IRL People"
+            href="/about/People"
+          />
+          <FigureImg
+            src="images/about/bunny.png"
+            alt="Games"
+            href="/about/Games"
+          />
+          <FigureImg
+            src="images/about/Hakunonposedithered.png"
+            alt="Characters"
+            href="/about/Char"
+          />
+          <div id="contents">
+            <p>Hover or click on any image for more info</p>
+          </div>
+          <FigureImg
+            src="images/about/TechniqueofLelief.png"
+            alt="Me"
+            href="/about/Me"
+          />
+          <FigureImg
+            src="images/about/NSFW/img028.png"
+            alt="NSFW"
+            href="/about/NSFW"
+          />
+        </div>
+      </section>
+    </article>
+  </main>
+  <style is:inline>
+    figure figcaption {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 1.5rem;
+    }
+    figure:hover figcaption {
+      opacity: 1;
+    }
+
+    img {
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      object-position: inherit;
+      border-radius: 4px;
+
+      transform: translateZ(0);
+    }
+  </style>
+  <style>
+    #grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      grid-template-areas:
+        ". . ."
+        "title title title"
+        ". . ."
+        ". . .";
+
+      color: var(--lavender-blush);
+      height: 50vh;
+      width: 40vw;
+      margin: auto;
+    }
+    #title {
+      grid-area: title;
+      /* height: 100px; */
+      padding: 0 10%;
+    }
+
+    #title h2,
+    #title h1 {
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+      display: block;
+      font-family: "Blaster", sans-serif;
+    }
+    #title h2 {
+      font-size: 2em;
+    }
+
+    #title h1 {
+      font-size: 4em;
+      text-align: left;
+    }
+
+    #contents {
+      height: 150px;
+      width: 150px;
+      margin: 2.5em auto;
+      p {
+        font-size: 20px;
+      }
+    }
+
+    section {
+      border: none;
+    }
+  </style>
+</Base>
