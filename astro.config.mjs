@@ -45,7 +45,7 @@ export default defineConfig({
     },
     esbuild: {
       treeShaking: true,
-      drop: ["console", "debugger"],
+      // drop: ["console", "debugger"],
     },
     plugins: [Icons({ compiler: "astro" })],
   },

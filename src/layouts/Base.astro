@@ -3,27 +3,29 @@ import Head from "@components/Head.astro";
 import "@styles/global.css";
 
 interface Props {
-    title: string;
-    description: string;
-    keywords?: string;
-    image: string;
-    accent?: string;
+  title: string;
+  description: string;
+  keywords?: string;
+  image: string;
+  accent?: string;
 }
 
 const {
-    title = "lel@Nekoweb",
-    description = "All Nekos are mine.",
-    keywords = "Nekoweb, Lel, Blog, Personal",
-    image = "background.jpg",
-    accent = "#722014",
+  title = "lel@Nekoweb",
+  description = "All Nekos are mine.",
+  keywords = "Nekoweb, Lel, Blog, Personal",
+  image = "background.jpg",
+  accent = "#722014",
 } = Astro.props;
 ---
 
 <Head
-    title={title}
-    description={description}
-    keywords={keywords}
-    image={image}
-    accent={accent}
+  title={title}
+  description={description}
+  keywords={keywords}
+  image={image}
+  accent={accent}
 />
-<body><slot /></body>
+<body>
+  <slot />
+</body>
