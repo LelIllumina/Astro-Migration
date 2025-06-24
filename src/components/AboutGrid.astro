@@ -1,0 +1,92 @@
+---
+import FigureImg from "./FigureImg.astro";
+
+export interface ImageItem {
+  src: string;
+  alt: string;
+  href: string;
+}
+export interface Props {
+  title: string;
+  subtitle: string;
+  images: ImageItem[];
+}
+const { title, subtitle, images } = Astro.props;
+---
+
+<div id="grid">
+  {
+    images.map((img) => (
+      <FigureImg src={img.src} alt={img.alt} href={img.href} />
+    ))
+  }
+  <div id="title">
+    <h2>{subtitle}</h2>
+    <h1>{title}</h1>
+  </div>
+  <div id="contents">
+    <p>Hover or click on any image for more info</p>
+  </div>
+</div>
+<style is:inline>
+  figure figcaption {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.5rem;
+  }
+  figure:hover figcaption {
+    opacity: 1;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: inherit;
+    border-radius: 4px;
+    transform: translateZ(0);
+  }
+</style>
+<style>
+  #grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    grid-template-areas:
+      ". . ."
+      "title title title"
+      ". . ."
+      ". . .";
+    color: var(--lavender-blush);
+    height: 50vh;
+    width: 40vw;
+    margin: auto;
+  }
+  #title {
+    grid-area: title;
+    padding: 0 10%;
+  }
+  #title h2,
+  #title h1 {
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-family: "Blaster", sans-serif;
+  }
+  #title h2 {
+    font-size: 2em;
+  }
+  #title h1 {
+    font-size: 4em;
+    text-align: left;
+  }
+  #contents {
+    height: 150px;
+    width: 150px;
+    margin: 2.5em auto;
+  }
+  #contents p {
+    font-size: 20px;
+  }
+</style>
