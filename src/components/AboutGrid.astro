@@ -5,6 +5,7 @@ export interface ImageItem {
   src: string;
   alt: string;
   href: string;
+  style?: string;
 }
 export interface Props {
   title: string;
@@ -17,7 +18,12 @@ const { title, subtitle, images } = Astro.props;
 <div id="grid">
   {
     images.map((img) => (
-      <FigureImg src={img.src} alt={img.alt} href={img.href} />
+      <FigureImg
+        src={img.src}
+        alt={img.alt}
+        href={img.href}
+        style={img.style}
+      />
     ))
   }
   <div id="title">
@@ -38,8 +44,8 @@ const { title, subtitle, images } = Astro.props;
     opacity: 1;
   }
   img {
-    height: 100px;
-    width: 100px;
+    height: 128px;
+    width: 128px;
     object-fit: cover;
     object-position: inherit;
     border-radius: 4px;
@@ -51,7 +57,7 @@ const { title, subtitle, images } = Astro.props;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 30px;
+
     grid-template-areas:
       ". . ."
       "title title title"

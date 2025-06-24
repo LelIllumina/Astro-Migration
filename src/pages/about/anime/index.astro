@@ -1,0 +1,68 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import AboutGrid from "@components/AboutGrid.astro";
+---
+
+<Base title="About" description="About - Anime" image="">
+  <Header />
+  <main>
+    <article>
+      <section style="border: none;">
+        <AboutGrid
+          title="Anime"
+          subtitle="About"
+          images={[
+            {
+              src: "/images/about/anime/7aedb4509d17fa705bbc62048bdca67d.png",
+              alt: "Kara no Kyoukai",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/anime/4c3099a51b5f7b6ffc700dd2f2885d10.jpg",
+              alt: "Panty & Stocking",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/anime/74FzZc5YZ.png",
+              alt: "Fate/Stay Night Heaven's feel",
+              href: "./anime/more.html",
+              style: "object-position: left;",
+            },
+            {
+              src: "/images/about/anime/5a467b81f922f2a48d9ae6c0a4e40ca3.jpg",
+              alt: "Fate/Zero",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/anime/3a4472d9bba9ec88bc90fd6df23dae30.jpg",
+              alt: "Steins;Gate",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/anime/fa98188a641a3ea68efbe5aba86a5aa4.jpg",
+              alt: "Eighty Six",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/anime/e71698cada8683342ac60668a47310ab.jpg",
+              alt: "CodeGeass",
+              href: "./anime/more.html",
+            },
+            {
+              src: "/images/about/anime/d9ab3382fb7b4d6a80a2b060550d5c08.png",
+              alt: "Toaru Franchise",
+              href: "./anime/more.html",
+              style: "object-position: top;",
+            },
+          ]}
+        />
+      </section>
+    </article>
+  </main>
+</Base>
