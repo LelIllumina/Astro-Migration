@@ -7,6 +7,8 @@ thumb: /images/blog/giphy.gif
 
 > I noticed this after having written a lot of this but, 2025 dosen't have 29th February. As such ill just release this on the 28th, and you can ignore some issues related to that.
 
+## Contents
+
 ## Nekoweb
 
 On February 29th of 2024 I made my nekoweb account and started up my 1st real website. Before this I hadn't really tried to make anything original, it was just copied and pasted W3Schools snippets that I hosted on 000WebHost for no one to see. Well, nobody except my 2020 online class (for a solid 2 minutes I'll have you know). I rightfully got accused of just copying and pasting stuff, even though I technically did make many modifications to the code, and the site soon got forgotten. As a 13-year-old, I didn't know about proper web hosts like Vercel, or more appropriately, Neocities. I didn't even know of something like Carrd or Rentry. My extent of hosting knowledge was the aforementioned 000WebHost, Wix and Google Sites.

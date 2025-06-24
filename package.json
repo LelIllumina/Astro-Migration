@@ -13,8 +13,12 @@
     "@astrojs/partytown": "^2.1.4",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
+    "@microflash/rehype-figure": "^2.1.4",
     "astro": "^5.10.0",
+    "rehype-autolink-headings": "^7.1.0",
     "rehype-figure": "^1.0.1",
+    "remark-emoji": "^5.0.1",
+    "remark-toc": "^9.0.0",
     "unplugin-icons": "^22.1.0"
   }
 }

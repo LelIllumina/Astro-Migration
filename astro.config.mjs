@@ -6,7 +6,11 @@ import sitemap from '@astrojs/sitemap';
 
 import Icons from "unplugin-icons/vite";
 
-// import rehypeFigure from 'rehype-figure';
+// @ts-ignore
+import rehypeFigure from "@microflash/rehype-figure";
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import emoji from 'remark-emoji';
+import remarkToc from 'remark-toc';
 
 import partytown from "@astrojs/partytown";
 
@@ -24,7 +28,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap({ xslURL: "/sitemap.xsl" }), partytown()],
 
   markdown: {
-    // rehypePlugins: [rehypeFigure]
+    rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
+    remarkPlugins: [emoji, remarkToc],
+    gfm: true
   },
   vite: {
     build: {

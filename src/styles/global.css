@@ -41,12 +41,10 @@
     }
   }
   figure {
-    margin: 2.5em 0;
+    margin: 2.5em auto;
     text-align: center;
     img {
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px var(--raisin-black);
+      max-width: 50%;
     }
     figcaption {
       color: var(--ash-gray);
@@ -55,8 +53,9 @@
     }
   }
   img {
+    height: auto;
+    border-radius: 10px;
     max-width: 100%;
-    /* min-width: 200px; */
     height: auto;
     border-radius: 10px;
     margin: auto;
@@ -78,6 +77,33 @@
   summary {
     font-size: 2rem;
     font-weight: 700;
+  }
+
+  /* Table */
+  table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 2rem auto;
+  }
+
+  tr {
+    color: var(--ash-gray);
+    background-color: var(--raisin-black);
+  }
+
+  th {
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+  }
+
+  td {
+    padding: 10px;
+    border: none;
+  }
+
+  tr:nth-child(even),
+  th {
+    background-color: var(--night);
   }
 }
 
@@ -138,7 +164,8 @@
 
   /* bulk content */
   p,
-  li {
+  li,
+  li a {
     color: var(--ash-gray);
     line-height: 0.95;
     font-size: 2rem;
@@ -146,5 +173,9 @@
     strong {
       color: var(--marker);
     }
+  }
+
+  table {
+    font-size: 1.5rem;
   }
 }
