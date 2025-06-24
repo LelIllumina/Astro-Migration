@@ -6,6 +6,7 @@
 @layer base {
   :root {
     color-scheme: dark;
+    scroll-behavior: smooth;
   }
 
   *,
@@ -43,9 +44,7 @@
   figure {
     margin: 2.5em auto;
     text-align: center;
-    img {
-      /* max-width: 50%; */
-    }
+
     figcaption {
       color: var(--ash-gray);
       font-size: 1.5rem;
@@ -63,6 +62,7 @@
       drop-shadow(0 0px 40px var(--van-dyke));
   }
   ::marker {
+    font-size: 1.5rem;
     color: var(--tan);
   }
 
@@ -146,7 +146,12 @@
 
   /* links */
   a {
-    text-decoration: none;
+    color: var(--lavender-blush);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    &:visited {
+      color: var(--lavender-blush);
+    }
 
     /* navigational links */
     nav & {
@@ -154,6 +159,7 @@
       font-weight: 500;
       color: var(--lavender-blush);
       text-shadow: 1px 1px var(--raisin-black);
+      text-decoration: none;
 
       &[aria-current] {
         text-decoration: 2px underline var(--tan);
@@ -164,8 +170,7 @@
 
   /* bulk content */
   p,
-  li,
-  li a {
+  li {
     color: var(--ash-gray);
     line-height: 0.95;
     font-size: 2rem;

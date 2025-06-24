@@ -11,6 +11,7 @@ import rehypeFigure from "@microflash/rehype-figure";
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import emoji from 'remark-emoji';
 import remarkToc from 'remark-toc';
+import { remarkAlert } from 'remark-github-blockquote-alert'
 
 import partytown from "@astrojs/partytown";
 
@@ -29,7 +30,7 @@ export default defineConfig({
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
-    remarkPlugins: [emoji, remarkToc],
+    remarkPlugins: [emoji, remarkToc, [remarkAlert, { legacyTitle: true }]],
     gfm: true
   },
   vite: {
