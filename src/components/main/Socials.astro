@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+
+import github from "@assets/images/main/gijinka/github.jpg";
+import discord from "@assets/images/main/gijinka/discord.jpg";
+import twitter from "@assets/images/main/gijinka/twitter.png";
+---
+
+<div id="socials">
+  <h2>Socials</h2>
+  <div id="grid">
+    <figure>
+      <a
+        href="https://github.com/LelIllumina/NueNekos/"
+        target="_blank"
+        rel="noopener"
+      >
+        <Image src={github} alt="Github" />
+        <figcaption>Github</figcaption>
+      </a>
+    </figure>
+    <figure>
+      <a
+        href="https://discord.com/channels/@me/1331059585896677378"
+        target="_blank"
+        rel="noopener"
+      >
+        <Image src={discord} alt="Discord" />
+        <figcaption>Discord</figcaption>
+      </a>
+    </figure>
+    <figure>
+      <a href="https://twitter.com/Lel_illumina" target="_blank" rel="noopener">
+        <Image src={twitter} alt="Twitter" />
+        <figcaption>Twitter</figcaption>
+      </a>
+    </figure>
+  </div>
+</div>
+
+<style>
+  #socials {
+    text-align: center;
+    padding: 50px;
+  }
+  #grid {
+    display: inline-flex;
+    gap: 20px;
+    img {
+      height: 150px;
+      width: 150px;
+      max-width: 150px;
+      object-fit: cover;
+      object-position: top left;
+      border-radius: 10px;
+    }
+  }
+</style>
