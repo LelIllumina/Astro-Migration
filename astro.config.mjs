@@ -26,7 +26,7 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap({ xslURL: "/sitemap.xsl" }), partytown()],
+  integrations: [mdx(), sitemap(), partytown()],
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
