@@ -1,11 +1,18 @@
 ---
-title: "I'm a boring mf"
-description: "I'm quite uninteresting IDK how y'all do it."
+title: I'm a boring mf
+description: I'm quite uninteresting IDK how y'all do it.
 date: 2025-02-02
 thumb: /images/blog/SaintLelsVCR.png
+tags:
+  - Blog
+  - General
+keywords:
+  - Boring
+  - Uninteresting
+draft: false
 ---
 
-Talking online makes me realize just how little I have to contribute to a conversation. Most of my interactions online are just bandwagoning or jumping on a hype train about some topic, and not really anything of worth or positive contribution. I have no topics beyond basic banter or dumb jokes — usually related to gooning of all things.
+Talking with people online makes me realize just how little I have to contribute to a conversation. Most of my interactions online are just bandwagoning or jumping on a hype train about some topic, and not really anything of worth or positive contribution. I have no topics beyond basic banter or dumb jokes — usually related to gooning of all things.
 
 All my life, I like to think I've spent a nice amount of time-consuming information, in any form, but mostly through entertainment media such as anime. Yet, I still can never come up with a new thing to talk about, as I always get caught lagging behind. I basically have no niches because nothing I have an interest in is that underground to be considered unpopular, and as such is already known by others. This isn't just about anime, literally take any topic, and I'll end up left behind as the uncultured one.
 

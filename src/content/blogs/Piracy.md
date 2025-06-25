@@ -142,6 +142,9 @@ WIP
 ## Fonts
 WIP
 
+## NSFW
+Never pay for porn bro :sob:
+
 ---
 
 ## Afterword

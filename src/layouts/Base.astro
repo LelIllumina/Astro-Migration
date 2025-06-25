@@ -5,7 +5,7 @@ import "@styles/global.css";
 interface Props {
   title: string;
   description: string;
-  keywords?: string;
+  keywords?: string[];
   image: string;
   accent?: string;
 }
@@ -13,7 +13,7 @@ interface Props {
 const {
   title = "lel@Nekoweb",
   description = "All Nekos are mine.",
-  keywords = "Nekoweb, Lel, Blog, Personal",
+  keywords = ["Nekoweb", "Lel", "Blog", "Personal"],
   image = "background.jpg",
   accent = "#722014",
 } = Astro.props;

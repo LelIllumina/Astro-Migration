@@ -3,6 +3,20 @@ title: Kuroweb
 description: My child
 date: 2025-05-29
 thumb: /images/blog/speed.gif
+tags:
+  - Blog
+  - Love
+  - Community
+keywords:
+  - Discord
+  - Discord server
+  - server
+  - Love
+  - Polygamy
+  - Hedonism
+  - Hedonistic den
+  - Leltard Asylum
+draft: false
 ---
 
 I used to be — and to be honest, still quite am — very obsessed with my online username, Lel. You could see this with how I used to add the “Top Lel” hat on to the subjectively “aesthetic” images of anime girls. Alongside that, I used to name many other things with the three letter “lel” in mind.

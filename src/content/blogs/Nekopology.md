@@ -1,8 +1,18 @@
 ---
-title: "Nekopology"
-description: "Addressing the Nekoweb populace on my past actions"
+title: Nekopology
+description: Addressing the Nekoweb populace on my past actions
 date: 2024-12-16
 thumb: /images/blog/thatpose.gif
+tags:
+  - Blog
+  - Nekoweb
+  - Community
+keywords:
+  - Apology
+  - Apologize
+  - Nekoweb
+  - Discord
+  - Discord server
 ---
 
 Today I would like to break off my hiatus and address my situation with the [Nekoweb Discord Server](https://discord.gg/hvfHKyVS6b).

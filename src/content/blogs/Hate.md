@@ -1,9 +1,16 @@
 ---
-title: "I hate myself"
-og_description: &desc "sorry was retarded"
-description: *desc
+title: I hate myself
+description: sorry was retarded
 date: 2025-06-02
 thumb: /images/blog/eto-bleh.gif
+tags:
+  - Blog
+  - Stupid
+keywords:
+  - Stupid
+  - Shitass
+  - Kms
+draft: false
 ---
 
 I truly, deeply dislike who I am. If i was given the option to have never been born or to have never existed i would probably choose it. Despite the very many beauties and gifts of this world, not having to deal with myself and my (in)actions would be better. Because even if i did experience these wonders, i don't remember them. And I don't find myself finding anything in the present. I can't handle perseverance through hardship, I don't have it bad at all compared to some, but i am weak. I wont kill myself, that would be awful for many others and myself, but having never existed, could mean the better lives of others and freedom from myself for me.

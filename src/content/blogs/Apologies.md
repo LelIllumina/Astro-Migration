@@ -1,8 +1,16 @@
 ---
-title: "My Apology"
-description: "I must apologize"
+title: My Apology
+description: I must apologize
 date: 2025-03-11
 thumb: /images/blog/thing.png
+tags:
+  - Blog
+  - Stupid
+keywords:
+  - Stupid
+  - Apologize
+  - Apology
+draft: false
 ---
 
 I must apologize to the nekoweb server for having ever stepped foot there  

@@ -1,26 +1,38 @@
 ---
 import Base from "@layouts/Base.astro";
-import Gallery from "@components/Gallery.astro";
 import Header from "@components/Header.astro";
+import Gallery from "@components/Gallery.astro";
+
+import { getCollection } from "astro:content";
+// const isArchive = new URL(Astro.request.url).pathname.includes("/archive");
+const collectionName = "blogs";
+const posts = await getCollection(collectionName);
+
+// Sort posts by date
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// const thumbs = await Astro.glob('../assets/images/blog/**');
+// const getThumb = (path: string | undefined) =>
+//   thumbs.find((t) => t.default.src.includes(path))?.default;
 ---
 
 <Base
-    title="Lel@Nekoweb"
-    description="All Nekos are mine."
-    keywords="Nekoweb, Lel, Blog, Personal"
-    image="https://lel.nekoweb.org/index.png"
+  title="Lel@Nekoweb"
+  description="All Nekos are mine."
+  keywords={["Nekoweb", "Lel", "Blog", "Personal"]}
+  image="https://lel.nekoweb.org/index.png"
 >
-    <Header />
+  <Header />
 
-    <main>
-        <article>
-            <section>
-                <h1>Blogs</h1>
-                <p>
-                    List of blogs.
-                    <Gallery />
-                </p>
-            </section>
-        </article>
-    </main>
+  <main>
+    <article>
+      <section>
+        <h1>Blogs</h1>
+        <p>List of blogs.</p>
+        <Gallery posts={sortedPosts} />
+      </section>
+    </article>
+  </main>
 </Base>

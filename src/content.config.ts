@@ -9,6 +9,9 @@ const blogs = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     thumb: z.string().optional(),
+    tags: z.array(z.string()),
+    keywords: z.array(z.string()).optional(),
+    draft: z.boolean(),
   }),
 });
 const archive = defineCollection({

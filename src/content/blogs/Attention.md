@@ -1,8 +1,19 @@
 ---
-title: "Am I an Attention Whore?"
-description: "Do I maybe crave some form of validation or is this normal?"
+title: Am I an Attention Whore?
+description: Do I maybe crave some form of validation, beyond what is normal? Am I a slave to the opinion of others, addicted to their gaze and response? Or is this what regular people experience too.
 date: 2025-02-05
 thumb: /images/blog/nhk.jpg
+tags:
+  - Blog
+  - General
+keywords:
+  - Attention
+  - Narcissism
+  - Need
+  - Greed
+  - Want
+  - Love
+draft: false
 ---
 
 I often find myself doing stuff just because it seems to get a nice reaction out of people, regardless of whether I actually believe in what's behind the meaning of the things I say or do.  

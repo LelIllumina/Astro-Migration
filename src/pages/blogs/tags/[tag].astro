@@ -1,0 +1,49 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import Gallery from "@components/Gallery.astro";
+
+export async function getStaticPaths() {
+  return [
+    { params: { tag: "Blog" } },
+    { params: { tag: "General" } },
+    { params: { tag: "Community" } },
+    { params: { tag: "Love" } },
+    { params: { tag: "Stupid" } },
+    { params: { tag: "Guide" } },
+    { params: { tag: "Nekoweb" } },
+    { params: { tag: "Story" } },
+    { params: { tag: "Anime" } },
+  ];
+}
+
+import { getCollection } from "astro:content";
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const allPosts = await getCollection("blogs");
+const filteredPosts = allPosts.filter((blog) =>
+  blog.data.tags?.includes(Astro.params.tag)
+);
+---
+
+<Base
+  title={`Blogs tagged with ${tag}`}
+  description={`Blogs tagged with ${tag}`}
+  image={`${tag}.png`}
+>
+  <Header />
+
+  <main>
+    <article>
+      <section>
+        <h1>{tag}</h1>
+
+        <p>Posts tagged with {tag}</p>
+        <ul>
+          <Gallery posts={filteredPosts} />
+        </ul>
+      </section>
+    </article>
+  </main>
+</Base>

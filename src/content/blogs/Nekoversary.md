@@ -1,13 +1,25 @@
 ---
-title: "It's my Nekoversary"
-description: "It's been a year on Nekoweb."
+title: It's my Nekoversary
+description: It's been a year on Nekoweb.
 date: 2025-02-28
 thumb: /images/blog/giphy.gif
+tags:
+  - Blog
+  - General
+keywords:
+  - Full Life
+  - Blog
+  - Big blog
+  - Huge blog
+  - Long blog
+  - Lengthy blog
+  - Life story
+  - Life story blog
+  - autobiography
+draft: false
 ---
 
 > I noticed this after having written a lot of this but, 2025 dosen't have 29th February. As such ill just release this on the 28th, and you can ignore some issues related to that.
-
-## Contents
 
 ## Nekoweb
 

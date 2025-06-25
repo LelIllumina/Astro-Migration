@@ -3,6 +3,15 @@ title: Let's play a game
 description: Will you kill yourself?
 date: 2025-06-01
 thumb: /images/blog/ccswap.jpg
+tags:
+  - Blog
+  - Community
+keywords:
+  - Suicide
+  - Bodyswap
+  - Swap
+  - Poll
+draft: false
 ---
 
 Many people wish to swap places with others thinking it would make living easier for them. Some people try to stay content with their current circumstances by thinking about how others are in way worse positions, and they themselves are grateful for however much they have in comparison.

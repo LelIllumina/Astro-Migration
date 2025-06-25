@@ -3,8 +3,19 @@ title: Incest
 description: Gothic Alt Incest
 date: 2025-05-17
 thumb: /images/blog/juniper.jpg
+tags:
+  - Blog
+  - General
+keywords:
+  - Incest
+  - Forbidden Love
+  - Yuri
+  - sisXsis
+  - Sibling Love
+  - Moths
+  - Juniper Actias
+draft: false
 ---
-
 They're quite resilient; I saw one today, an orange wasp of sorts, no matter how much I tried to drown it and beat it dead, it would limp itself dry and try to fly again. Eventually though, it decided to stay down for good.
 
 I am not that fond of insects, especially the colorful or “soft” kind. The many legs of centipedes and caterpillars haunt me, even if they do look cool. This ambivalence bleeds through to things like character designs as well, as seen in the below image of me talking about Calne Ca.

@@ -1,8 +1,18 @@
 ---
 title: Cunnilinguistics
-description: Languages and stuff
+description: Language and etymology, Grammar and Pragmatics.
 date: 2025-05-18
 thumb: /images/blog/aace4401d69553f285b244b61dff8f995b4c92d4.jpg
+tags:
+  - Blog
+  - General
+keywords:
+  - Lexicalization
+  - Grammar
+  - Linguistics
+  - Words
+  - Language
+draft: false
 ---
 
 Before the internet, the average man probably did not know much outside of his own field of expertise. This is somewhat evident with how higher levels of superstition and baseless assumptions were popularly believed in the past, not that it is all that uncommon in the modern day. Today, though, many people learn about fields of study they wouldn't even have heard of, trivia about topics they were unaware existed, and other information they might not have a clue of the origin of.

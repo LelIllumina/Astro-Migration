@@ -1,8 +1,21 @@
 ---
-title: "Hakunon my Beloved"
-description: "I love her so much"
+title: Hakunon my Beloved
+description: I love her so much
 date: 2024-09-23
 thumb: /images/blog/hakunon/HakunonAndHakunot.jpg
+tags:
+  - Blog
+  - General
+  - Anime
+  - Love
+keywords:
+  - Female MC
+  - Main character
+  - My love
+  - I love you
+  - FMC my beloved
+  - FMC
+draft: false
 ---
 
 I love her so much, I love all Female Main Characters so much!!

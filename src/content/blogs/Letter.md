@@ -1,9 +1,17 @@
 ---
-title: "A letter"
-og_description: &desc "To: The Hai Castle, Webtopia; From: Knight Lelcelot"
-description: *desc
+title: A letter
+description: "To: The Hai Castle, Webtopia; From: Knight Lelcelot"
 date: 2025-03-02
 thumb: /images/blog/dithered.png
+tags:
+  - Story
+  - Love
+keywords:
+  - Sir lelcelot
+  - The Haiweb Empire
+  - Haiweb
+  - Tmeye
+draft: false
 ---
 
 Dear young prince and princess of the Haiweb Empire,
