@@ -13,6 +13,7 @@ keywords:
   - Nekoweb
   - Discord
   - Discord server
+draft: false
 ---
 
 Today I would like to break off my hiatus and address my situation with the [Nekoweb Discord Server](https://discord.gg/hvfHKyVS6b).

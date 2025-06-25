@@ -2,7 +2,7 @@
 title: Cool Userscripts you should have
 description: Not many people use userscripts, but they really are quite useful
 date: 2025-06-25
-thumb: ""
+thumb: "/images/blog/Tohsaka_Rin_Holding_JS_For_Dummies.png"
 tags:
   - Guide
 keywords:

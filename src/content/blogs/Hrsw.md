@@ -10,6 +10,7 @@ keywords:
   - Hirasawa
   - Susumu
   - Susumu Hirasawa
+draft: false
 ---
 
 It is the year 2034, A sole man lies on a hospital bed peering outside the window into the university's yard, a _Lotus_ floating in its pond. This man, Susumu Hirasawa, at his ripe age of 80 years old, rests his head in his town's university's medical facility. It's the nearest place that provides Kampo for his medical treatment.
