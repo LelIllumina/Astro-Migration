@@ -60,7 +60,7 @@ Get [Stremio](https://www.Stremio.com/) and [Torrentio](https://torrentio.strem.
 - [Viren070’s Stremio guide](https://guides.viren070.me/Stremio)
 - [Nyaa.si](https://Nyaa.si) (Anime torrent site)
 
-## Manga, Books, Music & Mores
+## Manga
 
 > [!NOTE/Platform]  
 >I primarily use Android for reading manga. As such, most of the resources I’ll mention will be for Android. I might add resources for iOS and PC users later.
