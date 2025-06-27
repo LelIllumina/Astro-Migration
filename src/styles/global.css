@@ -159,18 +159,16 @@
       color: var(--gray-400);
     }
 
-    /* navigational links */
-    nav & {
-      font-family: Lemon Milk, sans-serif;
-      font-weight: 500;
-      color: var(--gray-400);
-      text-shadow: 1px 1px var(--raisin-black);
-      text-decoration: none;
+    --bg-h: 2px;
+    padding-bottom: 1px;
+    background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
+      bottom / 0 var(--bg-h);
 
-      &[aria-current] {
-        text-decoration: 2px underline var(--tan);
-        text-underline-offset: 8px;
-      }
+    transition: background-size 350ms;
+
+    &:where(:hover, :focus-visible) {
+      background-size: 100% var(--bg-h);
+      background-position-x: left;
     }
   }
 
