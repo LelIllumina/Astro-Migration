@@ -96,6 +96,32 @@ const { title, description, date, thumb, tags, keywords } = post.data;
   header figure img {
     max-width: 100%;
   }
+  #contents {
+    display: none;
+  }
+  #contents + ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2vw;
+    padding: 1rem;
+    overflow: hidden;
+    padding-top: 5vh;
+    transition: 400ms;
+    backdrop-filter: blur(10px) brightness(0.8);
+    filter: drop-shadow(0 0 5px black);
+    border-radius: 0 20px 0 20px;
+    &:hover {
+      overflow-y: scroll;
+      width: 250px;
+    }
+    &::before {
+      content: "Contents";
+      font-size: 2rem;
+      font-family: "Mica Valo", sans-serif;
+    }
+  }
 </style>
 <style>
   #bgImg {
@@ -142,6 +168,12 @@ const { title, description, date, thumb, tags, keywords } = post.data;
       filter: blur(20px) brightness(0.5);
     }
   }
+
+  @supports (animation-timeline: scroll()) {
+    #scrollWarn {
+      display: none;
+    }
+  }
   #draftWarn {
     color: var(--gray-500);
   }
@@ -150,11 +182,5 @@ const { title, description, date, thumb, tags, keywords } = post.data;
     line-height: 0.1px;
     color: var(--red-300);
     font-weight: bold;
-  }
-
-  @supports (animation-timeline: scroll()) {
-    #scrollWarn {
-      display: none;
-    }
   }
 </style>
