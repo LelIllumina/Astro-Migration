@@ -50,6 +50,12 @@
       font-size: 1.5rem;
       margin-top: 0.5em;
     }
+    &:has(a) {
+      transition: 100ms;
+      &:hover {
+        scale: 1.1;
+      }
+    }
   }
   img {
     height: auto;
