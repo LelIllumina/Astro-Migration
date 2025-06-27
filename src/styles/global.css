@@ -151,7 +151,7 @@
   }
 
   /* links */
-  a {
+  a:not([role="button"]) {
     color: var(--gray-400);
     text-decoration: none;
     text-underline-offset: 0.15em;
