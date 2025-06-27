@@ -1,10 +1,12 @@
 ---
 import Base from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+
 import "/src/styles/widget.css";
 import "remark-github-blockquote-alert/alert.css";
 
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blogs");
@@ -19,13 +21,13 @@ const { Content } = await render(post);
 const { title, description, date, thumb, tags, keywords } = post.data;
 ---
 
-<Base {title} {description} image={thumb ?? ""} keywords={keywords}>
+<Base {title} {description} image={thumb.src ?? ""} keywords={keywords}>
   <Header />
   <main>
     <article>
       <header>
         <figure>
-          <img id="bgImg" src={thumb ?? ""} alt={description} />
+          <Image id="bgImg" src={thumb} alt={description} />
         </figure>
         <div id="heroText">
           <h1>{title}</h1>

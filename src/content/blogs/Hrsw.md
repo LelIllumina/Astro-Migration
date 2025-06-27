@@ -2,7 +2,7 @@
 title: Nurse Cafe
 description: The Man from Memories
 date: 2025-02-23
-thumb: /images/blog/p-model_poster.jpg
+thumb: src/assets/images/blog/p-model_poster.jpg
 tags:
   - Story
   - Stupid

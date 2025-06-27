@@ -2,7 +2,7 @@
 title: Piracy and Tracking Setup Guide
 description: I love Piracy and I want you to fall in love too.
 date: 2025-06-25
-thumb: /images/blog/kidnap.gif
+thumb: src/assets/images/blog/kidnap.gif
 tags:
   - Guide
 keywords:

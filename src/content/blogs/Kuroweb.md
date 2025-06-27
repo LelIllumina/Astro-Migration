@@ -2,7 +2,7 @@
 title: Kuroweb
 description: My child
 date: 2025-05-29
-thumb: /images/blog/speed.gif
+thumb: src/assets/images/blog/speed.gif
 tags:
   - Blog
   - Love

@@ -2,7 +2,7 @@
 title: I'm a boring mf
 description: I'm quite uninteresting IDK how y'all do it.
 date: 2025-02-02
-thumb: /images/blog/SaintLelsVCR.png
+thumb: src/assets/images/blog/SaintLelsVCR.png
 tags:
   - Blog
   - General

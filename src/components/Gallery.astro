@@ -1,9 +1,15 @@
 ---
+import { Image } from "astro:assets";
+
 const { posts } = Astro.props as {
   posts: Array<{
     id: string;
     data: {
-      thumb: string;
+      thumb: {    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+};
       description: string;
       date: string;
       title: string;
@@ -24,7 +30,7 @@ const { posts } = Astro.props as {
           class={post.data.draft ? "draft" : ""}
         >
           <figure>
-            <img src={post.data.thumb} alt="" />
+            <Image src={post.data.thumb} alt="" />
             {/* <Image src={getThumb(post.data.thumb) || ""} alt={post.data.description}  /> */}
             <figcaption>
               <time datetime={new Date(post.data.date).toISOString()}>

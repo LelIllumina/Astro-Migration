@@ -2,7 +2,7 @@
 title: Cunnilinguistics
 description: Language and etymology, Grammar and Pragmatics.
 date: 2025-05-18
-thumb: /images/blog/aace4401d69553f285b244b61dff8f995b4c92d4.jpg
+thumb: src/assets/images/blog/aace4401d69553f285b244b61dff8f995b4c92d4.jpg
 tags:
   - Blog
   - General

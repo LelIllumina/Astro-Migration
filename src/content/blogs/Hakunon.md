@@ -2,7 +2,7 @@
 title: Hakunon my Beloved
 description: I love her so much
 date: 2024-09-23
-thumb: /images/blog/hakunon/HakunonAndHakunot.jpg
+thumb: src/assets/images/blog/hakunon/HakunonAndHakunot.jpg
 tags:
   - Blog
   - General

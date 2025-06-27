@@ -2,7 +2,7 @@
 title: Let's play a game
 description: Will you kill yourself?
 date: 2025-06-01
-thumb: /images/blog/ccswap.jpg
+thumb: src/assets/images/blog/ccswap.jpg
 tags:
   - Blog
   - Community
