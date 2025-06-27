@@ -1,10 +1,16 @@
+---
+import { Image } from "astro:assets";
+
+import loading from "@assets/images/nekofm/loading.png";
+---
+
 <div id="songBox">
   <h2 id="lastfm-status">Loading...</h2>
-  <img
+  <Image
     id="trackCover"
     decoding="async"
     loading="eager"
-    src="{loading}"
+    src={loading}
     alt=""
     height="150"
     width="150"
