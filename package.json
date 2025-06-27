@@ -14,7 +14,7 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
     "@microflash/rehype-figure": "^2.1.4",
-    "astro": "^5.10.0",
+    "astro": "^5.10.1",
     "fast-average-color": "^9.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-figure": "^1.0.1",
