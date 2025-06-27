@@ -55,184 +55,184 @@
 
 /* Main */
 #c_widget {
-	overflow: auto;
+  overflow: auto;
 
-	box-sizing: border-box;
-	padding: 15px;
+  box-sizing: border-box;
+  padding: 15px;
 
-	font-size: 14px;
-	color: var(--ash-gray);
+  font-size: 14px;
+  color: var(--gray-200);
 
-	background: transparent;
-	max-width: 60%;
-	margin: 0 auto;
+  background: transparent;
+  max-width: 60%;
+  margin: 0 auto;
 }
 
 #c_widget button,
 #c_widget input[type="submit"] {
-	padding: 4px;
-	border: 1px solid var(--tan);
-	border-radius: 5px;
+  padding: 4px;
+  border: 1px solid var(--tan);
+  border-radius: 5px;
 
-	color: var(--tan);
-	text-align: center;
-	text-decoration: none;
+  color: var(--tan);
+  text-align: center;
+  text-decoration: none;
 
-	background-color: white;
+  background-color: white;
 }
 
 #c_widget button:hover,
 #c_widget input[type="submit"]:hover {
-	border: 1px solid var(--russet);
-	color: white;
-	background-color: var(--russet);
+  border: 1px solid var(--russet);
+  color: white;
+  background-color: var(--russet);
 }
 
 #c_widget button:disabled,
 #c_widget input[type="submit"]:disabled {
-	opacity: 0.6;
+  opacity: 0.6;
 }
 
 #c_widget button:disabled:hover,
 #c_widget input[type="submit"]:disabled:hover {
-	border: 1px solid var(--tan);
-	color: var(--tan);
-	background-color: white;
+  border: 1px solid var(--tan);
+  color: var(--tan);
+  background-color: white;
 }
 
 /* Input section */
 #c_inputDiv {
-	padding: 10px;
-	border: 1px dashed var(--tan);
-	border-radius: 5px;
-	background-color: var(--raisin-black);
+  padding: 10px;
+  border: 1px dashed var(--tan);
+  border-radius: 5px;
+  background-color: var(--raisin-black);
 }
 
 #c_container {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 #c_widgetTitle {
-	margin: 0;
-	padding: 0;
-	color: var(--tan);
-	text-decoration: underline wavy;
+  margin: 0;
+  padding: 0;
+  color: var(--tan);
+  text-decoration: underline wavy;
 
-	/* text-decoration-color: #DBBC7F; */
+  /* text-decoration-color: #DBBC7F; */
 }
 
 .c-label {
-	color: #d3c6aa;
+  color: #d3c6aa;
 }
 
 .c-inputWrapper {
-	display: block;
-	margin-top: 5px;
-	margin-bottom: 5px;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .c-input {
-	padding: 4px;
-	border: 1px solid var(--tan);
-	border-radius: 4px;
+  padding: 4px;
+  border: 1px solid var(--tan);
+  border-radius: 4px;
 
-	color: #d3c6aa;
+  color: #d3c6aa;
 
-	background-color: #1e2326;
-	outline: none;
+  background-color: #1e2326;
+  outline: none;
 }
 
 .c-input:focus {
-	border: 1px solid var(--russet);
+  border: 1px solid var(--russet);
 }
 
 .c-textInput {
-	resize: none;
-	width: calc(100% - 10px);
-	max-width: 900px;
+  resize: none;
+  width: calc(100% - 10px);
+  max-width: 900px;
 }
 
 #c_submitButton {
-	display: block;
+  display: block;
 }
 
 #c_replyingText {
-	color: #d3c6aa;
+  color: #d3c6aa;
 }
 
 /* Comment section */
 .c-comment {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	border: 1px dashed var(--tan);
-	border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px dashed var(--tan);
+  border-radius: 4px;
 
-	background-color: var(--van-dyke);
+  background-color: var(--van-dyke);
 }
 
 .c-reply {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	border: 1px dashed var(--tan);
-	border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px dashed var(--tan);
+  border-radius: 4px;
 
-	background-color: #59464c;
+  background-color: #59464c;
 }
 
 .c-reply:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .c-name {
-	display: inline-block;
+  display: inline-block;
 
-	margin: 0;
-	margin-right: 10px;
-	padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
 
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c-site {
-	color: var(--tan);
+  color: var(--tan);
 }
 
 .c-site:hover {
-	color: #211f24;
+  color: #211f24;
 }
 
 .c-timestamp {
-	float: right;
-	color: #d3c6aa;
-	opacity: 0.6;
+  float: right;
+  color: #d3c6aa;
+  opacity: 0.6;
 }
 
 .c-text {
-	margin: 0;
-	margin-top: 10px;
-	padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
 
-	color: #d3c6aa;
-	text-align: justify;
+  color: #d3c6aa;
+  text-align: justify;
 }
 
 /* Pagination */
 #c_pagination {
-	text-align: center;
+  text-align: center;
 }
 
 .c-replyButton {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .c-expandButton {
-	float: right;
-	margin-top: 10px;
+  float: right;
+  margin-top: 10px;
 }
 
 .c-paginationButton {
-	margin-right: 4px;
-	margin-left: 4px;
+  margin-right: 4px;
+  margin-left: 4px;
 }

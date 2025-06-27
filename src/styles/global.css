@@ -46,7 +46,7 @@
     text-align: center;
 
     figcaption {
-      color: var(--ash-gray);
+      color: var(--gray-200);
       font-size: 1.5rem;
       margin-top: 0.5em;
     }
@@ -87,7 +87,7 @@
   }
 
   tr {
-    color: var(--ash-gray);
+    color: var(--gray-200);
     background-color: var(--raisin-black);
   }
 
@@ -111,13 +111,15 @@
   body {
     font-family: "Computer Says No", "Iosevka Etoile", -apple-system,
       BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto, sans-serif;
+    /* font-family: "Iosevka Etoile", -apple-system, BlinkMacSystemFont,
+      Avenir Next, Segoe UI, Roboto, sans-serif; */
   }
 
   /* heading and subtitle */
   h1 {
     letter-spacing: -0.03em;
     font-size: 2.6rem;
-    color: var(--lavender-blush);
+    color: var(--gray-400);
     padding: 20px 0 0;
 
     &,
@@ -129,8 +131,6 @@
     }
 
     + p {
-      font-size: 2.25em;
-      font-weight: 300;
       margin-bottom: 2em;
     }
   }
@@ -146,18 +146,18 @@
 
   /* links */
   a {
-    color: var(--lavender-blush);
-    text-decoration: underline;
+    color: var(--gray-400);
+    text-decoration: none;
     text-underline-offset: 0.15em;
     &:visited {
-      color: var(--lavender-blush);
+      color: var(--gray-400);
     }
 
     /* navigational links */
     nav & {
       font-family: Lemon Milk, sans-serif;
       font-weight: 500;
-      color: var(--lavender-blush);
+      color: var(--gray-400);
       text-shadow: 1px 1px var(--raisin-black);
       text-decoration: none;
 
@@ -171,9 +171,10 @@
   /* bulk content */
   p,
   li {
-    color: var(--ash-gray);
-    line-height: 0.95;
-    font-size: 2rem;
+    color: var(--gray-200);
+    font-size: 1.5rem;
+    font-size-adjust: 0.48;
+    line-height: 1.75;
 
     strong {
       color: var(--marker);
