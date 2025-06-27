@@ -1,94 +1,19 @@
+---
+import NekoStats from "./Sidebar/NekoStats.astro";
+import LastFM from "./Sidebar/LastFM.astro";
+import CommitLink from "./Sidebar/CommitLink.astro";
+---
+
 <aside>
-  <div id="views">
-    <div id="views-counter">
-      <img
-        src="/images/main/numbers/0.gif"
-        alt="0"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        src="/images/main/numbers/1.gif"
-        alt="1"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        src="/images/main/numbers/2.gif"
-        alt="2"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        src="/images/main/numbers/3.gif"
-        alt="3"
-        loading="eager"
-        decoding="async"
-      />
-      <img
-        src="/images/main/numbers/4.gif"
-        alt="4"
-        loading="eager"
-        decoding="async"
-      />
-    </div>
-    <p id="subtitle">Visits since creation</p>
+  <NekoStats client:load />
+  <div class="container">
+    <LastFM client:load />
   </div>
 
   <div class="container">
-    <div id="stats">
-      <h2>Stats:</h2>
-      <p id="created"><em>Created</em>: Loading...</p>
-      <p id="updated"><em>Updated</em>: Loading...</p>
-      <p id="followers"><em>Followers</em>: Loading...</p>
-
-      <iframe
-        loading="eager"
-        title="Nekoweb Follow button"
-        src="https://nekoweb.org/frame/follow"
-        width="150"
-        height="35"
-        style="border: none"></iframe>
-    </div>
+    <CommitLink client:load />
   </div>
 
-  <div class="container">
-    <div id="songBox">
-      <h2 id="lastfm-status">Loading...</h2>
-      <img
-        id="trackCover"
-        decoding="async"
-        loading="eager"
-        src="{loading}"
-        alt=""
-        height="150"
-        width="150"
-      />
-      <div class="trackInfo" id="trackInfo">
-        <h2 class="trackName" id="trackName">Loading...</h2>
-        <p class="artistName" id="artistName">Loading...</p>
-        <p class="siteName" id="siteName"></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <a id="commitLink" href="#" target="_blank">
-      <div>
-        <div>
-          <p id="shortHash"></p>
-          <p id="commitLatest">
-            <br />
-            Loading...
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-  <!-- <a href="https://pure.nekoweb.org/">
-    <image src="palestineko" alt="Palestine Neko" loading="eager" />
-  </a>
-  <image src="palestinetoria" alt="Palestine Castoria" loading="eager" /> -->
   <div class="container">
     <iframe
       title="NekoLink"
@@ -98,9 +23,10 @@
       src="https://rubybulbs.net/neko.html"
       loading="lazy"></iframe>
   </div>
-  <script src="src/scripts/github.ts"></script>
-  <script src="src/scripts/main.ts"></script>
-  <script src="src/scripts/lastfm.ts"></script>
+  <!-- <a href="https://pure.nekoweb.org/">
+    <image src="palestineko" alt="Palestine Neko" loading="eager" />
+  </a>
+  <image src="palestinetoria" alt="Palestine Castoria" loading="eager" /> -->
 </aside>
 
 <style>
@@ -111,46 +37,5 @@
     max-width: 200px;
     text-align: center;
     margin: 10px auto;
-  }
-  #views {
-    display: block;
-    text-align: center;
-  }
-</style>
-
-<style>
-  /* Commit Link Styles */
-  #commitLink {
-    font-size: 12px;
-    text-decoration: none;
-  }
-
-  #commitLink > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  #commitLink > div > div {
-    border: 3px dashed var(--van-dyke);
-    color: var(--navy-blue);
-    background-color: var(--night);
-    transition: background-color 1s;
-    font-size: 12px;
-  }
-
-  #commitLink > div > div:hover {
-    border: 3px dashed var(--navy-blue);
-  }
-
-  #commitLatest {
-    font-size: 1.5rem;
-  }
-
-  #shortHash {
-    color: var(--van-dyke);
-    background-color: var(--tan);
-    font-size: 24px;
   }
 </style>

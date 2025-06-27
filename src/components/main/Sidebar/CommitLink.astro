@@ -1,0 +1,48 @@
+<a id="commitLink" href="#" target="_blank">
+  <div>
+    <div>
+      <p id="shortHash"></p>
+      <p id="commitLatest">
+        <br />
+        Loading...
+      </p>
+    </div>
+  </div>
+</a>
+<script src="src/scripts/Github.ts"></script>
+<style>
+  /* Commit Link Styles */
+  #commitLink {
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  #commitLink > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #commitLink > div > div {
+    border: 3px dashed var(--van-dyke);
+    color: var(--navy-blue);
+    background-color: var(--night);
+    transition: background-color 1s;
+    font-size: 12px;
+  }
+
+  #commitLink > div > div:hover {
+    border: 3px dashed var(--navy-blue);
+  }
+
+  #commitLatest {
+    font-size: 1.5rem;
+  }
+
+  #shortHash {
+    color: var(--van-dyke);
+    background-color: var(--tan);
+    font-size: 24px;
+  }
+</style>
