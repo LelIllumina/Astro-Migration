@@ -20,7 +20,7 @@
         "src/styles/*"
       ],
       "@scripts/*": [
-        "src/scrripts/*"
+        "src/scripts/*"
       ],
       "@assets/*": [
         "src/assets/*"

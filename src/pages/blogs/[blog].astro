@@ -1,8 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+import CommentWidget from "@components/CommentWidget.astro";
 
-import "/src/styles/widget.css";
 import "remark-github-blockquote-alert/alert.css";
 
 import { getCollection, render } from "astro:content";
@@ -35,7 +35,7 @@ const {
     <article>
       <header>
         <figure>
-          <Image id="bgImg" src={thumb} alt={description} />
+          <Image id="bgImg" src={thumb} alt={description} loading="eager" />
         </figure>
         <div id="heroText">
           <h1>{title}</h1>
@@ -82,8 +82,7 @@ const {
       </header>
       <section>
         <Content />
-        <div id="c_widget"></div>
-        <!-- <script is:inline src="/blogs/comment-widget.js"></script> -->
+        <CommentWidget />
       </section>
     </article>
   </main>
