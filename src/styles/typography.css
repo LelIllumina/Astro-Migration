@@ -1,84 +1,86 @@
-body {
-  font-family: "Computer Says No", "Iosevka Etoile", -apple-system,
-    BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto, sans-serif;
-  /* font-family: "Iosevka Etoile", -apple-system, BlinkMacSystemFont,
+@layer typography {
+  body {
+    font-family: "Computer Says No", "Iosevka Etoile", -apple-system,
+      BlinkMacSystemFont, Avenir Next, Segoe UI, Roboto, sans-serif;
+    /* font-family: "Iosevka Etoile", -apple-system, BlinkMacSystemFont,
       Avenir Next, Segoe UI, Roboto, sans-serif; */
-}
-
-/* heading and subtitle */
-h1 {
-  letter-spacing: -0.03em;
-  font-size: 2.6rem;
-  color: var(--gray-400);
-  padding: 20px 0 0;
-
-  &,
-  + p {
-    text-align: center;
-    text-wrap: balance;
-    max-width: 40rem;
-    margin: 0 auto 0.2em;
   }
 
-  + p {
-    margin-bottom: 2em;
-  }
-}
+  /* heading and subtitle */
+  h1 {
+    letter-spacing: -0.03em;
+    font-size: 2.6rem;
+    color: var(--gray-400);
+    padding: 20px 0 0;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Mica Valo", sans-serif;
-}
+    &,
+    + p {
+      text-align: center;
+      text-wrap: balance;
+      max-width: 40rem;
+      margin: 0 auto 0.2em;
+    }
 
-/* links */
-a:not([role="button"]) {
-  color: var(--green-300);
-  text-decoration: none;
-  text-underline-offset: 0.15em;
-
-  &:visited {
-    color: var(--green-200);
+    + p {
+      margin-bottom: 2em;
+    }
   }
 
-  a[href^="http"]:after {
-    content: url("data:image/svg+xml;utf8,<svg ...>");
-    margin-left: 0.25em;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Mica Valo", sans-serif;
   }
 
-  --bg-h: 2px;
-  padding-bottom: 1px;
-  background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
-    bottom / 0 var(--bg-h);
+  /* links */
+  a:not([role="button"]) {
+    color: var(--green-300);
+    text-decoration: none;
+    text-underline-offset: 0.15em;
 
-  transition: background-size 350ms;
+    &:visited {
+      color: var(--green-200);
+    }
 
-  &:where(:hover, :focus-visible) {
-    background-size: 100% var(--bg-h);
-    background-position-x: left;
+    a[href^="http"]:after {
+      content: url("data:image/svg+xml;utf8,<svg ...>");
+      margin-left: 0.25em;
+    }
+
+    --bg-h: 2px;
+    padding-bottom: 1px;
+    background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
+      bottom / 0 var(--bg-h);
+
+    transition: background-size 350ms;
+
+    &:where(:hover, :focus-visible) {
+      background-size: 100% var(--bg-h);
+      background-position-x: left;
+    }
+    &:focus-visible {
+      outline: var(--tan) 1px solid;
+      outline-offset: 5px;
+    }
   }
-  &:focus-visible {
-    outline: var(--tan) 1px solid;
-    outline-offset: 5px;
+
+  /* bulk content */
+  p,
+  li {
+    color: var(--gray-200);
+    font-size: 1.5rem;
+    font-size-adjust: 0.48;
+    line-height: 1.75;
+
+    strong {
+      color: var(--marker);
+    }
   }
-}
 
-/* bulk content */
-p,
-li {
-  color: var(--gray-200);
-  font-size: 1.5rem;
-  font-size-adjust: 0.48;
-  line-height: 1.75;
-
-  strong {
-    color: var(--marker);
+  table {
+    font-size: 1.5rem;
   }
-}
-
-table {
-  font-size: 1.5rem;
 }
