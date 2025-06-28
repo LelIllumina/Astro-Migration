@@ -1,53 +1,53 @@
 :root {
   /* special colors */
-  --marker: #ffff7a;
+  --marker: oklch(0.97 0.15 108.96 / 1);
 
   /* new */
-  --night: #121112;
-  --raisin-black: #252526;
-  --van-dyke: #49372b;
-  --russet: #7e4827;
-  --tan: #ccb28d;
-  --navy-blue: #779ecb;
+  --night: oklch(0.17 0.00263 325.348);
+  --raisin-black: oklch(0.26 0 286.27 / 1);
+  --van-dyke: oklch(0.35 0.03 55.1 / 1);
+  --russet: oklch(0.45 0.08733 50.513);
+  --tan: oklch(0.77 0.0582 76.404);
+  --navy-blue: oklch(0.69 0.08 252.49 / 1);
 
   /* red scale */
-  --red-100: #ffbaa2;
-  --red-200: #f5917b;
-  --red-300: #c86a56;
-  --red-400: #9d4534;
-  --red-500: #722014;
+  --red-100: oklch(0.85 0.09 40 / 1);
+  --red-200: oklch(0.76 0.13 33.29 / 1);
+  --red-300: oklch(0.63 0.12 33.17 / 1);
+  --red-400: oklch(0.5 0.12 32.6 / 1);
+  --red-500: oklch(0.37 0.12 31.27 / 1);
 
   /* gray scale (light) */
-  --gray-100: #f5f7f7;
-  --gray-200: #e9f0f1;
-  --gray-300: #ece8ea;
-  --gray-400: #f1e5e9;
-  --gray-500: #e0d6da;
+  --gray-100: oklch(0.97 0 197.12 / 1);
+  --gray-200: oklch(0.95 0.01 207.14 / 1);
+  --gray-300: oklch(0.93 0.01 345.29 / 1);
+  --gray-400: oklch(0.93 0.01 355.02 / 1);
+  --gray-500: oklch(0.89 0.01 351.01 / 1);
 
   /* gray scale (dark) */
-  --gray-600: #c0b8bc;
-  --gray-700: #a19aa0;
-  --gray-800: #7d767b;
-  --gray-900: #5a5458;
+  --gray-600: oklch(0.79 0.01 345.49 / 1);
+  --gray-700: oklch(0.69 0.01 330.22 / 1);
+  --gray-800: oklch(0.57 0.01 335.64 / 1);
+  --gray-900: oklch(0.45 0.01 337.71 / 1);
 
   /* blue scale */
-  --blue-100: #d0e4f7;
-  --blue-200: #a7c7e7;
-  --blue-300: #779ecb;
-  --blue-400: #4d7ab0;
-  --blue-500: #2e5b92;
+  --blue-100: oklch(0.91 0.03 246.81 / 1);
+  --blue-200: oklch(0.82 0.06 248.53 / 1);
+  --blue-300: oklch(0.69 0.08 252.49 / 1);
+  --blue-400: oklch(0.57 0.1 253.81 / 1);
+  --blue-500: oklch(0.47 0.1 254.69 / 1);
 
   /* green scale */
-  --green-100: #d5f5e3;
-  --green-200: #a9eacb;
-  --green-300: #6fcca4;
-  --green-400: #43ad84;
-  --green-500: #2b7c5f;
+  --green-100: oklch(0.94 0.04 160.91 / 1);
+  --green-200: oklch(0.88 0.08 163.69 / 1);
+  --green-300: oklch(0.78 0.11 164.07 / 1);
+  --green-400: oklch(0.68 0.12 164.39 / 1);
+  --green-500: oklch(0.53 0.09 165.83 / 1);
 
   /* yellow scale (matching marker) */
-  --yellow-100: #fffecf;
-  --yellow-200: #fffba3;
-  --yellow-300: #ffff7a;
-  --yellow-400: #f5e252;
-  --yellow-500: #d6c139;
+  --yellow-100: oklch(0.99 0.06 106.45 / 1);
+  --yellow-200: oklch(0.97 0.11 106.02 / 1);
+  --yellow-300: oklch(0.97 0.1547 108.976);
+  --yellow-400: oklch(0.9 0.16 101.72 / 1);
+  --yellow-500: oklch(0.81 0.15 100.17 / 1);
 }
