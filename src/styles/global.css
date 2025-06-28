@@ -170,6 +170,10 @@
       background-size: 100% var(--bg-h);
       background-position-x: left;
     }
+    &:focus-visible {
+      outline: var(--tan) 1px solid;
+      outline-offset: 5px;
+    }
   }
 
   /* bulk content */
