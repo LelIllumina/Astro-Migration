@@ -54,14 +54,15 @@ const {
             {" | "}
             <span>
               {
-                tags.map((tag, i) => (
-                  <>
-                    <a href={`/blogs/tags/${encodeURIComponent(tag)}/`}>
-                      {tag}
-                    </a>
-                    {i < tags.length - 1 && ", "}
-                  </>
-                ))
+                tags.map((tag, i) => {
+                  const href = `/tags/${encodeURIComponent(tag)}/`;
+                  return (
+                    <>
+                      <!-- prettier-ignore -->
+                      <a href={href}>{tag}</a>{i < tags.length - 1 ? ", " : ""}
+                    </>
+                  );
+                })
               }
             </span>
             {
@@ -118,7 +119,8 @@ const {
     filter: drop-shadow(0 0 5px black);
     border-radius: 0 20px 0 20px;
     scrollbar-width: none;
-    &:hover, &:focus-within {
+    &:hover,
+    &:focus-within {
       overflow-y: scroll;
       width: 250px;
     }
