@@ -9,7 +9,7 @@ import album from "src/content/music/siren.json";
 
 <div id="container">
   <div class="player neu">
-    <audio id="audio-player" src="/music/Siren/Day Scanner.mp3"></audio>
+    <audio id="audio-player" src=""></audio>
     <div class="title">
       <div></div>
       <div>NOW PLAYING</div>
@@ -55,6 +55,8 @@ import album from "src/content/music/siren.json";
     /* justify-content: center; */
     align-items: center;
     transition: 1s;
+    filter: drop-shadow(0 0 10px var(--night))
+      drop-shadow(0 0px 40px var(--van-dyke));
   }
   .player {
     width: 300px;
@@ -147,14 +149,16 @@ import album from "src/content/music/siren.json";
     filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0px 40px var(--van-dyke));
   }
+
   #playlist {
     padding: 1em;
     overflow-y: auto;
     height: 650px;
     width: 300px;
     border-radius: 0 2em 2em 0;
-    background: var(--van-dyke);
+    background: var(--night);
     color: var(--gray-300);
+    scrollbar-color: transparent;
     ul {
       padding: 0;
       margin: 0;
@@ -172,6 +176,82 @@ import album from "src/content/music/siren.json";
   }
   #playlist li:hover {
     color: var(--gray-100);
+  }
+  #seek-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  /* Chrome */
+
+  #seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    width: 16px;
+    border-radius: 1px;
+    background: var(--red-100);
+    border: none;
+    margin-top: -1px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #seek-bar::-webkit-slider-thumb:hover {
+    background: var(--red-300);
+  }
+
+  #seek-bar::-webkit-slider-runnable-track {
+    height: 4px;
+    background: var(--red-400);
+    border-radius: 2px;
+  }
+
+  #seek-bar::-webkit-slider-runnable-track {
+    background: linear-gradient(
+      to right,
+      var(--red-100) 0%,
+      var(--red-100) var(--progress),
+      var(--red-400) var(--progress),
+      var(--red-400) 100%
+    );
+  }
+
+  /* Firefox */
+  #seek-bar::-moz-range-thumb {
+    height: 6px;
+    width: 16px;
+    border-radius: 1px;
+    background: var(--red-100);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  #seek-bar::-moz-range-thumb:hover {
+    background: var(--red-300);
+  }
+
+  #seek-bar::-moz-range-track {
+    height: 4px;
+    /* background: var(--red-400); */
+    border-radius: 2px;
+  }
+
+  #seek-bar {
+    --progress: 0%;
+    background: linear-gradient(
+      to right,
+      var(--red-100) 0%,
+      var(--red-100) var(--progress),
+      var(--red-400) var(--progress),
+      var(--red-400) 100%
+    );
   }
 </style>
 
@@ -250,6 +330,9 @@ import album from "src/content/music/siren.json";
   audio.addEventListener("timeupdate", () => {
     seekBar.value = Math.floor(audio.currentTime).toString();
     currentTimeEl.textContent = formatTime(audio.currentTime);
+
+    const percent = Math.floor((audio.currentTime / audio.duration) * 100);
+    seekBar.style.setProperty("--progress", `${percent}%`);
   });
 
   seekBar.addEventListener("input", () => {
