@@ -1,0 +1,219 @@
+---
+import Fa6SolidBackward from "~icons/fa6-solid/backward";
+import Fa6SolidPlay from "~icons/fa6-solid/play";
+import Fa6SolidForward from "~icons/fa6-solid/forward";
+import Fa6SolidEllipsisVertical from "~icons/fa6-solid/ellipsis-vertical";
+
+import album from "src/content/music/siren.json";
+---
+
+<div class="player neu">
+  <audio id="audio-player" src="/music/Siren/Day Scanner.mp3"></audio>
+  <div class="title">
+    <div></div>
+    <div>NOW PLAYING</div>
+    <div id="moreBtn"><Fa6SolidEllipsisVertical /></div>
+  </div>
+  <div class="album-cover">
+    <img src={album.cover} alt="" />
+    <h2 class="song-title">{album.title}</h2>
+    <h3 class="artist-title">{album.artist}</h3>
+  </div>
+  <div class="buttons">
+    <button id="backwardBtn" class="btn lg neu">
+      <Fa6SolidBackward />
+    </button>
+    <button id="playBtn" class="btn lg neu">
+      <Fa6SolidPlay />
+    </button>
+    <button id="forwardBtn" class="btn lg neu">
+      <Fa6SolidForward />
+    </button>
+  </div>
+  <div class="time-info">
+    <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+  </div>
+
+  <div class="track neu">
+    <input type="range" id="seek-bar" value="0" min="0" step="1" />
+  </div>
+  <div id="playlist" class="playlist hidden neu">
+    <h3>Playlist</h3>
+    <ul id="playlist-items"></ul>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+  }
+  .player {
+    width: 312px;
+    height: 612px;
+    background: var(--raisin-black);
+    border-radius: 2em;
+    box-sizing: border-box;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+  }
+  .player .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.75em;
+    margin-bottom: 2em;
+  }
+  .player .album-cover {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  .player .album-cover img {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .player .album-cover .song-title {
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: var(--gray-500);
+  }
+  .player .album-cover .artist-title {
+    text-align: center;
+    padding: 1em 0;
+    margin: 0;
+    font-size: 0.85em;
+    color: var(--gray-400);
+  }
+  .player .track {
+    margin-top: 1em;
+    height: 10px;
+  }
+  .player .track div {
+    width: 42%;
+    height: 100%;
+    background: var(--grey-500);
+    opacity: 0.75;
+    border-radius: 15px;
+  }
+  .player .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1em 0;
+  }
+  .player .lyrics {
+    color: #7e8a98;
+    margin-top: 2em;
+    text-align: center;
+    font-size: 0.75em;
+    display: flex;
+    flex-direction: column;
+  }
+  .neu {
+    filter: drop-shadow(0 0 10px var(--night))
+      drop-shadow(0 0px 40px var(--van-dyke));
+    background: var(--raisin-black);
+    border-radius: 2em;
+    border: 0;
+  }
+  .btn {
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--gray-400);
+    outline: none;
+    cursor: pointer;
+  }
+  .btn.lg {
+    font-size: 1em;
+    line-height: 0;
+  }
+  .btn:active {
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px var(--night))
+      drop-shadow(0 0px 40px var(--van-dyke));
+  }
+  .playlist {
+    padding: 1em;
+    overflow-y: auto;
+    max-height: 50%;
+    border-radius: 1em;
+    background: var(--raisin-black);
+    color: var(--gray-300);
+    margin-top: 1em;
+  }
+  .playlist.hidden {
+    display: none;
+  }
+  .playlist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .playlist li {
+    cursor: pointer;
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--gray-700);
+  }
+  .playlist li:hover {
+    color: var(--gray-100);
+  }
+</style>
+
+<script>
+  const audio = document.getElementById("audio-player") as HTMLAudioElement;
+  const playBtn = document.getElementById("playBtn") as HTMLDivElement;
+  const backwardBtn = document.getElementById("backwardBtn") as HTMLDivElement;
+  const forwardBtn = document.getElementById("forwardBtn") as HTMLDivElement;
+  const seekBar = document.getElementById("seek-bar") as HTMLInputElement;
+  const currentTimeEl = document.getElementById(
+    "current-time"
+  ) as HTMLDivElement;
+  const durationEl = document.getElementById("duration") as HTMLDivElement;
+
+  playBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playBtn.classList.remove("fa-play");
+      playBtn.classList.add("fa-pause");
+    } else {
+      audio.pause();
+      playBtn.classList.remove("fa-pause");
+      playBtn.classList.add("fa-play");
+    }
+  });
+
+  audio.addEventListener("loadedmetadata", () => {
+    seekBar.max = Math.floor(audio.duration).toString();
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener("timeupdate", () => {
+    seekBar.value = Math.floor(audio.currentTime).toString();
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
+  seekBar.addEventListener("input", () => {
+    audio.currentTime = Number(seekBar.value);
+  });
+
+  backwardBtn.addEventListener("click", () => {
+    audio.currentTime = Math.max(0, audio.currentTime - 10);
+  });
+
+  forwardBtn.addEventListener("click", () => {
+    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+  });
+
+  function formatTime(seconds: number) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${m}:${s}`;
+  }
+</script>
