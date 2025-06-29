@@ -4,18 +4,18 @@
 @import url("./fonts.css");
 @import url("./typography.css");
 
+:root {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 @layer base {
-  :root {
-    color-scheme: dark;
-    scroll-behavior: smooth;
-  }
-
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
-  }
-
   body {
     background-color: var(--night);
     overflow-x: hidden;
@@ -114,3 +114,24 @@
   }
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 10px;
+  transition: 100ms;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: rgb(61, 61, 61);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
