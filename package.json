@@ -27,6 +27,7 @@
     "unplugin-icons": "^22.1.0"
   },
   "devDependencies": {
-    "@iconify-json/fa6-solid": "^1.2.3"
+    "@iconify-json/fa6-solid": "^1.2.3",
+    "@iconify-json/la": "^1.2.1"
   }
 }
