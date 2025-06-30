@@ -177,6 +177,11 @@ import album from "src/content/music/siren.json";
   #playlist li:hover {
     color: var(--gray-100);
   }
+  .current {
+    color: var(--red-100);
+    font-weight: bold;
+  }
+
   #seek-bar {
     -webkit-appearance: none;
     appearance: none;
@@ -285,19 +290,31 @@ import album from "src/content/music/siren.json";
   let currentIndex = 0;
 
   // Fill playlist in UI
+  const playlistElements: HTMLLIElement[] = [];
+
   playlist.forEach((track, index) => {
     const li = document.createElement("li");
     li.textContent = track.title;
     li.addEventListener("click", () => {
       loadTrack(index);
       playAudio();
-      //   togglePlaylist();
     });
     playlistItems.appendChild(li);
+    playlistElements.push(li);
   });
 
   function loadTrack(index: number) {
     currentIndex = index;
+
+    // Highlight playlist
+    playlistElements.forEach((li, i) => {
+      if (i === currentIndex) {
+        li.style.color = "var(--red-100)";
+      } else {
+        li.style.color = "";
+      }
+    });
+
     const track = playlist[currentIndex];
     audio.src = track.src;
     songTitleEl.textContent = track.title;
