@@ -105,10 +105,6 @@ Unfortunately, I don't know of any fork that supports nested categories, but tha
 | **Format**         | Manga<br>Webtoon<br>Anthology<br>NSFW                                                                            |
 
 After that, you can enjoy reading your manga and having auto updates and stuff.
-
-#### Smart Updates
-WIP
-
 #### Tracking
 Setting up syncing with trackers is pretty straight forward, just follow the instructions on the settings page.
 
@@ -128,7 +124,13 @@ Get [Mihon](https://github.com/mihonapp/mihon), add [Yuzuno](https://yuzono.gith
 Get [Perfect Viewer](https://play.google.com/store/apps/details?id=com.rookiestudio.perfectviewer&hl=en) and download manga off [Nyaa.si](https://Nyaa.si).
 
 ### Links
-I’ll add some, I don't know.
+**If you want to use a Media Server instead:**
+- [Komga](Https://github.com/gotson/komga) 
+- [Kavita](https://github.com/Kareadita/Kavita)
+**For desktop manga readers:**
+- [MPV-manga-reader](https://github.com/Dudemanguy/mpv-manga-reader)
+- [Suwayomi](https://github.com/Suwayomi)
+- [HakuNeko](https://github.com/manga-download/hakuneko)—for downloading
 ## Books
 
 WIP
