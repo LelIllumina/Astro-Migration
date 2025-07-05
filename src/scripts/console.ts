@@ -1,7 +1,8 @@
-console.log(
-	"%cHey!\n",
+document.addEventListener("astro:after-swap", () => {
+  console.log(
+    "%cHey!\n",
 
-	/* CSS */ `
+    /* CSS */ `
     @import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
     color: darkgoldenrod;
     font-family: 'Gloock', system-ui, serif;
@@ -10,5 +11,6 @@ console.log(
     font-weight: bold;
     `,
 
-	"You can view the proper sourcecode for this site on my GitHub: https://github.com/LelIllumina/Astro-Migration/ and for my old site on https://github.com/LelIllumina/LelIllumina.github.io/",
-);
+    "You can view the proper sourcecode for this site on my GitHub: https://github.com/LelIllumina/Astro-Migration/ and for my old site on https://github.com/LelIllumina/LelIllumina.github.io/"
+  );
+});

@@ -2,19 +2,28 @@ import { FastAverageColor } from "fast-average-color";
 
 const fac = new FastAverageColor();
 
-const figures = document.querySelectorAll("figure");
+function applyAverageColor() {
+  const figures = document.querySelectorAll("figure");
 
-for (const figure of figures) {
-  const image = figure.querySelector("img");
+  for (const figure of figures) {
+    const image = figure.querySelector("img");
+    if (!image) continue;
 
-  if (!image) continue;
-
-  fac
-    .getColorAsync(image, { algorithm: "simple" })
-    .then((color) => {
-      image.style.filter = `drop-shadow(0 0 10px var(--night)) drop-shadow(0 0 40px ${color.rgba})`;
-    })
-    .catch((e) => {
-      console.error("Color extraction failed:", e);
-    });
+    fac
+      .getColorAsync(image, { algorithm: "simple" })
+      .then((color) => {
+        image.style.filter = `drop-shadow(0 0 10px var(--night)) drop-shadow(0 0 40px ${color.rgba})`;
+      })
+      .catch((e) => {
+        console.error("Color extraction failed:", e);
+      });
+  }
 }
+
+// run on first load
+applyAverageColor();
+
+// if you're using View Transitions API
+document.addEventListener('astro:after-swap', () => {
+  applyAverageColor();
+});
