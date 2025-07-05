@@ -1,5 +1,68 @@
 ---
-import WIP from "@layouts/WIP.astro";
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import AboutGrid from "@components/about/AboutGrid.astro";
 ---
 
-<WIP />
+<Base title="About" description="About - Games" image="">
+  <Header />
+  <main>
+    <article>
+      <section style="border: none;">
+        <AboutGrid
+          title="Games"
+          subtitle="About"
+          images={[
+            {
+              src: "/images/about/games/17158d37a75693dd0cc4cd25f2647140.jpg",
+              alt: "Fate/Grand Order",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/games/img0064.jpg",
+              alt: "Fate/Extra Games",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/games/si.png",
+              alt: "Black Souls",
+              href: "./games/more.html",
+              style: "",
+            },
+            {
+              src: "/images/about/games/da8911dbb798f58f78fa7e817b735541.gif",
+              alt: "Genshin Impact",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/games/                                                         ",
+              alt: "Newgrounds Porn Games maybe",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/games/5f4baa5129c2b8014b47682925ef11e7.png",
+              alt: "Narcissu",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+            {
+              src: "/images/about/games/mahjong soul.jpg",
+              alt: "Majhong Soul",
+              href: "./games/more.html",
+            },
+            {
+              src: "/images/about/games/MV5BMzZmZjc5YWItYWRmMy00MzE2LWE2M2YtNmUyMjg3MTc4YWY2XkEyXkFqcGc@._V1_.jpg",
+              alt: "Batman Arkham Series",
+              href: "./games/more.html",
+              style: "object-position: top;",
+            },
+          ]}
+        />
+      </section>
+    </article>
+  </main>
+</Base>
