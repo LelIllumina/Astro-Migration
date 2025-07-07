@@ -1,0 +1,73 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import FanButt from "@components/FanButt.astro";
+
+import { Image } from "astro:assets";
+
+import logo from "@assets/images/eroweb/eroWeb.png";
+---
+
+<Base
+  title="eroWeb Discord"
+  description="eroWeb is a discord server for freaks :stuck_out_tongue:"
+  image="images/eroweb/eroweb.png"
+>
+  <Header />
+  <main>
+    <article>
+      <section id="hero">
+        <figure>
+          <Image src={logo} alt="eroWeb Logo" width={750} />
+
+          <figcaption>
+            Credit to <a href="https://www.pixiv.net/artworks/22647957">
+              original artist</a
+            >
+          </figcaption>
+        </figure>
+        <div id="text">
+          <h1>eroWeb Discord Server</h1>
+          <p>
+            eroWeb is a server for users of static web hosts like Nekoweb or
+            Neocities who have NSFW content on their site or like sites that
+            have content like that on them.
+          </p>
+          <FanButt href="https://discord.com/invite/umdKJrCA">Join Now</FanButt>
+        </div>
+      </section>
+    </article>
+  </main>
+</Base>
+
+<style>
+  #hero {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    max-width: unset;
+  }
+
+  #text {
+    width: 50vw;
+  }
+
+  img {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+
+  h1,
+  p {
+    text-align: left;
+  }
+</style>
