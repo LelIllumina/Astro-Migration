@@ -1,23 +1,54 @@
+---
+const currentUrl = Astro.url.pathname;
+---
+
 <header>
   <nav>
-    <a href="/">Main</a>
-    <a href="/about">About</a>
-    <a href="/music">Music</a>
-    <a href="/blogs">Blogs</a>
+    <a href="/" aria-current={currentUrl === "/" ? "page" : undefined}>Main</a>
+    <a href="/about" aria-current={currentUrl === "/about" ? "page" : undefined}
+      >About</a
+    >
+    <a href="/music" aria-current={currentUrl === "/music" ? "page" : undefined}
+      >Music</a
+    >
+    <a href="/blogs" aria-current={currentUrl === "/blogs" ? "page" : undefined}
+      >Blogs</a
+    >
+    <a
+      href="/eroWeb"
+      aria-current={currentUrl === "/eroWeb" ? "page" : undefined}>eroWeb</a
+    >
     <a href="https://lel.atabook.org">Guestbook</a>
   </nav>
 </header>
 
 <style>
-  /* Navigation container */
+  header {
+    width: 90vw;
+    position: fixed;
+    top: 10px;
+  }
+
+  header:hover nav {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0s;
+  }
+  header:not(:hover) nav {
+    transition-delay: 0.2s;
+  }
+
   nav {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin: 15px auto auto auto;
+
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: 0s;
 
     a {
-      --bg-h: 2px;
-
       display: inline-block;
       padding: 1em 0;
       padding-bottom: 1px;
@@ -28,22 +59,9 @@
       text-decoration: none;
       text-shadow: 1px 1px var(--raisin-black);
 
-      background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
-        bottom / 0 var(--bg-h);
-
-      transition: background-size 350ms;
-
-      &:where(:hover, :focus-visible) {
-        background-size: 100% var(--bg-h);
-        background-position-x: left;
+      &[aria-current] {
+        color: var(--blue-100);
       }
-
-      /*
-    &[aria-current] {
-      text-decoration: 2px underline var(--tan);
-      text-underline-offset: 8px;
-    }
-    */
     }
   }
 </style>

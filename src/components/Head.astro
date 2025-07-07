@@ -16,8 +16,6 @@ const keywordsString =
     ? keywords.join(", ")
     : "Nekoweb, Lel, Blog, Personal";
 
-const currentUrl = new URL(Astro.url.pathname, Astro.site);
-
 const isDev = import.meta.env.DEV;
 ---
 
@@ -33,11 +31,11 @@ const isDev = import.meta.env.DEV;
   <meta name="theme-color" content={accent} />
 
   <!-- OpenGraph Embed shit -->
-  <meta property="og:image" content=`https://lel.nekoweb.org/${image}` />
+  <meta property="og:image" content={new URL(image, Astro.url)} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content={currentUrl} />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:site_name" content="Lel@Nekoweb" />
   <meta name="twitter:card" content="summary_large_image" />
 
