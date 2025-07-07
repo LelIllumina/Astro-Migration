@@ -1,8 +1,8 @@
 ---
-Title: "List of Very Cool Thing :tm:"
-Description: Theres a bunch of Cool stuff on the internet, i'm not into anything niche and deep but tech-wise theres a few things I know.
-Date: 2025-05-18
-Thumb: 
+title: "List of Very Cool Thing :tm:"
+description: Theres a bunch of Cool stuff on the internet, i'm not into anything niche and deep but tech-wise theres a few things I know.
+date: 2025-05-28
+thumb: "src/assets/images/blog/5pjv39coa9l71.jpg"
 tags:
   - Guide
 Keywords:
@@ -17,9 +17,8 @@ Keywords:
   - WebDev
   - Tech
   - Technology
-Draft: true
+draft: true
 ---
 
-## Cool random shit 
+## Cool random shit
 (ported from old site)
-
