@@ -2,7 +2,7 @@
 title: Nekopology
 description: Addressing the Nekoweb populace on my past actions
 date: 2024-12-16
-thumb: src/assets/images/blog/thatpose.gif
+thumb: thatpose.gif
 tags:
   - Blog
   - Nekoweb

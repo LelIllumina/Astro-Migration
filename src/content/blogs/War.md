@@ -2,7 +2,7 @@
 title: We need a War
 description: Or like just some other drastic thing
 date: 2025-07-09
-thumb: src/assets/images/blog/urdu.png
+thumb: urdu.png
 tags:
   - Blog
   - General

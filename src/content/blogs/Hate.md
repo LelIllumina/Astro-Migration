@@ -2,7 +2,7 @@
 title: I hate myself
 description: sorry was retarded
 date: 2025-06-02
-thumb: src/assets/images/blog/eto-bleh.gif
+thumb: eto-bleh.gif
 tags:
   - Blog
   - Stupid

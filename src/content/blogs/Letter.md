@@ -2,7 +2,7 @@
 title: A letter
 description: "To: The Hai Castle, Webtopia; From: Knight Lelcelot"
 date: 2025-03-02
-thumb: src/assets/images/blog/dithered.png
+thumb: dithered.png
 tags:
   - Story
   - Love

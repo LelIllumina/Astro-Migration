@@ -2,7 +2,7 @@
 title: My Apology
 description: I must apologize
 date: 2025-03-11
-thumb: src/assets/images/blog/thing.png
+thumb: thing.png
 tags:
   - Blog
   - Stupid

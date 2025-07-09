@@ -2,7 +2,7 @@
 title: "List of Very Cool Thing :tm:"
 description: Theres a bunch of Cool stuff on the internet, i'm not into anything niche and deep but tech-wise theres a few things I know.
 date: 2025-05-28
-thumb: "src/assets/images/blog/5pjv39coa9l71.jpg"
+thumb: "5pjv39coa9l71.jpg"
 tags:
   - Guide
 Keywords:

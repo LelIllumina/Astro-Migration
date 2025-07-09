@@ -2,7 +2,7 @@
 title: Incest
 description: Gothic Alt Incest
 date: 2025-05-17
-thumb: src/assets/images/blog/juniper.jpg
+thumb: juniper.jpg
 tags:
   - Blog
   - General

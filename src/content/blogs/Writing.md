@@ -2,7 +2,7 @@
 title: Writing
 description: I cant read
 date: 2025-05-31
-thumb: src/assets/images/blog/webdev.jpg
+thumb: webdev.jpg
 tags:
   - Blog
   - General

@@ -2,7 +2,7 @@
 title: It's my Nekoversary
 description: It's been a year on Nekoweb.
 date: 2025-02-28
-thumb: src/assets/images/blog/giphy.gif
+thumb: giphy.gif
 tags:
   - Blog
   - General
