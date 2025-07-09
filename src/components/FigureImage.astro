@@ -1,0 +1,32 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+interface Props {
+  href: string;
+  src: string;
+  alt: string;
+  style?: string;
+}
+
+const { href, src, alt, ...imgProps } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/**/*.{jpeg,jpg,png,gif,svg,avif,webp}"
+);
+if (!images[src])
+  throw new Error(
+    `"${src}" does not exist in glob: "src/assets/images/**/*.{jpeg,jpg,png,gif,svg,avif,webp}"`
+  );
+---
+
+<figure>
+  {
+    href ? (
+      <a href={href}>
+        <Image src={images[src]()} alt={alt} {...imgProps} />
+      </a>
+    ) : (
+      <Image src={images[src]()} alt={alt} {...imgProps} />
+    )
+  }
+  <figcaption>{alt}</figcaption>
+</figure>

@@ -1,5 +1,5 @@
 ---
-import FigureImg from "../FigureImg.astro";
+import FigureImage from "../FigureImage.astro";
 
 export interface ImageItem {
   src: string;
@@ -18,7 +18,7 @@ const { title, subtitle, images } = Astro.props;
 <div id="grid">
   {
     images.map((img) => (
-      <FigureImg
+      <FigureImage
         src={img.src}
         alt={img.alt}
         href={img.href}
