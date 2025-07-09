@@ -16,6 +16,9 @@ import { remarkAlert } from 'remark-github-blockquote-alert'
 import partytown from "@astrojs/partytown";
 
 
+import purgecss from "astro-purgecss";
+
+
 // https://astro.build/config
 export default defineConfig({
   prefetch: {
@@ -26,7 +29,7 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap(), partytown()],
+  integrations: [mdx(), sitemap(), partytown(), purgecss()],
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
