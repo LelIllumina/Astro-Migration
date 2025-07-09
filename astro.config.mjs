@@ -17,8 +17,6 @@ import emoji from "remark-emoji";
 import remarkToc from "remark-toc";
 import { remarkAlert } from "remark-github-blockquote-alert";
 
-import criticalCss from "astro-critical-css";
-
 export default defineConfig({
   prefetch: {
     prefetchAll: true,
@@ -28,7 +26,7 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap(), partytown(), criticalCss()],
+  integrations: [mdx(), sitemap(), partytown()],
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
