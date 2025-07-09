@@ -1,0 +1,207 @@
+---
+import Base from "@layouts/Base.astro";
+import Header from "@components/Header.astro";
+import CommentWidget from "@components/blog/CommentWidget.astro";
+
+import "remark-github-blockquote-alert/alert.css";
+
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("guides");
+  return posts.map((post) => ({
+    params: { guide: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const {
+  title,
+  description,
+  date,
+  thumb,
+  tags,
+  keywords,
+  draft = false,
+} = post.data;
+---
+
+<Base {title} {description} image={thumb?.src ?? ""} keywords={keywords}>
+  <Header />
+  <main>
+    <article>
+      <header>
+        <figure>
+          <Image id="bgImg" src={thumb} alt={description} loading="eager" />
+        </figure>
+        <div id="heroText">
+          <h1>{title}</h1>
+          <p>
+            {description}
+            <br />
+            <time datetime={date.toISOString()}>
+              {
+                date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }
+            </time>
+            {" | "}
+            <span>
+              {
+                tags.map((tag, i) => {
+                  const href = `/tags/${encodeURIComponent(tag)}/`;
+                  return (
+                    <>
+                      <!-- prettier-ignore -->
+                      <a href={href}>{tag}</a>{i < tags.length - 1 ? ", " : ""}
+                    </>
+                  );
+                })
+              }
+            </span>
+            {
+              draft && (
+                <span id="draftWarn">
+                  <br />
+                  (Draft - Not final content)
+                </span>
+              )
+            }
+            <span id="scrollWarn">
+              <br />Note: Firefox/Your Browser doesn't natively support
+              scroll-timeline. So the background image scrolling won't work as
+              expected even with a polyfill
+            </span>
+          </p>
+        </div>
+      </header>
+      <section>
+        <Content />
+        <CommentWidget />
+      </section>
+    </article>
+  </main>
+</Base>
+
+<script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
+></script>
+
+<style is:inline>
+  figure img {
+    max-width: 50%;
+  }
+
+  header figure img {
+    max-width: 100%;
+  }
+
+  #contents {
+    display: none;
+  }
+
+  #contents + ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2vw;
+    padding: 1rem;
+    overflow: hidden;
+    padding-top: 5vh;
+    transition: 400ms;
+    backdrop-filter: blur(10px) brightness(0.8);
+    filter: drop-shadow(0 0 5px black);
+    border-radius: 0 20px 0 20px;
+    scrollbar-width: none;
+    &:hover,
+    &:focus-within {
+      overflow-y: scroll;
+      width: 250px;
+    }
+    &::before {
+      content: "Contents";
+      display: block;
+      padding: 0.5rem 0;
+      font-size: 1.5rem;
+      font-family: "Mica Valo", sans-serif;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    li {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      list-style-position: inside;
+      font-size: 1rem;
+      line-height: 1.5;
+      ul {
+        padding-left: 15px;
+      }
+    }
+  }
+</style>
+
+<style>
+  #bgImg {
+    z-index: -1;
+    position: fixed;
+    object-fit: cover;
+    mask-image: linear-gradient(#000000a6 0%, #0000 100%);
+    width: 100vw;
+    height: 400px;
+    top: 0;
+    left: 0;
+    animation: parallax linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 100vh;
+    max-width: 100vw;
+    pointer-events: none;
+  }
+
+  header {
+    height: 400px;
+    margin: calc((100vh - 117px - 400px + 30px) / 2) auto;
+    align-content: center;
+  }
+
+  #heroText {
+    padding-bottom: 50px;
+    font-family: amplitude;
+  }
+
+  @keyframes parallax {
+    0% {
+      height: 100vh;
+      filter: blur(0px) brightness(1);
+    }
+    10% {
+      filter: blur(0px) brightness(0.5);
+    }
+    100% {
+      height: 100vh;
+      filter: blur(20px) brightness(0.5);
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    #scrollWarn {
+      display: none;
+    }
+  }
+
+  #draftWarn {
+    color: var(--gray-500);
+  }
+
+  #scrollWarn {
+    font-size: 1.5rem;
+    line-height: 0.1px;
+    color: var(--red-300);
+    font-weight: bold;
+  }
+</style>
