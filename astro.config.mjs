@@ -1,23 +1,25 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-
-import Icons from "unplugin-icons/vite";
-
-// @ts-ignore
-import rehypeFigure from "@microflash/rehype-figure";
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import emoji from 'remark-emoji';
-import remarkToc from 'remark-toc';
-import { remarkAlert } from 'remark-github-blockquote-alert'
-
+// Integrations
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
+// Vite plugins
+import Icons from "unplugin-icons/vite";
+import checker from "vite-plugin-checker";
 
+// Remark/Rehype
+// @ts-ignore
+import rehypeFigure from "@microflash/rehype-figure";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import emoji from "remark-emoji";
+import remarkToc from "remark-toc";
+import { remarkAlert } from "remark-github-blockquote-alert";
 
-// https://astro.build/config
+import criticalCss from "astro-critical-css";
+
 export default defineConfig({
   prefetch: {
     prefetchAll: true,
@@ -27,12 +29,12 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap(), partytown()],
+  integrations: [mdx(), sitemap(), partytown(), criticalCss()],
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
     remarkPlugins: [emoji, remarkToc, [remarkAlert, { legacyTitle: true }]],
-    gfm: true
+    gfm: true,
   },
   vite: {
     build: {
@@ -41,7 +43,7 @@ export default defineConfig({
       cssCodeSplit: true,
       assetsInlineLimit: 0,
     },
-    
+
     optimizeDeps: {
       include: [],
     },
@@ -49,7 +51,18 @@ export default defineConfig({
       treeShaking: true,
       // drop: ["console", "debugger"],
     },
-    plugins: [Icons({ compiler: "astro" })],
+    plugins: [
+      Icons({ compiler: "astro" }),
+      checker({
+        typescript: true,
+        biome: {
+          command: "check",
+        },
+        stylelint: {
+          lintCommand: "stylelint ./src/**/*.{css,astro}",
+        },
+      }),
+    ],
   },
 
   experimental: {
