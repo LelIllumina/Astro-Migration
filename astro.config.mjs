@@ -8,7 +8,6 @@ import partytown from "@astrojs/partytown";
 
 // Vite plugins
 import Icons from "unplugin-icons/vite";
-import checker from "vite-plugin-checker";
 
 // Remark/Rehype
 // @ts-expect-error no declaaratoin file
@@ -51,18 +50,7 @@ export default defineConfig({
       treeShaking: true,
       // drop: ["console", "debugger"],
     },
-    plugins: [
-      Icons({ compiler: "astro" }),
-      checker({
-        typescript: true,
-        // eslint: {
-        //   lintCommand: 'eslint "./src/**/*.{js,ts,astro}"',
-        // },
-        stylelint: {
-          lintCommand: "stylelint ./src/**/*.{css,astro}",
-        },
-      }),
-    ],
+    plugins: [Icons({ compiler: "astro" })],
   },
 
   experimental: {
