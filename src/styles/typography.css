@@ -8,17 +8,17 @@
 
   /* heading and subtitle */
   h1 {
-    letter-spacing: -0.03em;
+    padding: 20px 0 0;
     font-size: 2.6rem;
     color: var(--gray-400);
-    padding: 20px 0 0;
+    letter-spacing: -0.03em;
 
     &,
     + p {
-      text-align: center;
-      text-wrap: balance;
       max-width: 40rem;
       margin: 0 auto 0.2em;
+      text-align: center;
+      text-wrap: balance;
     }
 
     + p {
@@ -37,9 +37,19 @@
 
   /* links */
   a:not([role="button"]) {
+
+    --bg-h: 2px;
+
+    padding-bottom: 1px;
+
     color: var(--green-300);
     text-decoration: none;
     text-underline-offset: 0.15em;
+
+    background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
+      bottom / 0 var(--bg-h);
+
+    transition: background-size 350ms;
 
     &:visited {
       color: var(--green-200);
@@ -50,16 +60,9 @@
       margin-left: 0.25em;
     }
 
-    --bg-h: 2px;
-    padding-bottom: 1px;
-    background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
-      bottom / 0 var(--bg-h);
-
-    transition: background-size 350ms;
-
     &:where(:hover, :focus-visible) {
-      background-size: 100% var(--bg-h);
       background-position-x: left;
+      background-size: 100% var(--bg-h);
     }
     &:focus-visible {
       outline: var(--tan) 1px solid;
@@ -70,10 +73,10 @@
   /* bulk content */
   p,
   li {
-    color: var(--gray-200);
     font-size: 1.5rem;
     font-size-adjust: 0.48;
     line-height: 1.75;
+    color: var(--gray-200);
 
     strong {
       color: var(--marker);

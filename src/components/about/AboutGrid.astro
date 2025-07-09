@@ -38,37 +38,40 @@ const { title, subtitle, images } = Astro.props;
 </div>
 <style is:inline>
   figure figcaption {
+    font-size: 1.5rem;
     opacity: 0;
     transition: opacity 0.3s ease;
-    font-size: 1.5rem;
   }
   figure:hover figcaption {
     opacity: 1;
   }
   img {
-    height: 128px;
+    transform: translateZ(0);
+
     width: 128px;
+    height: 128px;
+    border-radius: 4px;
+
     object-fit: cover;
     object-position: inherit;
-    border-radius: 4px;
-    transform: translateZ(0);
   }
 </style>
 <style>
   #grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-
     grid-template-areas:
       ". . ."
       "title title title"
       ". . ."
       ". . .";
-    color: var(--gray-400);
-    height: 80vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
     width: 750px;
+    height: 80vh;
     margin: 7.5vh auto 0 auto;
+
+    color: var(--gray-400);
   }
   #title {
     grid-area: title;
@@ -76,11 +79,13 @@ const { title, subtitle, images } = Astro.props;
   }
   #title h2,
   #title h1 {
-    font-weight: 900;
+    display: block;
+
     margin: 0;
     padding: 0;
-    display: block;
+
     font-family: "Blaster", sans-serif;
+    font-weight: 900;
   }
   #title h2 {
     font-size: 2em;
@@ -90,8 +95,8 @@ const { title, subtitle, images } = Astro.props;
     text-align: left;
   }
   #contents {
-    height: 150px;
     width: 150px;
+    height: 150px;
     margin: 2.5em auto;
   }
   #contents p {

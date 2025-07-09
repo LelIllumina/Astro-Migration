@@ -68,19 +68,21 @@ const { posts } = Astro.props as {
 
   .gallery {
     margin-block: 4rem;
-    list-style: none;
     padding: 0;
+    list-style: none;
 
     li {
       margin-bottom: 10%;
     }
 
     figure {
-      transition: transform 0.1s;
-      align-items: flex-start;
       display: flex;
       gap: 3rem;
+      align-items: flex-start;
+
       margin: 3em 0;
+
+      transition: transform 0.1s;
 
       &:hover {
         transform: scale(1.01);
@@ -97,19 +99,20 @@ const { posts } = Astro.props as {
     }
 
     time {
-      color: var(--tan);
-      font-weight: 300;
       font-size: 85%;
+      font-weight: 300;
+      color: var(--tan);
     }
 
     h2 {
-      color: var(--gray-400);
-      text-wrap: balance;
+      margin: 0;
+
       font-size: 2rem;
       font-weight: 500;
       line-height: 1.5;
-      margin: 0;
+      color: var(--gray-400);
       text-decoration: underline var(--gray-200) 1px;
+      text-wrap: balance;
     }
   }
 
@@ -118,16 +121,17 @@ const { posts } = Astro.props as {
   }
 
   #tags {
-    color: var(--gray-400);
+    margin-top: 0.5em;
+
     font-size: 1rem;
     font-weight: 300;
-    margin-top: 0.5em;
+    color: var(--gray-400);
     text-decoration: none;
   }
 
   img {
-    max-width: 400px;
     min-width: 200px;
+    max-width: 400px;
   }
 
   .draft {

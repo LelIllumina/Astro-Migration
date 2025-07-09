@@ -54,52 +54,57 @@ import album from "src/content/music/siren.json";
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    transition: 1s;
     filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0px 40px var(--van-dyke));
+    transition: 1s;
   }
   .player {
-    width: 300px;
-    height: 650px;
-    background: var(--raisin-black);
-    border-radius: 2em 0 0 2em;
-    box-sizing: border-box;
-    padding: 2em;
     display: flex;
     flex-direction: column;
+
+    box-sizing: border-box;
+    width: 300px;
+    height: 650px;
+    padding: 2em;
+    border-radius: 2em 0 0 2em;
+
+    background: var(--raisin-black);
   }
   .title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 0.75em;
+
     margin-bottom: 2em;
+
+    font-size: 0.75em;
   }
   .album-cover {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
   }
   .album-cover img {
     width: 100%;
     border-radius: 15px;
   }
   .album-cover #song-title {
-    text-align: center;
-    padding-bottom: 0;
     margin-bottom: 0;
+    padding-bottom: 0;
     color: var(--gray-500);
+    text-align: center;
   }
   .album-cover #artist-title {
-    text-align: center;
-    padding: 1em 0;
     margin: 0;
+    padding: 1em 0;
+
     font-size: 0.85em;
     color: var(--gray-400);
+    text-align: center;
   }
   .track {
-    margin-top: 1em;
     height: 10px;
+    margin-top: 1em;
     input {
       width: 100%;
     }
@@ -107,9 +112,10 @@ import album from "src/content/music/siren.json";
   .track div {
     width: 42%;
     height: 100%;
-    background: var(--grey-500);
-    opacity: 0.75;
     border-radius: 15px;
+
+    opacity: 0.75;
+    background: var(--grey-500);
   }
   .buttons {
     display: flex;
@@ -118,27 +124,32 @@ import album from "src/content/music/siren.json";
     padding: 1em 0;
   }
   .lyrics {
-    color: #7e8a98;
-    margin-top: 2em;
-    text-align: center;
-    font-size: 0.75em;
     display: flex;
     flex-direction: column;
+
+    margin-top: 2em;
+
+    font-size: 0.75em;
+    color: #7e8a98;
+    text-align: center;
   }
   .neu {
+    border: 0;
     /* filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0px 40px var(--van-dyke)); */
     background: var(--raisin-black);
-    border: 0;
   }
   .btn {
+    cursor: pointer;
+
     padding: 20px;
     border-radius: 10px;
+
     color: var(--gray-400);
-    outline: none;
-    cursor: pointer;
+
     filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0px 40px var(--van-dyke));
+    outline: none;
   }
   .btn.lg {
     font-size: 1em;
@@ -151,23 +162,29 @@ import album from "src/content/music/siren.json";
   }
 
   #playlist {
-    padding: 1em;
-    overflow-y: auto;
-    height: 650px;
-    width: 300px;
-    border-radius: 0 2em 2em 0;
-    background: var(--night);
-    color: var(--gray-300);
     scrollbar-color: transparent;
+
+    overflow-y: auto;
+
+    width: 300px;
+    height: 650px;
+    padding: 1em;
+    border-radius: 0 2em 2em 0;
+
+    color: var(--gray-300);
+
+    background: var(--night);
     ul {
-      padding: 0;
       margin: 0;
+      padding: 0;
       li {
-        list-style: none;
         cursor: pointer;
+
         padding: 0.5em 0;
+
         font-family: Amplitude;
         line-height: 1;
+        list-style: none;
       }
     }
   }
@@ -178,32 +195,37 @@ import album from "src/content/music/siren.json";
     color: var(--gray-100);
   }
   .current {
-    color: var(--red-100);
     font-weight: bold;
+    color: var(--red-100);
   }
 
   #seek-bar {
-    -webkit-appearance: none;
-    appearance: none;
+    cursor: pointer;
+
     width: 100%;
     height: 4px;
-    background: #ccc;
     border-radius: 2px;
-    cursor: pointer;
+
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ccc;
   }
 
   /* Chrome */
 
   #seek-bar::-webkit-slider-thumb {
+    cursor: pointer;
+
+    width: 16px;
+    height: 6px;
+    margin-top: -1px;
+    border: none;
+    border-radius: 1px;
+
     -webkit-appearance: none;
     appearance: none;
-    height: 6px;
-    width: 16px;
-    border-radius: 1px;
     background: var(--red-100);
-    border: none;
-    margin-top: -1px;
-    cursor: pointer;
+
     transition: background 0.2s;
   }
 
@@ -213,8 +235,8 @@ import album from "src/content/music/siren.json";
 
   #seek-bar::-webkit-slider-runnable-track {
     height: 4px;
-    background: var(--red-400);
     border-radius: 2px;
+    background: var(--red-400);
   }
 
   #seek-bar::-webkit-slider-runnable-track {
@@ -229,12 +251,15 @@ import album from "src/content/music/siren.json";
 
   /* Firefox */
   #seek-bar::-moz-range-thumb {
-    height: 6px;
-    width: 16px;
-    border-radius: 1px;
-    background: var(--red-100);
-    border: none;
     cursor: pointer;
+
+    width: 16px;
+    height: 6px;
+    border: none;
+    border-radius: 1px;
+
+    background: var(--red-100);
+
     transition: background 0.2s;
   }
 
@@ -250,6 +275,7 @@ import album from "src/content/music/siren.json";
 
   #seek-bar {
     --progress: 0%;
+
     background: linear-gradient(
       to right,
       var(--red-100) 0%,

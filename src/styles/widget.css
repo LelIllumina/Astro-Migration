@@ -1,31 +1,35 @@
 #comments-root {
+  box-sizing: border-box;
   /* max-width: 60%; */
   margin: 0 auto;
   padding: 15px;
-  box-sizing: border-box;
+
   font-size: 14px;
   color: var(--gray-200);
 }
 
 button, input[type="submit"], .c-submitButton {
+  cursor: pointer;
+
   padding: 6px 16px;
   border: 1px dashed var(--tan);
   border-radius: 6px;
-  background: transparent;
-  color: var(--tan);
+
   font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
+  color: var(--tan);
+
+  background: transparent;
 }
 
 button:hover, .c-submitButton:hover {
-  background-color: var(--russet);
   color: white;
+  background-color: var(--russet);
 }
 
 button:disabled {
-  opacity: 0.6;
   cursor: default;
+  opacity: 0.6;
 }
 
 #c_inputDiv {
@@ -50,8 +54,10 @@ button:disabled {
   padding: 4px;
   border: 1px solid var(--tan);
   border-radius: 4px;
-  background-color: #1e2326;
+
   color: #d3c6aa;
+
+  background-color: #1e2326;
 }
 
 .c-input:focus {
@@ -64,6 +70,7 @@ button:disabled {
   padding: 10px;
   border: 1px dashed var(--tan);
   border-radius: 4px;
+
   list-style: none;
 }
 
@@ -83,14 +90,14 @@ button:disabled {
 
 .c-timestamp {
   float: right;
-  opacity: 0.6;
   color: #d3c6aa;
+  opacity: 0.6;
 }
 
 .c-text {
   margin-top: 10px;
-  text-align: justify;
   color: #d3c6aa;
+  text-align: justify;
 }
 
 .c-replyButton {
