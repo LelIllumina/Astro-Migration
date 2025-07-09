@@ -5,11 +5,20 @@ const { posts } = Astro.props as {
   posts: Array<{
     id: string;
     data: {
-      thumb: {    src: string;
-    width: number;
-    height: number;
-    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-};
+      thumb: {
+        src: string;
+        width: number;
+        height: number;
+        format:
+          | "png"
+          | "jpg"
+          | "jpeg"
+          | "tiff"
+          | "webp"
+          | "gif"
+          | "svg"
+          | "avif";
+      };
       description: string;
       date: string;
       title: string;
@@ -25,7 +34,7 @@ const { posts } = Astro.props as {
     posts.map((post) => (
       <li>
         <a
-          href={`/blogs/${post.id}`}
+          href={`./${post.id}`}
           data-astro-prefetch
           class={post.data.draft ? "draft" : ""}
         >
@@ -40,7 +49,9 @@ const { posts } = Astro.props as {
                   day: "numeric",
                 })}
               </time>
-              <h2>{post.data.title} {post.data.draft ? "(WIP)" : ""}</h2>
+              <h2>
+                {post.data.title} {post.data.draft ? "(WIP)" : ""}
+              </h2>
               <p>{post.data.description}</p>
               <p id="tags">{post.data.tags.join(", ")}</p>
             </figcaption>
@@ -121,6 +132,5 @@ const { posts } = Astro.props as {
 
   .draft {
     opacity: 0.5;
-    
   }
 </style>

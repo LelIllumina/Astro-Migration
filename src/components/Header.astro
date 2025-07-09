@@ -5,14 +5,21 @@ const currentUrl = Astro.url.pathname;
 <header>
   <nav>
     <a href="/" aria-current={currentUrl === "/" ? "page" : undefined}>Main</a>
-    <a href="/about" aria-current={currentUrl === "/about" ? "page" : undefined}
-      >About</a
+    <a
+      href="/about/"
+      aria-current={currentUrl === "/about/" ? "page" : undefined}>About</a
     >
-    <a href="/music" aria-current={currentUrl === "/music" ? "page" : undefined}
-      >Music</a
+    <a
+      href="/music/"
+      aria-current={currentUrl === "/music/" ? "page" : undefined}>Music</a
     >
-    <a href="/blogs" aria-current={currentUrl === "/blogs" ? "page" : undefined}
-      >Blogs</a
+    <a
+      href="/blogs/"
+      aria-current={currentUrl === "/blogs/" ? "page" : undefined}>Blogs</a
+    >
+    <a
+      href="/guides/"
+      aria-current={currentUrl === "/guides/" ? "page" : undefined}>Guides</a
     >
     <a
       href="/eroWeb"
