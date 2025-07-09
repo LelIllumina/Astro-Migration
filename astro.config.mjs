@@ -11,7 +11,7 @@ import Icons from "unplugin-icons/vite";
 import checker from "vite-plugin-checker";
 
 // Remark/Rehype
-// @ts-ignore
+// @ts-expect-error no declaaratoin file
 import rehypeFigure from "@microflash/rehype-figure";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import emoji from "remark-emoji";
@@ -55,8 +55,8 @@ export default defineConfig({
       Icons({ compiler: "astro" }),
       checker({
         typescript: true,
-        biome: {
-          command: "check",
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{js,ts,astro}"',
         },
         stylelint: {
           lintCommand: "stylelint ./src/**/*.{css,astro}",

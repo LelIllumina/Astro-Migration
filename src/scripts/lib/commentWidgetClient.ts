@@ -1,11 +1,15 @@
-import { loadComments, postComment, type CommentData } from "./commentWidget.ts";
+import {
+  loadComments,
+  postComment,
+  type CommentData,
+} from "./commentWidget.ts";
 
 const root = document.getElementById("comments-root");
 const currentPath = window.location.pathname;
 
 function buildTree(comments: CommentData[]) {
-  const map = new Map<string, any>();
-  const roots: any[] = [];
+  const map = new Map<string, CommentData>();
+  const roots: CommentData[] = [];
 
   comments.forEach((c) => {
     c.replies = [];
@@ -14,7 +18,7 @@ function buildTree(comments: CommentData[]) {
 
   comments.forEach((c) => {
     if (c.parentId && map.has(c.parentId)) {
-      map.get(c.parentId).replies.push(c);
+      map.get(c.parentId)!.replies.push(c);
     } else {
       roots.push(c);
     }
@@ -103,7 +107,7 @@ function bindEvents() {
     const text = (
       document.getElementById("comment-text") as HTMLTextAreaElement
     ).value;
-await postComment(username, text, currentPath, undefined, website);
+    await postComment(username, text, currentPath, undefined, website);
     await loadAndRender();
   });
 

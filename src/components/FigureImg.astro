@@ -1,15 +1,15 @@
 ---
-const { href, ...imgProps } = Astro.props;
+const { href, alt, ...imgProps } = Astro.props;
 ---
 
 <figure>
   {
     href ? (
       <a href={href}>
-        <img {...imgProps} />
+        <img {alt} {...imgProps} />
       </a>
     ) : (
-      <img {...imgProps} />
+      <img {alt} {...imgProps} />
     )
   }
   <figcaption>{imgProps.alt}</figcaption>

@@ -19,7 +19,6 @@ export interface CommentData {
   replies: CommentData[];
 }
 
-
 export async function postComment(
   username: string,
   content: string,
@@ -29,7 +28,14 @@ export async function postComment(
 ) {
   if (!username.trim() || !content.trim()) throw new Error("Invalid input");
 
-  const data: Record<string, any> = {
+  const data: {
+    username: string;
+    content: string;
+    slug: string;
+    createdAt: ReturnType<typeof serverTimestamp>;
+    replyTo?: string;
+    website?: string;
+  } = {
     username,
     content,
     slug,

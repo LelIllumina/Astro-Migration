@@ -80,10 +80,11 @@ async function handleMessage(event: MessageEvent) {
 
   // Update average color of cover image
   const fac = new FastAverageColor();
-  coverImgUrl &&
+  if (coverImgUrl) {
     fac.getColorAsync(coverImgUrl, { algorithm: "simple" }).then((color) => {
       coverImgEl.style.filter = `drop-shadow(0 0 10px var(--night)) drop-shadow(0 0 40px ${color.rgba})`;
     });
+  }
   // Update track details in DOM
   trackNameEl.textContent = track.name;
   artistNameEl.textContent = `by ${track.artist.name}`;
