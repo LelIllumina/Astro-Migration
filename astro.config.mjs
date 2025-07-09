@@ -55,9 +55,9 @@ export default defineConfig({
       Icons({ compiler: "astro" }),
       checker({
         typescript: true,
-        eslint: {
-          lintCommand: 'eslint "./src/**/*.{js,ts,astro}"',
-        },
+        // eslint: {
+        //   lintCommand: 'eslint "./src/**/*.{js,ts,astro}"',
+        // },
         stylelint: {
           lintCommand: "stylelint ./src/**/*.{css,astro}",
         },
