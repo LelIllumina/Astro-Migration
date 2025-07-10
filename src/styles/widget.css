@@ -8,7 +8,9 @@
   color: var(--gray-200);
 }
 
-button, input[type="submit"], .c-submitButton {
+button,
+input[type="submit"],
+.c-submitButton {
   cursor: pointer;
 
   padding: 6px 16px;
@@ -22,7 +24,8 @@ button, input[type="submit"], .c-submitButton {
   background: transparent;
 }
 
-button:hover, .c-submitButton:hover {
+button:hover,
+.c-submitButton:hover {
   color: white;
   background-color: var(--russet);
 }
@@ -65,7 +68,8 @@ button:disabled {
   outline: none;
 }
 
-.c-comment, .c-reply {
+.c-comment,
+.c-reply {
   margin: 10px 0;
   padding: 10px;
   border: 1px dashed var(--tan);

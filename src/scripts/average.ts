@@ -24,6 +24,6 @@ function applyAverageColor() {
 applyAverageColor();
 
 // if you're using View Transitions API
-document.addEventListener('astro:after-swap', () => {
+document.addEventListener("astro:after-swap", () => {
   applyAverageColor();
 });

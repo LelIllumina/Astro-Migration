@@ -3,6 +3,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
 import eslintPluginAstro from "eslint-plugin-astro";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 export default defineConfig([
   // JavaScript base
@@ -26,4 +27,6 @@ export default defineConfig([
       "astro/jsx-a11y/no-distracting-elements": 0,
     },
   },
+
+  eslintConfigPrettier,
 ]);
