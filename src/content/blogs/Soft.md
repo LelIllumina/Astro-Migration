@@ -2,7 +2,7 @@
 title: Soft. But not kind.
 description: Shes cool but not kind. yet...
 date: 2025-07-10
-thumb: 
+thumb: 95098354_p6.png
 tags:
   - Blog
   - Me
