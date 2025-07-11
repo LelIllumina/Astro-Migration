@@ -18,7 +18,6 @@
     "@astrojs/sitemap": "^3.4.1",
     "@microflash/rehype-figure": "^2.1.4",
     "astro": "^5.11.0",
-    "astro-critical-css": "^0.0.7",
     "fast-average-color": "^9.5.0",
     "firebase": "^11.10.0",
     "rehype-autolink-headings": "^7.1.0",
