@@ -39,8 +39,11 @@ const { posts } = Astro.props as {
           class={post.data.draft ? "draft" : ""}
         >
           <figure>
-            <Image src={post.data.thumb} alt="" />
-            {/* <Image src={getThumb(post.data.thumb) || ""} alt={post.data.description}  /> */}
+            <Image
+              src={post.data.thumb}
+              alt={post.data.description}
+              width={400}
+            />
             <figcaption>
               <time datetime={new Date(post.data.date).toISOString()}>
                 {new Date(post.data.date).toLocaleDateString("en-US", {

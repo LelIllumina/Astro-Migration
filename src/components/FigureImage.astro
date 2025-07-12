@@ -5,11 +5,14 @@ import { Image } from "astro:assets";
 
 interface Props extends HTMLAttributes<"img"> {
   src: string;
-  alt: string;
+  alt?: string;
   height?: number;
   width?: number;
   href?: string;
   style?: string;
+  position?: string;
+  format?: string;
+  fit?: string;
 }
 
 function getAltBySrc() {
