@@ -5,6 +5,8 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
+import pageInsight from "astro-page-insight";
+import metaTags from "astro-meta-tags";
 
 // Vite plugins
 import Icons from "unplugin-icons/vite";
@@ -16,10 +18,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import emoji from "remark-emoji";
 import remarkToc from "remark-toc";
 import { remarkAlert } from "remark-github-blockquote-alert";
-
-import pageInsight from "astro-page-insight";
-
-import metaTags from "astro-meta-tags";
 
 export default defineConfig({
   prefetch: {
@@ -43,14 +41,10 @@ export default defineConfig({
       minify: "esbuild",
       cssCodeSplit: true,
       assetsInlineLimit: 0,
-    },
-
-    optimizeDeps: {
-      include: [],
+      sourcemap: true,
     },
     esbuild: {
       treeShaking: true,
-      // drop: ["console", "debugger"],
     },
     plugins: [Icons({ compiler: "astro" })],
   },

@@ -19,13 +19,15 @@ const {
 } = Astro.props;
 ---
 
-<Head
-  title={title}
-  description={description}
-  keywords={keywords}
-  image={image}
-  accent={accent}
-/>
-<body>
-  <slot />
-</body>
+<html lang="en">
+  <Head
+    title={title}
+    description={description}
+    keywords={keywords}
+    image={image}
+    accent={accent}
+  />
+  <body>
+    <slot />
+  </body>
+</html>
