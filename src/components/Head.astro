@@ -28,8 +28,12 @@ const isDev = import.meta.env.DEV;
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <script src="/src/scripts/console.ts"></script>
+  <script src="/src/scripts/average.ts"></script>
+
   <meta name="author" content="Lel Illumina" />
   <link
     rel="icon"
@@ -47,7 +51,6 @@ const isDev = import.meta.env.DEV;
   <meta name="apple-mobile-web-app-title" content="Lel@Nekoweb" />
   <link rel="manifest" href="/icons/site.webmanifest" />
 
-  <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content={keywordsString} />
   <meta name="theme-color" content={accent} />
@@ -82,9 +85,6 @@ const isDev = import.meta.env.DEV;
       />
     )
   }
-
-  <script src="/src/scripts/console.ts"></script>
-  <script src="/src/scripts/average.ts"></script>
 
   <meta
     name="google-site-verification"
