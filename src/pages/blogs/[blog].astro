@@ -30,6 +30,11 @@ const {
 ---
 
 <Base {title} {description} image={thumb?.src ?? ""} keywords={keywords}>
+  <Fragment slot="head">
+  <meta property="og:type" content="website" />
+  <meta property="og:article:published_time" content={date.toISOString()} />
+  <meta property="og:article:tag" content={Array.isArray(keywords) && keywords.length? keywords.join(", "): "Nekoweb, Lel, Blog, Personal"} />
+  </Fragment>
   <Header />
   <main>
     <article>

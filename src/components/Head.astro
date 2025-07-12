@@ -31,6 +31,21 @@ const isDev = import.meta.env.DEV;
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Lel Illumina" />
+  <link
+    rel="icon"
+    type="image/png"
+    href="/icons/favicon-96x96.png"
+    sizes="96x96"
+  />
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+  <link rel="shortcut icon" href="/icons/favicon.ico" />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/icons/apple-touch-icon.png"
+  />
+  <meta name="apple-mobile-web-app-title" content="Lel@Nekoweb" />
+  <link rel="manifest" href="/icons/site.webmanifest" />
 
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -41,7 +56,6 @@ const isDev = import.meta.env.DEV;
   <meta property="og:image" content={new URL(image, Astro.url)} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:site_name" content="Lel@Nekoweb" />
   <!-- Twitter stuff -->
@@ -49,7 +63,6 @@ const isDev = import.meta.env.DEV;
   <meta name="twitter:site" content="@Lel_Illumina" />
   <meta name="twitter:creator" content="@Lel_Illumina" />
 
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="canonical" href={canonicalUrl} />
   <link
@@ -80,5 +93,5 @@ const isDev = import.meta.env.DEV;
 
   <ClientRouter />
 
-  <slot name="head" />
+  <slot />
 </head>
