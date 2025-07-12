@@ -45,62 +45,59 @@ const { title, subtitle, images } = Astro.props;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
+
   figure:hover figcaption {
     opacity: 1;
   }
+
   img {
     transform: translateZ(0);
-
     width: 128px;
     height: 128px;
     border-radius: 4px;
-
     object-fit: cover;
   }
 </style>
 <style>
   #grid {
     display: grid;
-    grid-template-areas:
-      ". . ."
-      "title title title"
-      ". . ."
-      ". . .";
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-
+    grid-template:
+      ". . ." 1fr "title title title" 1fr ". . ." 1fr ". . ." 1fr / 1fr 1fr 1fr;
     width: 750px;
     height: 80vh;
-    margin: 7.5vh auto 0 auto;
-
+    margin: 7.5vh auto 0;
     color: var(--gray-400);
   }
+
   #title {
     grid-area: title;
     padding: 0 10%;
   }
+
   #title h2,
   #title h1 {
     display: block;
-
     margin: 0;
     padding: 0;
-
-    font-family: "Blaster", sans-serif;
+    font-family: Blaster, sans-serif;
     font-weight: 900;
   }
+
   #title h2 {
     font-size: 2em;
   }
+
   #title h1 {
     font-size: 4em;
     text-align: left;
   }
+
   #contents {
     width: 150px;
     height: 150px;
     margin: 2.5em auto;
   }
+
   #contents p {
     font-size: 20px;
   }

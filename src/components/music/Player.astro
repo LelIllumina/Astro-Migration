@@ -52,148 +52,153 @@ import album from "src/content/music/siren.json";
 <style>
   #container {
     display: flex;
+
     /* justify-content: center; */
     align-items: center;
     filter: drop-shadow(0 0 10px var(--night))
-      drop-shadow(0 0px 40px var(--van-dyke));
+      drop-shadow(0 0 40px var(--van-dyke));
     transition: 1s;
   }
+
   .player {
     display: flex;
     flex-direction: column;
-
     box-sizing: border-box;
     width: 300px;
     height: 650px;
     padding: 2em;
     border-radius: 2em 0 0 2em;
-
     background: var(--raisin-black);
   }
+
   .title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
     margin-bottom: 2em;
-
     font-size: 0.75em;
   }
+
   .album-cover {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
   }
+
   .album-cover img {
     width: 100%;
     border-radius: 15px;
   }
+
   .album-cover #song-title {
     margin-bottom: 0;
     padding-bottom: 0;
     color: var(--gray-500);
     text-align: center;
   }
+
   .album-cover #artist-title {
     margin: 0;
     padding: 1em 0;
-
     font-size: 0.85em;
     color: var(--gray-400);
     text-align: center;
   }
+
   .track {
     height: 10px;
     margin-top: 1em;
+
     input {
       width: 100%;
     }
   }
+
   .track div {
     width: 42%;
     height: 100%;
     border-radius: 15px;
-
     opacity: 0.75;
     background: var(--grey-500);
   }
+
   .buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 1em 0;
   }
+
   .lyrics {
     display: flex;
     flex-direction: column;
-
     margin-top: 2em;
-
     font-size: 0.75em;
     color: #7e8a98;
     text-align: center;
   }
+
   .neu {
     border: 0;
+
     /* filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0px 40px var(--van-dyke)); */
     background: var(--raisin-black);
   }
+
   .btn {
     cursor: pointer;
-
     padding: 20px;
     border-radius: 10px;
-
     color: var(--gray-400);
-
     filter: drop-shadow(0 0 10px var(--night))
-      drop-shadow(0 0px 40px var(--van-dyke));
+      drop-shadow(0 0 40px var(--van-dyke));
     outline: none;
   }
+
   .btn.lg {
     font-size: 1em;
     line-height: 0;
   }
+
   .btn:active {
     cursor: pointer;
     filter: drop-shadow(0 0 10px var(--night))
-      drop-shadow(0 0px 40px var(--van-dyke));
+      drop-shadow(0 0 40px var(--van-dyke));
   }
 
   #playlist {
     scrollbar-color: transparent;
-
     overflow-y: auto;
-
     width: 300px;
     height: 650px;
     padding: 1em;
     border-radius: 0 2em 2em 0;
-
     color: var(--gray-300);
-
     background: var(--night);
+
     ul {
       margin: 0;
       padding: 0;
+
       li {
         cursor: pointer;
-
         padding: 0.5em 0;
-
         font-family: Amplitude;
         line-height: 1;
         list-style: none;
       }
     }
   }
+
   #playlist.hidden {
     display: none;
   }
+
   #playlist li:hover {
     color: var(--gray-100);
   }
+
   .current {
     font-weight: bold;
     color: var(--red-100);
@@ -201,12 +206,9 @@ import album from "src/content/music/siren.json";
 
   #seek-bar {
     cursor: pointer;
-
     width: 100%;
     height: 4px;
     border-radius: 2px;
-
-    -webkit-appearance: none;
     appearance: none;
     background: #ccc;
   }
@@ -215,17 +217,13 @@ import album from "src/content/music/siren.json";
 
   #seek-bar::-webkit-slider-thumb {
     cursor: pointer;
-
     width: 16px;
     height: 6px;
     margin-top: -1px;
     border: none;
     border-radius: 1px;
-
-    -webkit-appearance: none;
     appearance: none;
     background: var(--red-100);
-
     transition: background 0.2s;
   }
 
@@ -252,14 +250,11 @@ import album from "src/content/music/siren.json";
   /* Firefox */
   #seek-bar::-moz-range-thumb {
     cursor: pointer;
-
     width: 16px;
     height: 6px;
     border: none;
     border-radius: 1px;
-
     background: var(--red-100);
-
     transition: background 0.2s;
   }
 
@@ -269,6 +264,7 @@ import album from "src/content/music/siren.json";
 
   #seek-bar::-moz-range-track {
     height: 4px;
+
     /* background: var(--red-400); */
     border-radius: 2px;
   }

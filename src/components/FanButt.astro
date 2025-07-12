@@ -30,33 +30,29 @@ const { href } = Astro.props;
   a {
     display: block;
     align-content: center;
-
     width: fit-content;
     height: 6rem;
-    margin: 8rem auto 0 auto;
+    margin: 8rem auto 0;
     padding: 0 32px;
     border: 0;
     border-radius: 10% / 100%;
-
-    font-family: "Amplitude";
+    font-family: Amplitude;
     font-size: 2rem;
     font-size-adjust: 0.48;
     line-height: 1.75;
     color: var(--gray-300);
     text-align: center;
     text-decoration: none;
-
     background-image: radial-gradient(
       100% 100% at 100% 0,
       var(--red-400) 0%,
       var(--red-500) 100%
     );
     box-shadow:
-      rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-      rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+      rgb(45 35 66 / 40%) 0 2px 4px,
+      rgb(45 35 66 / 30%) 0 7px 13px -3px,
+      rgb(58 65 111 / 50%) 0 -3px 0 inset;
     mix-blend-mode: hard-light;
-
     transition:
       box-shadow 0.15s,
       transform 0.15s;
@@ -65,16 +61,16 @@ const { href } = Astro.props;
   a:focus {
     box-shadow:
       var(--red-400) 0 0 0 1.5px inset,
-      rgba(45, 35, 66, 0.4) 0 2px 4px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      rgb(45 35 66 / 40%) 0 2px 4px,
+      rgb(45 35 66 / 30%) 0 7px 13px -3px,
       var(--red-400) 0 -3px 0 inset;
   }
 
   a:hover {
     transform: translateY(-2px);
     box-shadow:
-      rgba(45, 35, 66, 0.4) 0 4px 8px,
-      rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+      rgb(45 35 66 / 40%) 0 4px 8px,
+      rgb(45 35 66 / 30%) 0 7px 13px -3px,
       var(--red-400) 0 -3px 0 inset;
   }
 

@@ -37,14 +37,12 @@ import FanButt from "@components/FanButt.astro";
 <style>
   body {
     overflow-x: hidden;
-
     max-width: 100vw;
     min-height: 100vh;
     margin: 0 auto;
     padding: 2% 5%;
-
     background: var(--night) center/cover no-repeat
-      url(/src/assets/images/background.jpg);
+      url("/src/assets/images/background.jpg");
   }
 
   section {
@@ -55,7 +53,6 @@ import FanButt from "@components/FanButt.astro";
     width: 80vw;
     max-width: 50rem;
     margin: 2rem auto;
-
     font-family: Archoblast, fantasy;
     font-size: 10rem;
     font-feature-settings:
@@ -66,22 +63,20 @@ import FanButt from "@components/FanButt.astro";
       "ss02" 1;
     color: var(--tan);
     text-shadow: 2px 2px #adff2f;
-
     mix-blend-mode: color-dodge;
   }
+
   h2 {
-    font-family: "Amplitude", Cochin, Georgia, Times, "Times New Roman", serif;
+    font-family: Amplitude, Cochin, Georgia, Times, "Times New Roman", serif;
     text-align: center;
   }
 
   #subtext p {
     margin: 1vh auto;
-
     font-family: Gunsan, sans-serif;
     font-size: 1.5rem;
     color: var(--gray-400);
     text-align: center;
-
     mix-blend-mode: hard-light;
   }
 </style>

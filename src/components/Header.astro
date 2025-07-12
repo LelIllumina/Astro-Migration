@@ -41,29 +41,24 @@ const currentUrl = Astro.url.pathname;
     opacity: 1;
     transition-delay: 0s;
   }
+
   header:not(:hover) nav {
     transition-delay: 0.2s;
   }
 
   nav {
     transform: translateY(-100px);
-
     display: flex;
     justify-content: space-between;
-
-    margin: 15px auto auto auto;
-
+    margin: 15px auto auto;
     opacity: 0;
-
     transition: 0.5s;
     transition-delay: 0s;
 
     a {
       display: inline-block;
-
       padding: 1em 0;
       padding-bottom: 1px;
-
       font-family: "Lemon Milk", sans-serif;
       font-weight: 500;
       color: var(--gray-100);

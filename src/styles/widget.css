@@ -1,9 +1,9 @@
 #comments-root {
   box-sizing: border-box;
+
   /* max-width: 60%; */
   margin: 0 auto;
   padding: 15px;
-
   font-size: 14px;
   color: var(--gray-200);
 }
@@ -12,15 +12,12 @@ button,
 input[type="submit"],
 .c-submitButton {
   cursor: pointer;
-
   padding: 6px 16px;
   border: 1px dashed var(--tan);
   border-radius: 6px;
-
   font-size: 14px;
   font-weight: 600;
   color: var(--tan);
-
   background: transparent;
 }
 
@@ -57,9 +54,7 @@ button:disabled {
   padding: 4px;
   border: 1px solid var(--tan);
   border-radius: 4px;
-
   color: #d3c6aa;
-
   background-color: #1e2326;
 }
 
@@ -74,7 +69,6 @@ button:disabled {
   padding: 10px;
   border: 1px dashed var(--tan);
   border-radius: 4px;
-
   list-style: none;
 }
 

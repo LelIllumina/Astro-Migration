@@ -82,14 +82,13 @@ const { posts } = Astro.props as {
       display: flex;
       gap: 3rem;
       align-items: flex-start;
-
       margin: 3em 0;
-
       transition: transform 0.1s;
 
       &:hover {
         transform: scale(1.01);
       }
+
       figcaption {
         margin: auto;
       }
@@ -109,13 +108,13 @@ const { posts } = Astro.props as {
 
     h2 {
       margin: 0;
-
       font-size: 2rem;
       font-weight: 500;
       line-height: 1.5;
       color: var(--gray-400);
       text-decoration: underline var(--gray-200) 1px;
       text-wrap: balance;
+
       + p {
         max-width: 400px;
       }
@@ -128,7 +127,6 @@ const { posts } = Astro.props as {
 
   #tags {
     margin-top: 0.5em;
-
     font-size: 1rem;
     font-weight: 300;
     color: var(--gray-400);
