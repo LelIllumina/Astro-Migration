@@ -37,4 +37,4 @@ There is just something about them that sets them apart, even though they fly ar
 
 P.S Im adding this later but I am quite fond of this image of leaf, her wings remind me of fly wings but I still think shes goated.
 
-![leaf](/images/blog/incest/leaf.jpg)
+![leaf](/src/assets/images/blog/incest/leaf.jpg)
