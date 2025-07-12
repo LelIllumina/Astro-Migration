@@ -23,7 +23,7 @@
     color: var(--gray-200);
 
     strong {
-      color: var(--marker);
+      color: var(--yellow-100);
     }
   }
 
@@ -61,36 +61,39 @@
   }
 
   /* links */
-  a {
+
+  a:not([role="button"]) {
+    --bg-h: 2px;
+
+    padding-bottom: 1px;
+
+    color: var(--purple-300);
+    text-decoration: none;
+    text-underline-offset: 0.15em;
+
+    background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
+      bottom / 0 var(--bg-h);
+
+    transition: background-size 350ms;
+
+    &:visited {
+      color: var(--green-200);
+    }
+
+    &[href^="http"]::after {
+      content: url("data:image/svg+xml;utf8,<svg ...>");
+      margin-left: 0.25em;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
     &:where(:hover, :focus-visible) {
       background-position-x: left;
       background-size: 100% var(--bg-h);
     }
 
-    &:not([role="button"]) {
-      --bg-h: 2px;
-
-      padding-bottom: 1px;
-      color: var(--green-300);
-      text-decoration: none;
-      text-underline-offset: 0.15em;
-      background: linear-gradient(0deg, var(--tan), var(--tan)) no-repeat right
-        bottom / 0 var(--bg-h);
-      transition: background-size 350ms;
-
-      &:visited {
-        color: var(--green-200);
-      }
-
-      a[href^="http"]::after {
-        content: url("data:image/svg+xml;utf8,<svg ...>");
-        margin-left: 0.25em;
-      }
-
-      &:focus-visible {
-        outline: var(--tan) 1px solid;
-        outline-offset: 5px;
-      }
+    &:focus-visible {
+      outline: var(--tan) 1px solid;
+      outline-offset: 5px;
     }
   }
 }
