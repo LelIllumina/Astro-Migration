@@ -106,6 +106,27 @@ const {
     max-width: 100%;
   }
 
+
+  figure + figure {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2%;
+    vertical-align: top;
+  }
+
+  /* Also make the first figure in the pair inline-block */
+  figure:has(+ figure) {
+    display: inline-block;
+    width: 48%;
+    margin-right: 2%;
+    vertical-align: top;
+  }
+
+  /* Remove extra margin from last in row */
+  figure + figure:last-child {
+    margin-right: 0;
+}
+
   #contents {
     display: none;
   }
@@ -193,7 +214,17 @@ const {
     font-family: amplitude;
   }
 
-  @keyframes parallax {
+  #draftWarn {
+    color: var(--gray-500);
+  }
+
+  #scrollWarn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 0.1px;
+    color: var(--red-300);
+  }
+    @keyframes parallax {
     0% {
       height: 100vh;
       filter: blur(0px) brightness(1);
@@ -211,16 +242,5 @@ const {
     #scrollWarn {
       display: none;
     }
-  }
-
-  #draftWarn {
-    color: var(--gray-500);
-  }
-
-  #scrollWarn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 0.1px;
-    color: var(--red-300);
   }
 </style>
