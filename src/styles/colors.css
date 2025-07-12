@@ -47,7 +47,14 @@
   /* yellow scale (matching marker) */
   --yellow-100: oklch(99% 0.06 106.45deg / 100%);
   --yellow-200: oklch(97% 0.11 106.02deg / 100%);
-  --yellow-300: oklch(97% 0.1547 108.976deg);
+  --yellow-300: oklch(97% 0.15 108.97deg / 100%);
   --yellow-400: oklch(90% 0.16 101.72deg / 100%);
   --yellow-500: oklch(81% 0.15 100.17deg / 100%);
+
+  /* purple scale */
+  --purple-100: oklch(93% 0.03 300deg / 100%);
+  --purple-200: oklch(85% 0.06 300deg / 100%);
+  --purple-300: oklch(74% 0.09 300deg / 100%);
+  --purple-400: oklch(62% 0.12 300deg / 100%);
+  --purple-500: oklch(48% 0.12 300deg / 100%);
 }
