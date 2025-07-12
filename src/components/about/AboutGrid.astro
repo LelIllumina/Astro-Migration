@@ -61,8 +61,7 @@ const { title, subtitle, images } = Astro.props;
 <style>
   #grid {
     display: grid;
-    grid-template:
-      ". . ." 1fr "title title title" 1fr ". . ." 1fr ". . ." 1fr / 1fr 1fr 1fr;
+    grid-template: ". . ." 1fr "title title title" 1fr ". . ." 1fr ". . ." 1fr / 1fr 1fr 1fr;
     width: 750px;
     height: 80vh;
     margin: 7.5vh auto 0;
@@ -72,6 +71,7 @@ const { title, subtitle, images } = Astro.props;
   #title {
     grid-area: title;
     padding: 0 10%;
+    align-content: center;
   }
 
   #title h2,
