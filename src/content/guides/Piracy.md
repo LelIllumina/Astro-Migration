@@ -127,10 +127,11 @@ Get [Perfect Viewer](https://play.google.com/store/apps/details?id=com.rookiestu
 **If you want to use a Media Server instead:**
 - [Komga](Https://github.com/gotson/komga) 
 - [Kavita](https://github.com/Kareadita/Kavita)
+
 **For desktop manga readers:**
 - [MPV-manga-reader](https://github.com/Dudemanguy/mpv-manga-reader)
 - [Suwayomi](https://github.com/Suwayomi)
-- [HakuNeko](https://github.com/manga-download/hakuneko)—for downloading
+- [HakuNeko](https://github.com/manga-download/hakuneko) — for downloading
 ## Books
 
 WIP
