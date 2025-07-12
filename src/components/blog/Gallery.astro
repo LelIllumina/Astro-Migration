@@ -34,7 +34,7 @@ const { posts } = Astro.props as {
     posts.map((post) => (
       <li>
         <a
-          href={`./${post.id}`}
+          href={`./${post.id}/`}
           data-astro-prefetch
           class={post.data.draft ? "draft" : ""}
         >
