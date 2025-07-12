@@ -1,40 +1,31 @@
 ---
-import { Image } from "astro:assets";
-
-import github from "@assets/images/main/gijinka/github.jpg";
-import discord from "@assets/images/main/gijinka/discord.jpg";
-import twitter from "@assets/images/main/gijinka/twitter.png";
+import FigureImage from "@components/FigureImage.astro";
 ---
 
 <div id="socials">
   <h2>Socials</h2>
   <div id="grid">
-    <figure>
-      <a
-        href="https://github.com/LelIllumina/Astro-Migration/"
-        target="_blank"
-        rel="noopener"
-      >
-        <Image src={github} alt="Github" />
-      </a>
-      <figcaption>Github</figcaption>
-    </figure>
-    <figure>
-      <a
-        href="https://discord.com/channels/@me/1331059585896677378"
-        target="_blank"
-        rel="noopener"
-      >
-        <Image src={discord} alt="Discord" />
-      </a>
-      <figcaption>Discord</figcaption>
-    </figure>
-    <figure>
-      <a href="https://twitter.com/Lel_illumina" target="_blank" rel="noopener">
-        <Image src={twitter} alt="Twitter" />
-      </a>
-      <figcaption>Twitter</figcaption>
-    </figure>
+    <FigureImage
+      src="/src/assets/images/main/gijinka/github.jpg"
+      alt="Github"
+      href="https://github.com/LelIllumina/Astro-Migration/"
+      width={168}
+      height={168}
+    />
+    <FigureImage
+      src="/src/assets/images/main/gijinka/discord.jpg"
+      alt="Discord"
+      href="https://discord.com/channels/@me/1331059585896677378"
+      width={168}
+      height={168}
+    />
+    <FigureImage
+      src="/src/assets/images/main/gijinka/twitter.png"
+      alt="Twitter"
+      href="https://twitter.com/Lel_illumina"
+      width={168}
+      height={168}
+    />
   </div>
 </div>
 
