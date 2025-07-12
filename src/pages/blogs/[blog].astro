@@ -30,19 +30,14 @@ const {
 ---
 
 <Base {title} {description} image={thumb?.src ?? ""} keywords={keywords}>
-  <Fragment slot="head">
-  <meta property="og:type" content="website" />
-  <meta property="og:article:published_time" content={date.toISOString()} />
-  <meta property="og:article:tag" content={Array.isArray(keywords) && keywords.length? keywords.join(", "): "Nekoweb, Lel, Blog, Personal"} />
-  </Fragment>
   <Header />
   <main>
     <article>
       <header>
         <figure>
-          <Image id="bgImg" src={thumb} alt={description} loading="eager" layout="full-width" priority />
+          <Image id="bg-img" src={thumb} alt={description} loading="eager" layout="full-width" priority />
         </figure>
-        <div id="heroText">
+        <div id="hero-text">
           <h1>{title}</h1>
           <p>
             {description}
@@ -72,13 +67,13 @@ const {
             </span>
             {
               draft && (
-                <span id="draftWarn">
+                <span id="draft-warn">
                   <br />
                   (Draft - Not final content)
                 </span>
               )
             }
-            <span id="scrollWarn">
+            <span id="scroll-warn">
               <br />Note: Firefox/Your Browser doesn't natively support
               scroll-timeline. So the background image scrolling won't work as
               expected even with a polyfill
@@ -105,27 +100,6 @@ const {
   header figure img {
     max-width: 100%;
   }
-
-
-  figure + figure {
-    display: inline-block;
-    width: 48%;
-    margin-right: 2%;
-    vertical-align: top;
-  }
-
-  /* Also make the first figure in the pair inline-block */
-  figure:has(+ figure) {
-    display: inline-block;
-    width: 48%;
-    margin-right: 2%;
-    vertical-align: top;
-  }
-
-  /* Remove extra margin from last in row */
-  figure + figure:last-child {
-    margin-right: 0;
-}
 
   #contents {
     display: none;
@@ -155,13 +129,7 @@ const {
       font-size: 1.5rem;
     }
 
-    &:hover,
-    &:focus-within {
-      overflow-y: scroll;
-      width: 250px;
-    }
-
-    li {
+        li {
       overflow: hidden;
       font-size: 1rem;
       line-height: 1.5;
@@ -173,11 +141,18 @@ const {
         padding-left: 15px;
       }
     }
+
+    &:hover,
+    &:focus-within {
+      overflow-y: scroll;
+      width: 250px;
+    }
+
   }
 </style>
 
 <style>
-  #bgImg {
+  #bg-img {
     pointer-events: none;
     position: fixed;
     z-index: -1;
@@ -199,23 +174,12 @@ const {
     margin: calc((100vh - 117px - 400px + 30px) / 2) auto;
   }
 
-  #heroText {
+  #hero-text {
     padding-bottom: 50px;
-    font-family: amplitude;
+    font-family: Amplitude, serif;
   }
 
-  #draftWarn {
-    color: var(--gray-500);
-  }
-
-  #scrollWarn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    line-height: 0.1px;
-    color: var(--red-300);
-  }
-
-    @keyframes parallax {
+  @keyframes parallax {
     0% {
       height: 100vh;
       filter: blur(0) brightness(1);
@@ -232,8 +196,19 @@ const {
   }
 
   @supports (animation-timeline: scroll()) {
-    #scrollWarn {
+    #scroll-warn {
       display: none;
     }
+  }
+
+  #draft-warn {
+    color: var(--gray-500);
+  }
+
+  #scroll-warn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 0.1px;
+    color: var(--red-300);
   }
 </style>

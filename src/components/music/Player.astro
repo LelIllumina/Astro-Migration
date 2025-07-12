@@ -168,7 +168,7 @@ import album from "src/content/music/siren.json";
   }
 
   #playlist {
-    scrollbar-color: transparent;
+    scrollbar-color: var(--red-100);
     overflow-y: auto;
     width: 300px;
     height: 650px;
@@ -184,7 +184,7 @@ import album from "src/content/music/siren.json";
       li {
         cursor: pointer;
         padding: 0.5em 0;
-        font-family: Amplitude;
+        font-family: Amplitude, serif;
         line-height: 1;
         list-style: none;
       }
@@ -237,16 +237,6 @@ import album from "src/content/music/siren.json";
     background: var(--red-400);
   }
 
-  #seek-bar::-webkit-slider-runnable-track {
-    background: linear-gradient(
-      to right,
-      var(--red-100) 0%,
-      var(--red-100) var(--progress),
-      var(--red-400) var(--progress),
-      var(--red-400) 100%
-    );
-  }
-
   /* Firefox */
   #seek-bar::-moz-range-thumb {
     cursor: pointer;
@@ -267,18 +257,6 @@ import album from "src/content/music/siren.json";
 
     /* background: var(--red-400); */
     border-radius: 2px;
-  }
-
-  #seek-bar {
-    --progress: 0%;
-
-    background: linear-gradient(
-      to right,
-      var(--red-100) 0%,
-      var(--red-100) var(--progress),
-      var(--red-400) var(--progress),
-      var(--red-400) 100%
-    );
   }
 </style>
 
