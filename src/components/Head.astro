@@ -37,14 +37,17 @@ const isDev = import.meta.env.DEV;
   <meta name="keywords" content={keywordsString} />
   <meta name="theme-color" content={accent} />
 
-  <!-- OpenGraph Embed shit -->
+  <!-- OpenGraph Embed stuff -->
   <meta property="og:image" content={new URL(image, Astro.url)} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:site_name" content="Lel@Nekoweb" />
+  <!-- Twitter stuff -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Lel_Illumina" />
+  <meta name="twitter:creator" content="@Lel_Illumina" />
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="sitemap" href="/sitemap-index.xml" />
