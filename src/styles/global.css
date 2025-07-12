@@ -1,5 +1,6 @@
 @layer typography, base;
 
+@import url("./reset.css");
 @import url("./colors.css");
 @import url("./fonts.css");
 @import url("./typography.css");
@@ -18,9 +19,11 @@
 @layer base {
   body {
     overflow-x: hidden;
+
     min-height: 100vh;
     margin: 0 auto;
     padding: 2% 5%;
+
     background-color: var(--night);
   }
 
@@ -68,6 +71,7 @@
     height: auto;
     margin: auto;
     border-radius: 10px;
+
     filter: drop-shadow(0 0 10px var(--night))
       drop-shadow(0 0 40px var(--van-dyke));
   }
