@@ -3,21 +3,21 @@ import Header from "@components/Header.astro";
 import Base from "@layouts/Base.astro";
 import FanButt from "@components/FanButt.astro";
 
-import image from "@assets/images/background.jpg";
-import { getImage } from "astro:assets";
-const ogImage = await getImage({
-  src: image,
-  format: "avif",
-  width: 1200,
-  height: 630,
-});
+// import image from "@assets/images/background.jpg";
+// import { getImage } from "astro:assets";
+// const ogImage = await getImage({
+//   src: image,
+//   format: "avif",
+//   width: 1200,
+//   height: 630,
+// });
 ---
 
 <Base
   title="Lel@Nekoweb"
   description="All Nekos are mine."
   keywords={["Nekoweb", "Lel", "Blog", "Personal"]}
-  image={ogImage.src}
+  image="/images/background.jpg"
 >
   <Header />
   <main>
