@@ -12,7 +12,7 @@ import metaTags from "astro-meta-tags";
 import Icons from "unplugin-icons/vite";
 
 // Remark/Rehype
-// @ts-expect-error no declaaratoin file
+// @ts-expect-error no declaration file
 import rehypeFigure from "@microflash/rehype-figure";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import emoji from "remark-emoji";
@@ -20,13 +20,20 @@ import remarkToc from "remark-toc";
 import { remarkAlert } from "remark-github-blockquote-alert";
 
 export default defineConfig({
+  site: "https://lel.nekoweb.org",
+  output: "static",
+  trailingSlash: "always",
+
+  server: { host: true },
+
+  build: {
+    format: "preserve",
+  },
+
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "viewport",
   },
-  site: "https://lel.nekoweb.org",
-  output: "static",
-  server: { host: true },
 
   integrations: [mdx(), sitemap(), partytown(), pageInsight(), metaTags()],
 
@@ -35,18 +42,24 @@ export default defineConfig({
     remarkPlugins: [emoji, remarkToc, [remarkAlert, { legacyTitle: true }]],
     gfm: true,
   },
+
   vite: {
+    css: {
+      transformer: "lightningcss",
+    },
     build: {
       target: "esnext",
       minify: "esbuild",
       cssCodeSplit: true,
       assetsInlineLimit: 0,
       sourcemap: true,
+      cssMinify: "lightningcss",
     },
-    esbuild: {
-      treeShaking: true,
-    },
+    esbuild: {},
     plugins: [Icons({ compiler: "astro" })],
+    server: {
+      host: true,
+    },
   },
 
   experimental: {
