@@ -11,6 +11,6 @@ document.addEventListener("astro:after-swap", () => {
     font-weight: bold;
     `,
 
-    "You can view the proper sourcecode for this site on my GitHub: https://github.com/LelIllumina/Astro-Migration/ and for my old site on https://github.com/LelIllumina/LelIllumina.github.io/"
+    "You can view the proper sourcecode for this site on my GitHub: https://github.com/LelIllumina/Astro-Migration/ and for my old site on https://github.com/LelIllumina/LelIllumina.github.io/",
   );
 });

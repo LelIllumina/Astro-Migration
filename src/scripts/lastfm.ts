@@ -38,12 +38,12 @@ const LASTFM_DEFAULT_IMG =
   "https://lastfm.freetls.fastly.net/i/u/2a96cbd8b46e442fc41c2b86b821562f.png";
 
 const lastFmStatus = document.getElementById(
-  "lastfm-status"
+  "lastfm-status",
 ) as HTMLHeadingElement;
 
 const trackNameEl = document.querySelector("#trackName") as HTMLHeadingElement;
 const artistNameEl = document.querySelector(
-  "#artistName"
+  "#artistName",
 ) as HTMLParagraphElement;
 const coverImgEl = document.querySelector("#trackCover") as HTMLImageElement;
 

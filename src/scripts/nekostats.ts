@@ -1,5 +1,5 @@
 export default async function fetchNekostats(
-  username: string
+  username: string,
 ): Promise<NekostatsResponse> {
   const response = await fetch(`https://nekoweb.org/api/site/info/${username}`);
 
@@ -24,20 +24,17 @@ export interface NekostatsResponse {
 
     const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
     const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
-    (
-      document.getElementById("created") as HTMLParagraphElement
-    ).innerHTML = `<em>Created</em>: <time datetime="${created}">${created}</time>`;
-    (
-      document.getElementById("updated") as HTMLParagraphElement
-    ).innerHTML = `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
+    (document.getElementById("created") as HTMLParagraphElement).innerHTML =
+      `<em>Created</em>: <time datetime="${created}">${created}</time>`;
+    (document.getElementById("updated") as HTMLParagraphElement).innerHTML =
+      `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
     // document.getElementById("visitors").innerHTML =
     //   `<em>Visits</em>: ${json.views}`;
-    (
-      document.getElementById("followers") as HTMLParagraphElement
-    ).innerHTML = `<em>Followers</em>: ${json.followers}`;
+    (document.getElementById("followers") as HTMLParagraphElement).innerHTML =
+      `<em>Followers</em>: ${json.followers}`;
 
     const container = document.getElementById(
-      "views-counter"
+      "views-counter",
     ) as HTMLDivElement;
     const digits = json.views.toString().split(""); // Split the number into individual digits
     container.innerHTML = ""; // Clear previous content
@@ -57,7 +54,7 @@ export interface NekostatsResponse {
     console.error(error);
 
     const container = document.getElementById(
-      "views-counter"
+      "views-counter",
     ) as HTMLDivElement;
     const subtitle = document.getElementById("subtitle") as HTMLDivElement;
 

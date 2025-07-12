@@ -117,7 +117,7 @@ function bindEvents() {
       btn.addEventListener("click", () => {
         const form = btn.nextElementSibling as HTMLElement;
         form.style.display = form.style.display === "none" ? "block" : "none";
-      })
+      }),
     );
 
   document.querySelectorAll<HTMLButtonElement>(".submit-reply").forEach((btn) =>
@@ -132,7 +132,7 @@ function bindEvents() {
         .value;
       await postComment(username, text, currentPath, parentId, website);
       await loadAndRender();
-    })
+    }),
   );
 }
 

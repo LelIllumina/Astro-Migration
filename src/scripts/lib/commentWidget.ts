@@ -24,7 +24,7 @@ export async function postComment(
   content: string,
   slug: string,
   parentId?: string,
-  website?: string
+  website?: string,
 ) {
   if (!username.trim() || !content.trim()) throw new Error("Invalid input");
 
@@ -51,7 +51,7 @@ export async function loadComments(slug: string): Promise<CommentData[]> {
   const q = query(
     collection(db, "comments"),
     where("slug", "==", slug),
-    orderBy("createdAt", "asc")
+    orderBy("createdAt", "asc"),
   );
   const snapshot = await getDocs(q);
   return snapshot.docs.map((doc) => {
