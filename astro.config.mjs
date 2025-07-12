@@ -17,6 +17,10 @@ import emoji from "remark-emoji";
 import remarkToc from "remark-toc";
 import { remarkAlert } from "remark-github-blockquote-alert";
 
+import pageInsight from "astro-page-insight";
+
+import metaTags from "astro-meta-tags";
+
 export default defineConfig({
   prefetch: {
     prefetchAll: true,
@@ -26,7 +30,7 @@ export default defineConfig({
   output: "static",
   server: { host: true },
 
-  integrations: [mdx(), sitemap(), partytown()],
+  integrations: [mdx(), sitemap(), partytown(), pageInsight(), metaTags()],
 
   markdown: {
     rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
