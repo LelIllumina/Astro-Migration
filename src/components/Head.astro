@@ -11,6 +11,13 @@ interface Props {
 
 const { title, description, keywords, image, accent } = Astro.props;
 
+const canonicalUrl = new URL(
+  Astro.url.pathname.endsWith("/")
+    ? Astro.url.pathname
+    : Astro.url.pathname + "/",
+  "https://lel.nekoweb.org"
+).href;
+
 const keywordsString =
   Array.isArray(keywords) && keywords.length
     ? keywords.join(", ")
@@ -41,6 +48,7 @@ const isDev = import.meta.env.DEV;
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="canonical" href={canonicalUrl} />
   <link
     rel="alternate"
     type="application/rss+xml"
