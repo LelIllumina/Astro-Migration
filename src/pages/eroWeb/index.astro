@@ -1,11 +1,8 @@
 ---
 import Base from "@layouts/Base.astro";
 import Header from "@components/Header.astro";
+import FigureImage from "@components/FigureImage.astro";
 import FanButt from "@components/FanButt.astro";
-
-import { Image } from "astro:assets";
-
-import logo from "@assets/images/eroweb/eroWeb.png";
 ---
 
 <Base
@@ -17,15 +14,13 @@ import logo from "@assets/images/eroweb/eroWeb.png";
   <main>
     <article>
       <section id="hero">
-        <figure>
-          <Image src={logo} alt="eroWeb Logo" width={750} />
+        <FigureImage
+          src={"/src/assets/images/eroweb/eroWeb.png"}
+          alt="eroWeb Logo"
+          width={750}
+          href="https://www.pixiv.net/artworks/22647957"
+        />
 
-          <figcaption>
-            Credit to <a href="https://www.pixiv.net/artworks/22647957">
-              original artist</a
-            >
-          </figcaption>
-        </figure>
         <div id="text">
           <h1>eroWeb Discord Server</h1>
           <p>
