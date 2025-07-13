@@ -30,19 +30,22 @@ const { href } = Astro.props;
   a {
     display: block;
     align-content: center;
+
     width: fit-content;
     height: 6rem;
     margin: 2rem auto;
     padding: 0 32px;
-    border: 0;
     border-radius: 10% / 100%;
+
     font-family: Amplitude, serif;
     font-size: 2rem;
+    font-weight: 900;
     font-size-adjust: 0.48;
     line-height: 1.75;
     color: var(--gray-300);
     text-align: center;
     text-decoration: none;
+
     background-image: radial-gradient(
       100% 100% at 100% 0,
       var(--red-400) 0%,
@@ -53,6 +56,7 @@ const { href } = Astro.props;
       rgb(45 35 66 / 30%) 0 7px 13px -3px,
       rgb(58 65 111 / 50%) 0 -3px 0 inset;
     mix-blend-mode: hard-light;
+
     transition:
       box-shadow 0.15s,
       transform 0.15s;

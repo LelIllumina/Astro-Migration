@@ -107,30 +107,39 @@ const {
 
   #contents + ul {
     scrollbar-width: none;
+
     position: fixed;
     top: 0;
     left: 0;
+
     overflow: hidden;
+
     width: 2vw;
     height: 100%;
     padding: 1rem;
     padding-top: 5vh;
     border-radius: 0 20px;
+
     filter: drop-shadow(0 0 5px black);
     backdrop-filter: blur(10px) brightness(0.8);
+
     transition: 400ms;
 
     &::before {
       content: "Contents";
+
       display: block;
+
       padding: 0.5rem 0;
       border-bottom: 1px solid rgb(255 255 255 / 20%);
+
       font-family: "Mica Valo", sans-serif;
       font-size: 1.5rem;
     }
 
         li {
       overflow: hidden;
+
       font-size: 1rem;
       line-height: 1.5;
       text-overflow: ellipsis;
@@ -155,16 +164,21 @@ const {
 <style>
   #bg-img {
     pointer-events: none;
+
     position: fixed;
     z-index: -1;
     top: 0;
     left: 0;
+
     width: 100vw;
     max-width: 100vw;
     height: 400px;
+
     object-fit: cover;
+
     animation: parallax linear forwards;
     animation-timeline: scroll();
+
     animation-range: 0 100vh;
     mask-image: linear-gradient(#000000a6 0%, #0000 100%);
   }

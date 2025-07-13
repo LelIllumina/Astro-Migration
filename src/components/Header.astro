@@ -36,9 +36,12 @@ const currentUrl = Astro.url.pathname;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+
     font-size: 1.2rem;
     color: #ccc;
+
     opacity: 0.7;
+
     transition: 0.5s;
   }
 
@@ -49,17 +52,23 @@ const currentUrl = Astro.url.pathname;
 
   nav {
     transform: translateY(-100px);
+
     display: flex;
     justify-content: space-between;
+
     margin: 15px auto auto;
+
     opacity: 0;
+
     transition: 0.5s;
     transition-delay: 0s;
 
     a {
       display: inline-block;
+
       padding: 1em 0;
       padding-bottom: 1px;
+
       font-family: "Lemon Milk", sans-serif;
       font-weight: 500;
       color: var(--gray-100);
