@@ -1,14 +1,18 @@
 @layer typography {
+  :root {
+    --font-title: "Archoblast", fantasy;
+    --font-serif:
+      "Amplitude", "Cochin", "Georgia", "Times", "Times New Roman", serif;
+    --font-sans:
+      "Computer Says No", "Iosevka Etoile", -apple-system, "BlinkMacSystemFont",
+      "Avenir Next", "Segoe UI", "Roboto", sans-serif;
+    --font-heading: "Mica Valo", sans-serif;
+    --font-accent: "Lemon Milk", sans-serif;
+    --font-special: "Blaster", sans-serif;
+  }
+
   body {
-    font-family:
-      "Computer Says No",
-      "Iosevka Etoile",
-      -apple-system,
-      BlinkMacSystemFont,
-      "Avenir Next",
-      "Segoe UI",
-      Roboto,
-      sans-serif;
+    font-family: var(--font-sans);
 
     /* font-family: "Iosevka Etoile", -apple-system, BlinkMacSystemFont,
       Avenir Next, Segoe UI, Roboto, sans-serif; */
