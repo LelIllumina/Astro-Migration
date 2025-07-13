@@ -5,9 +5,7 @@ import Sidebar from "@components/main/Sidebar.astro";
 import Footer from "@components/main/Footer.astro";
 import Socials from "@components/main/Socials.astro";
 
-import { Image } from "astro:assets";
-
-import me from "@assets/images/main/lel.png";
+import FigureImage from "@components/FigureImage.astro";
 ---
 
 <Base title="Hello My Leltards" description="Moving to astro now" image="">
@@ -22,48 +20,45 @@ import me from "@assets/images/main/lel.png";
       <section>
         <h1>Hello My Leltards</h1>
         <p>Under Construction</p>
-        <figure>
-          <Image
-            src={me}
-            alt="Me IRL"
-            width="500"
-            height="500"
-            loading="eager"
-          />
-          <figcaption>Me IRL</figcaption>
-        </figure>
-        <p>
-          I made this layout on NueJs before, but it kinda sucked, so I decided
-          to make it in Astro. I will be adding more content soon.
-        </p>
-        <Socials />
+        <FigureImage
+          src={"/src/assets/images/main/lel.png"}
+          alt="Me IRL"
+          width={500}
+          height={500}
+          priority={true}
+        />
       </section>
+      <p>
+        I made this layout on NueJs before, but it kinda sucked, so I decided to
+        make it in Astro. I will be adding more content soon.
+      </p>
+      <Socials />
     </article>
   </main>
   <Footer />
-
-  <style>
-    /* Aside Styles */
-    main {
-      display: grid;
-      grid-auto-flow: row;
-      grid-template: 0.5fr 1.5fr / 1fr;
-      grid-template-areas:
-        "aside article"
-        "aside article"
-        "aside article";
-      gap: 0;
-      justify-content: space-between;
-      margin-top: 5vh;
-    }
-
-    article {
-      grid-area: article;
-    }
-
-    marquee img {
-      border-radius: 0;
-      image-rendering: pixelated;
-    }
-  </style>
 </Base>
+
+<style>
+  /* Aside Styles */
+  main {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template: 0.5fr 1.5fr / 1fr;
+    grid-template-areas:
+      "aside article"
+      "aside article"
+      "aside article";
+    gap: 0;
+    justify-content: space-between;
+    margin-top: 5vh;
+  }
+
+  article {
+    grid-area: article;
+  }
+
+  marquee img {
+    border-radius: 0;
+    image-rendering: pixelated;
+  }
+</style>
