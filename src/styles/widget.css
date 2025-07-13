@@ -11,7 +11,7 @@
 
 button,
 input[type="submit"],
-.c-submitButton {
+.c-submit-button {
   cursor: pointer;
 
   padding: 6px 16px;
@@ -26,7 +26,7 @@ input[type="submit"],
 }
 
 button:hover,
-.c-submitButton:hover {
+.c-submit-button:hover {
   color: white;
   background-color: var(--russet);
 }
@@ -36,20 +36,20 @@ button:disabled {
   opacity: 0.6;
 }
 
-#c_inputDiv {
+#c-input-div {
   padding: 10px;
   border: 1px dashed var(--tan);
   border-radius: 5px;
   background-color: var(--raisin-black);
 }
 
-#c_widgetTitle {
+#c-widget-title {
   margin: 0;
   color: var(--tan);
   text-decoration: underline wavy;
 }
 
-.c-inputWrapper {
+.c-input-wrapper {
   margin: 5px 0;
 }
 
@@ -105,6 +105,6 @@ button:disabled {
   text-align: justify;
 }
 
-.c-replyButton {
+.c-reply-button {
   margin-top: 10px;
 }

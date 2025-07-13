@@ -42,20 +42,20 @@ function commentHTML(c: CommentData): string {
     c.createdAt?.toDate?.().toLocaleString?.() ?? ""
   }</span>
   <p class="c-text">${c.content}</p>
-  <button class="c-replyButton c-submitButton">Reply</button>
+  <button class="c-reply-button c-submit-button">Reply</button>
   <div class="reply-form" style="display:none;">
-    <div class="c-inputWrapper">
+    <div class="c-input-wrapper">
       <label class="c-label">Name:</label>
       <input class="c-input reply-username" type="text" maxlength="32" required />
     </div>
-    <div class="c-inputWrapper">
+    <div class="c-input-wrapper">
       <label class="c-label">Website:</label>
       <input class="c-input reply-website" type="url" pattern="https://.*" />
     </div>
-    <div class="c-inputWrapper">
+    <div class="c-input-wrapper">
       <textarea class="c-input reply-text" rows="4" maxlength="500" required></textarea>
     </div>
-    <button class="submit-reply c-submitButton">Send</button>
+    <button class="submit-reply c-submit-button">Send</button>
   </div>
   ${
     c.replies.length
@@ -69,21 +69,21 @@ function renderUI(comments: CommentData[]) {
   const tree = buildTree(comments);
 
   root!.innerHTML = `
-<div id="c_inputDiv">
+<div id="c-input-div">
   <form id="c_form">
-    <h2 id="c_widgetTitle">Leave your comments</h2>
-    <div class="c-inputWrapper">
+    <h2 id="c-widget-title">Leave your comments</h2>
+    <div class="c-input-wrapper">
       <label class="c-label" for="username">Name:</label>
       <input class="c-input" id="username" type="text" maxlength="32" required />
     </div>
-    <div class="c-inputWrapper">
+    <div class="c-input-wrapper">
       <label class="c-label" for="website">Website:</label>
       <input class="c-input" id="website" type="url" pattern="https://.*" />
     </div>
-    <div class="c-inputWrapper">
+    <div class="c-input-wrapper">
       <textarea class="c-input" id="comment-text" rows="4" maxlength="500" required></textarea>
     </div>
-    <button class="c-submitButton" type="submit">Send</button>
+    <button class="c-submit-button" type="submit">Send</button>
   </form>
 </div>
 <div id="c_container">
@@ -112,12 +112,12 @@ function bindEvents() {
   });
 
   document
-    .querySelectorAll<HTMLButtonElement>(".c-replyButton")
+    .querySelectorAll<HTMLButtonElement>(".c-reply-button")
     .forEach((btn) =>
       btn.addEventListener("click", () => {
         const form = btn.nextElementSibling as HTMLElement;
         form.style.display = form.style.display === "none" ? "block" : "none";
-      }),
+      })
     );
 
   document.querySelectorAll<HTMLButtonElement>(".submit-reply").forEach((btn) =>
@@ -132,7 +132,7 @@ function bindEvents() {
         .value;
       await postComment(username, text, currentPath, parentId, website);
       await loadAndRender();
-    }),
+    })
   );
 }
 
