@@ -1,0 +1,598 @@
+---
+import "/src/styles/discord.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Discord Chat Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.12.0/clusterize.min.js"
+    ></script>
+
+    <style>
+      #scroll-area {
+        overflow: auto;
+        height: 90vh;
+      }
+
+      .clusterize-content {
+        padding: 1rem;
+      }
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 200px;
+
+        font-size: 1.2rem;
+        color: #dcddde;
+      }
+
+      .error {
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+
+        color: #f04747;
+
+        background-color: rgb(240 71 71 / 10%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preamble will be populated from JSON -->
+    <div class="preamble">
+      <div class="preamble__guild-icon-container">
+        <img
+          id="guild-icon"
+          class="preamble__guild-icon"
+          alt="Guild icon"
+          loading="lazy"
+        />
+      </div>
+      <div class="preamble__entries-container">
+        <div id="guild-name" class="preamble__entry"></div>
+        <div id="channel-name" class="preamble__entry"></div>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div id="loading" class="loading">Loading messages...</div>
+
+    <!-- Error state -->
+    <div id="error" class="error" style="display: none"></div>
+
+    <!-- Scrolling area for virtual messages -->
+    <div id="scroll-area" style="display: none">
+      <div id="content-area" class="clusterize-content">
+        <!-- Content will be dynamically injected -->
+      </div>
+    </div>
+
+    <div class="postamble">
+      <div id="message-count" class="postamble__entry"></div>
+      <div id="export-info" class="postamble__entry"></div>
+    </div>
+
+    <script>
+      // Type definitions
+      interface Root {
+        guild: Guild;
+        channel: Channel;
+        dateRange: DateRange;
+        exportedAt: string;
+        messages: Message[];
+        messageCount: number;
+      }
+
+      interface Guild {
+        id: string;
+        name: string;
+        iconUrl: string;
+      }
+
+      interface Channel {
+        id: string;
+        type: string;
+        categoryId: string | null;
+        category: string | null;
+        name: string;
+        topic: string | null;
+      }
+
+      interface DateRange {
+        after: string | null;
+        before: string | null;
+      }
+
+      interface Message {
+        id: string;
+        type: string;
+        timestamp: string;
+        timestampEdited?: string;
+        callEndedTimestamp?: string;
+        isPinned: boolean;
+        content: string;
+        author: Author;
+        attachments: Attachment[];
+        embeds: Embed[];
+        stickers: Sticker[];
+        reactions: Reaction[];
+        mentions: Mention[];
+        inlineEmojis: InlineEmoji[];
+        reference?: Reference;
+        interaction?: Interaction;
+      }
+
+      interface Author {
+        id: string;
+        name: string;
+        discriminator: string;
+        nickname: string;
+        color: string | null;
+        isBot: boolean;
+        roles: Role[];
+        avatarUrl: string;
+      }
+
+      interface Role {
+        id: string;
+        name: string;
+        color: string | null;
+        position: number;
+      }
+
+      interface Attachment {
+        id: string;
+        url: string;
+        fileName: string;
+        fileSizeBytes: number;
+      }
+
+      interface Embed {
+        title?: string;
+        url?: string;
+        timestamp?: string;
+        description?: string;
+        thumbnail?: Thumbnail;
+        images?: Image[];
+        fields?: Field[];
+        inlineEmojis?: InlineEmoji[];
+        video?: Video;
+        color?: string;
+        image?: Image;
+        footer?: Footer;
+        author?: EmbedAuthor;
+      }
+
+      interface Thumbnail {
+        url: string;
+        width: number;
+        height: number;
+      }
+
+      interface Image {
+        url: string;
+        width: number;
+        height: number;
+      }
+
+      interface Field {
+        name: string;
+        value: string;
+        isInline: boolean;
+      }
+
+      interface InlineEmoji {
+        id: string;
+        name: string;
+        code: string;
+        isAnimated: boolean;
+        imageUrl: string;
+      }
+
+      interface Video {
+        url: string;
+        width: number;
+        height: number;
+      }
+
+      interface Footer {
+        text: string;
+        iconUrl?: string;
+      }
+
+      interface EmbedAuthor {
+        name: string;
+        url?: string;
+        iconUrl?: string;
+      }
+
+      interface Sticker {
+        id: string;
+        name: string;
+        format: string;
+        sourceUrl: string;
+      }
+
+      interface Reaction {
+        emoji: Emoji;
+        count: number;
+        users: User[];
+      }
+
+      interface Emoji {
+        id: string;
+        name: string;
+        code: string;
+        isAnimated: boolean;
+        imageUrl: string;
+      }
+
+      interface User {
+        id: string;
+        name: string;
+        discriminator: string;
+        nickname: string;
+        color: string | null;
+        isBot: boolean;
+        avatarUrl: string;
+      }
+
+      interface Mention {
+        id: string;
+        name: string;
+        discriminator: string;
+        nickname: string;
+        color: string | null;
+        isBot: boolean;
+        roles: Role[];
+        avatarUrl: string;
+      }
+
+      interface Reference {
+        messageId: string;
+        channelId: string;
+        guildId?: string;
+      }
+
+      interface Interaction {
+        id: string;
+        name: string;
+        user: User;
+      }
+
+      // Clusterize type definition
+      declare class Clusterize {
+        constructor(options: {
+          rows: string[];
+          scrollId: string;
+          contentId: string;
+        });
+      }
+
+      let chatData: Root | null = null;
+
+      // Utility functions
+      function formatTimestamp(timestamp: string): string {
+        return new Date(timestamp).toLocaleString();
+      }
+
+      function formatAuthorName(author: Author): string {
+        let name = author.name;
+        if (author.discriminator && author.discriminator !== "0") {
+          name += `#${author.discriminator}`;
+        }
+        return author.nickname || name;
+      }
+
+      function formatContent(content: string): string {
+        if (!content) return "";
+
+        // Basic markdown processing - you might want to expand this
+        return content
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/\*(.*?)\*/g, "<em>$1</em>")
+          .replace(/~~(.*?)~~/g, "<del>$1</del>")
+          .replace(
+            /`([^`]+)`/g,
+            '<code class="chatlog__markdown-pre chatlog__markdown-pre--inline">$1</code>'
+          )
+          .replace(
+            /```([^`]+)```/g,
+            '<pre class="chatlog__markdown-pre chatlog__markdown-pre--multiline">$1</pre>'
+          );
+      }
+
+      function renderAttachments(attachments: Attachment[]): string {
+        if (!attachments || attachments.length === 0) return "";
+
+        return attachments
+          .map((attachment) => {
+            const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(
+              attachment.fileName
+            );
+            const isVideo = /\.(mp4|webm|mov)$/i.test(attachment.fileName);
+
+            if (isImage) {
+              return `
+                <div class="chatlog__attachment">
+                  <img class="chatlog__attachment-media" src="${attachment.url}" alt="${attachment.fileName}" loading="lazy" />
+                </div>
+              `;
+            } else if (isVideo) {
+              return `
+                <div class="chatlog__attachment">
+                  <video class="chatlog__attachment-media" controls>
+                    <source src="${attachment.url}" />
+                  </video>
+                </div>
+              `;
+            } else {
+              return `
+                <div class="chatlog__attachment">
+                  <div class="chatlog__attachment-generic">
+                    <div class="chatlog__attachment-generic-icon">📎</div>
+                    <div class="chatlog__attachment-generic-name">${attachment.fileName}</div>
+                    <div class="chatlog__attachment-generic-size">${(attachment.fileSizeBytes / 1024 / 1024).toFixed(2)} MB</div>
+                  </div>
+                </div>
+              `;
+            }
+          })
+          .join("");
+      }
+
+      function renderEmbeds(embeds: Embed[]): string {
+        if (!embeds || embeds.length === 0) return "";
+
+        return embeds
+          .map((embed) => {
+            const colorStyle = embed.color
+              ? `background-color: ${embed.color};`
+              : "background-color: #202225;";
+
+            return `
+              <div class="chatlog__embed">
+                <div class="chatlog__embed-color-pill" style="${colorStyle}"></div>
+                <div class="chatlog__embed-content-container">
+                  <div class="chatlog__embed-content">
+                    <div class="chatlog__embed-text">
+                      ${
+                        embed.author
+                          ? `
+                        <div class="chatlog__embed-author-container">
+                          ${embed.author.iconUrl ? `<img class="chatlog__embed-author-icon" src="${embed.author.iconUrl}" alt="" />` : ""}
+                          <div class="chatlog__embed-author">${embed.author.name}</div>
+                        </div>
+                      `
+                          : ""
+                      }
+                      ${embed.title ? `<div class="chatlog__embed-title">${embed.title}</div>` : ""}
+                      ${embed.description ? `<div class="chatlog__embed-description">${embed.description}</div>` : ""}
+                      ${
+                        embed.fields && embed.fields.length > 0
+                          ? `
+                        <div class="chatlog__embed-fields">
+                          ${embed.fields
+                            .map(
+                              (field) => `
+                            <div class="chatlog__embed-field ${field.isInline ? "chatlog__embed-field--inline" : ""}">
+                              <div class="chatlog__embed-field-name">${field.name}</div>
+                              <div class="chatlog__embed-field-value">${field.value}</div>
+                            </div>
+                          `
+                            )
+                            .join("")}
+                        </div>
+                      `
+                          : ""
+                      }
+                      ${
+                        embed.footer
+                          ? `
+                        <div class="chatlog__embed-footer">
+                          ${embed.footer.iconUrl ? `<img class="chatlog__embed-footer-icon" src="${embed.footer.iconUrl}" alt="" />` : ""}
+                          <span class="chatlog__embed-footer-text">${embed.footer.text}</span>
+                        </div>
+                      `
+                          : ""
+                      }
+                    </div>
+                    ${embed.thumbnail ? `<img class="chatlog__embed-thumbnail" src="${embed.thumbnail.url}" alt="" />` : ""}
+                  </div>
+                  ${embed.image ? `<img class="chatlog__embed-image" src="${embed.image.url}" alt="" />` : ""}
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderReactions(reactions: Reaction[]): string {
+        if (!reactions || reactions.length === 0) return "";
+
+        return `
+            <div class="chatlog__reactions">
+              ${reactions
+                .map(
+                  (reaction) => `
+                <div class="chatlog__reaction">
+                  ${
+                    reaction.emoji.imageUrl
+                      ? `<img class="chatlog__emoji" src="${reaction.emoji.imageUrl}" alt="${reaction.emoji.name}" />`
+                      : reaction.emoji.name
+                  }
+                  <div class="chatlog__reaction-count">${reaction.count}</div>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          `;
+      }
+
+      function renderReference(
+        reference: Reference | undefined,
+        messages: Message[]
+      ): string {
+        if (!reference) return "";
+
+        const referencedMessage = messages.find(
+          (msg) => msg.id === reference.messageId
+        );
+        if (!referencedMessage) return "";
+
+        return `
+            <div class="chatlog__reply-symbol"></div>
+            <div class="chatlog__reply">
+              <img class="chatlog__reply-avatar" src="${referencedMessage.author.avatarUrl}" alt="" />
+              <div class="chatlog__reply-author">${formatAuthorName(referencedMessage.author)}</div>
+              <div class="chatlog__reply-content">${referencedMessage.content.substring(0, 50)}${referencedMessage.content.length > 50 ? "..." : ""}</div>
+            </div>
+          `;
+      }
+
+      function renderMessage(message: Message, messages: Message[]): string {
+        const authorColor = message.author.color
+          ? `color: ${message.author.color};`
+          : "";
+        const isPinned = message.isPinned
+          ? "chatlog__message-container--pinned"
+          : "";
+
+        return `
+            <div class="chatlog__message-group">
+              <div class="chatlog__message-container ${isPinned}" id="chatlog__message-container-${message.id}">
+                ${renderReference(message.reference, messages)}
+                <div class="chatlog__message">
+                  <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="${message.author.avatarUrl}" alt="Avatar" loading="lazy">
+                    <div class="chatlog__short-timestamp">${formatTimestamp(message.timestamp)}</div>
+                  </div>
+                  <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                      <span class="chatlog__author" style="${authorColor}">${formatAuthorName(message.author)}</span>
+                      ${message.author.isBot ? '<span class="chatlog__author-tag">BOT</span>' : ""}
+                      <span class="chatlog__timestamp">
+                        <a href="#chatlog__message-container-${message.id}">${formatTimestamp(message.timestamp)}</a>
+                      </span>
+                      ${message.timestampEdited ? `<span class="chatlog__edited-timestamp">(edited)</span>` : ""}
+                    </div>
+                    <div class="chatlog__content chatlog__markdown">
+                      <span class="chatlog__markdown-preserve">${formatContent(message.content)}</span>
+                    </div>
+                    ${renderAttachments(message.attachments)}
+                    ${renderEmbeds(message.embeds)}
+                    ${renderReactions(message.reactions)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+      }
+
+      // Load and process JSON data
+      async function loadChatData(): Promise<void> {
+        try {
+          const response = await fetch("./chat.json");
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          chatData = await response.json();
+
+          // Null check for chatData
+          if (!chatData) {
+            throw new Error("Failed to load chat data");
+          }
+
+          // Update preamble with proper type assertions
+          const guildIcon = document.getElementById(
+            "guild-icon"
+          ) as HTMLImageElement | null;
+          const guildName = document.getElementById(
+            "guild-name"
+          ) as HTMLElement | null;
+          const channelName = document.getElementById(
+            "channel-name"
+          ) as HTMLElement | null;
+
+          if (guildIcon) {
+            guildIcon.src =
+              chatData.guild.iconUrl ||
+              "https://cdn.discordapp.com/embed/avatars/0.png";
+          }
+          if (guildName) {
+            guildName.textContent = chatData.guild.name || "Direct Messages";
+          }
+          if (channelName) {
+            channelName.textContent =
+              chatData.channel.name || "Unknown Channel";
+          }
+
+          // Update postamble with proper type assertions
+          const messageCount = document.getElementById(
+            "message-count"
+          ) as HTMLElement | null;
+          const exportInfo = document.getElementById(
+            "export-info"
+          ) as HTMLElement | null;
+
+          if (messageCount) {
+            messageCount.textContent = `Exported ${chatData.messageCount} messages`;
+          }
+          if (exportInfo) {
+            exportInfo.textContent = `Exported at: ${formatTimestamp(chatData.exportedAt)}`;
+          }
+
+          // Generate rows for Clusterize
+          const rows = chatData.messages.map((message) =>
+            renderMessage(message, chatData!.messages)
+          );
+
+          // Initialize Clusterize
+          new Clusterize({
+            rows,
+            scrollId: "scroll-area",
+            contentId: "content-area",
+          });
+
+          // Hide loading, show content with proper type assertions
+          const loadingEl = document.getElementById(
+            "loading"
+          ) as HTMLElement | null;
+          const scrollAreaEl = document.getElementById(
+            "scroll-area"
+          ) as HTMLElement | null;
+
+          if (loadingEl) loadingEl.style.display = "none";
+          if (scrollAreaEl) scrollAreaEl.style.display = "block";
+        } catch (error) {
+          console.error("Error loading chat data:", error);
+          const loadingEl = document.getElementById(
+            "loading"
+          ) as HTMLElement | null;
+          const errorEl = document.getElementById(
+            "error"
+          ) as HTMLElement | null;
+
+          if (loadingEl) loadingEl.style.display = "none";
+          if (errorEl) {
+            errorEl.style.display = "block";
+            errorEl.textContent = `Error loading chat data: ${error instanceof Error ? error.message : String(error)}`;
+          }
+        }
+      }
+
+      // Load data when page loads
+      document.addEventListener("DOMContentLoaded", loadChatData);
+    </script>
+  </body>
+</html>
