@@ -25,7 +25,9 @@ export async function GET(context: APIContext) {
       <height>31</height>
       <description>THE site for lel and gooning</description>
     </image>
-    <docs>https://www.rssboard.org/rss-specification</docs>`,
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <copyright>All rights reserved 2025, Lel Illumina</copyright>
+    `,
     items: [
       ...blog.map((post) => ({
         title: post.data.title,
