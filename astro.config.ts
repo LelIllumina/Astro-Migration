@@ -8,6 +8,10 @@ import partytown from "@astrojs/partytown";
 import pageInsight from "astro-page-insight";
 import metaTags from "astro-meta-tags";
 
+// LightningCSS
+// import browserslist from "browserslist";
+// import { browserslistToTargets } from "lightningcss";
+
 // Vite plugins
 import Icons from "unplugin-icons/vite";
 
@@ -44,16 +48,20 @@ export default defineConfig({
   },
 
   vite: {
-    css: {
-      transformer: "lightningcss",
-    },
+    // css: {
+    //   transformer: "lightningcss",
+    //   lightningcss: {
+    //     targets: browserslistToTargets(browserslist(">= 0.25%")),
+    //     sourceMap: true,
+    //   },
+    // },
     build: {
       target: "esnext",
       minify: "esbuild",
       cssCodeSplit: true,
       assetsInlineLimit: 0,
       sourcemap: true,
-      cssMinify: "lightningcss",
+      // cssMinify: "lightningcss",
     },
     esbuild: {},
     plugins: [Icons({ compiler: "astro" })],
