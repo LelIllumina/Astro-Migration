@@ -3,7 +3,8 @@ const currentUrl = Astro.url.pathname;
 
 interface Link {
   label: string;
-  url: string;
+  url?: string;
+  children?: Link[];
 }
 
 const links: Link[] = [
@@ -11,8 +12,24 @@ const links: Link[] = [
   { label: "About", url: "/about/" },
   { label: "Blogs", url: "/blogs/" },
   { label: "Guides", url: "/guides/" },
-  { label: "eroWeb", url: "/eroWeb/" },
-  { label: "Guestbook", url: "https://lel.atabook.org" },
+  {
+    label: "Projects ▼",
+    children: [
+      { label: "eroWeb", url: "/eroWeb/" },
+      {
+        label: "NekoNaut",
+        url: "https://github.com/LelIllumina/Astro-Template/",
+      },
+    ],
+  },
+  {
+    label: "Site ▼",
+    children: [
+      { label: "RSS", url: "/rss.xml" },
+      { label: "Atom", url: "/atom.xml" },
+      { label: "Guestbook", url: "https://lel.atabook.org" },
+    ],
+  },
 ];
 ---
 
@@ -20,15 +37,35 @@ const links: Link[] = [
   <nav>
     {
       links.map((link) => (
-        <a
-          href={link.url}
-          aria-current={currentUrl === link.url ? "page" : undefined}
-        >
-          {link.label}
-        </a>
+        <div class="nav-item">
+          {link.url ? (
+            <a
+              href={link.url}
+              aria-current={currentUrl === link.url ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          ) : (
+            <span class="nav-label">{link.label}</span>
+          )}
+
+          {link.children && (
+            <div class="dropdown">
+              {link.children.map((child) => (
+                <a
+                  href={child.url}
+                  aria-current={currentUrl === child.url ? "page" : undefined}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       ))
     }
   </nav>
+
   <div id="navbar-handle">⌄</div>
 </header>
 
@@ -53,6 +90,7 @@ const links: Link[] = [
   }
 
   nav {
+    z-index: 2;
     transform: translateY(-100px);
 
     display: flex;
@@ -66,7 +104,10 @@ const links: Link[] = [
     transition: 0.2s;
     transition-delay: 0s;
 
-    a {
+    a,
+    span {
+      cursor: pointer;
+
       display: inline-block;
 
       padding: 1em 0;
@@ -79,6 +120,54 @@ const links: Link[] = [
       text-shadow: 1px 1px var(--raisin-black);
 
       &[aria-current] {
+        color: var(--purple-400);
+      }
+    }
+
+    .nav-item {
+      position: relative;
+      display: inline-block;
+
+      a,
+      .nav-label {
+        display: inline-block;
+
+        padding: 1em 0 1px;
+
+        font-family: var(--font-accent);
+        font-weight: 500;
+        text-decoration: none;
+        text-shadow: 1px 1px var(--raisin-black);
+      }
+
+      a[aria-current] {
+        color: var(--purple-400);
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: none;
+        flex-direction: column;
+
+        animation: dropdown 0.2s ease;
+      }
+
+      &:hover .dropdown {
+        display: flex;
+      }
+
+      .dropdown a {
+        height: 30px;
+        padding: 0.5em 0;
+        color: var(--gray-100);
+        text-decoration: none;
+      }
+
+      .dropdown a[aria-current] {
         color: var(--purple-400);
       }
     }
@@ -106,6 +195,18 @@ const links: Link[] = [
     nav,
     #navbar-handle {
       transition-delay: 0.2s;
+    }
+  }
+
+  @keyframes dropdown {
+    from {
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
   }
 </style>
