@@ -6,10 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "eslint": "eslint './src/**/*.{js,ts,astro}' --fix",
-    "stylelint": "stylelint './src/**/*.{css,astro}' --fix",
+    "eslint": "eslint './src/**/*.{js,ts,astro}' --cache --fix",
+    "stylelint": "stylelint './src/**/*.{css,astro}' --cache --fix",
     "prettier": "prettier './src/**/*.{js,ts,css}' --write",
-    "pr epare": "husky && husky install"
+    "prepare": "husky && husky install"
   },
   "lint-staged": {
     "*.{js,ts,astro}": "eslint --cache --fix",
