@@ -1,0 +1,159 @@
+---
+import type { InferEntrySchema } from "astro:content";
+import type { RenderedContent } from "astro:content";
+interface Props {
+    post: {
+    id: string;
+    body?: string;
+    collection: "blogs" | "guides";
+    data: InferEntrySchema<"blogs" | "guides">;
+    rendered?: RenderedContent;
+    filePath?: string;
+}
+}
+import CommentWidget from "@components/blog/CommentWidget.astro";
+
+import "remark-github-blockquote-alert/alert.css";
+import "@styles/post.css";
+
+import { render } from "astro:content";
+import { Image } from "astro:assets";
+
+const { post } = Astro.props;
+const {
+  title,
+  description,
+  date,
+  thumb,
+  tags,
+  draft = false,
+} = post.data;
+
+const { Content } = await render(post);
+
+---
+<main>
+    <article>
+      <header>
+        <Image
+          id="bg-img"
+          src={thumb}
+          alt={description}
+          loading="eager"
+          layout="full-width"
+          priority
+        />
+        <div id="hero-text">
+          <h1 transition:name={`${post.data.title.replace(/\s/g, "")}`}>
+            {title}
+          </h1>
+          <p >
+            <span transition:name={`desc-${post.id.replace(/\s/g, "")}`}>{description}</span>
+            <br />
+            <time datetime={date.toISOString()} transition:name={`date-${post.id.replace(/\s/g, "")}`}>
+              {
+                date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }
+            </time>
+            {" | "}
+            <span>
+              {
+                tags.map((tag, i) => {
+                  const href = `/tags/${encodeURIComponent(tag)}/`;
+                  return (
+                    <>
+                    <!-- prettier-ignore -->
+                      <a href={href}>{tag}</a>{i < tags.length - 1 ? ", " : ""}
+                    </>
+                  );
+                })
+              }
+            </span>
+            {
+              draft && (
+                <span id="draft-warn">
+                  <br />
+                  (Draft - Not final content)
+                </span>
+              )
+            }
+            <span id="scroll-warn">
+              <br />Note: Firefox/Your Browser doesn't natively support
+              scroll-timeline. So the background image scrolling won't work as
+              expected even with a polyfill
+            </span>
+          </p>
+        </div>
+      </header>
+      <section>
+        <Content />
+        <CommentWidget />
+      </section>
+    </article>
+  </main>
+
+<script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"
+></script>
+
+<style is:inline>
+  #contents {
+    display: none;
+  }
+
+  #contents + ul {
+    scrollbar-width: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 2vw;
+    height: 100%;
+    padding: 1rem;
+    padding-top: 5vh;
+    border-radius: 0 20px;
+
+    filter: drop-shadow(0 0 5px black);
+    backdrop-filter: blur(10px) brightness(0.8);
+
+    transition: 400ms;
+
+    &::before {
+      content: "Contents";
+
+      display: block;
+
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgb(255 255 255 / 20%);
+
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+    }
+
+    li {
+      overflow: hidden;
+
+      font-size: 1rem;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      list-style-position: inside;
+
+      ul {
+        padding-left: 15px;
+      }
+    }
+
+    &:hover,
+    &:focus-within {
+      overflow-y: scroll;
+      width: 250px;
+    }
+  }
+</style>
