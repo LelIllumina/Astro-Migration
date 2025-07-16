@@ -65,10 +65,6 @@ const { posts } = Astro.props as {
   }
 </ul>
 <style>
-  /*
-  Reusable gallery component. Used on front page
-*/
-
   .gallery {
     margin-block: 4rem;
     padding: 0;
@@ -85,10 +81,15 @@ const { posts } = Astro.props as {
 
       margin: 3em 0;
 
-      transition: transform 0.1s;
+      text-underline-offset: 10px;
+
+      transition:
+        transform 0.1s,
+        text-underline-offset 0.25s ease;
 
       &:hover {
         transform: scale(1.01);
+        text-underline-offset: 1px;
       }
 
       figcaption {
