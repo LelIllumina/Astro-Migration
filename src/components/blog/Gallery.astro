@@ -45,7 +45,10 @@ const { posts } = Astro.props as {
               width={400}
             />
             <figcaption>
-              <time datetime={new Date(post.data.date).toISOString()}>
+              <time
+                datetime={new Date(post.data.date).toISOString()}
+                transition:name={`date-${post.id.replace(/\s/g, "")}`}
+              >
                 {new Date(post.data.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
@@ -55,7 +58,9 @@ const { posts } = Astro.props as {
               <h2 transition:name={`${post.data.title.replace(/\s/g, "")}`}>
                 {post.data.title} {post.data.draft ? "(WIP)" : ""}
               </h2>
-              <p>{post.data.description}</p>
+              <p transition:name={`desc-${post.id.replace(/\s/g, "")}`}>
+                {post.data.description}
+              </p>
               <p id="tags">{post.data.tags.join(", ")}</p>
             </figcaption>
           </figure>

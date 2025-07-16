@@ -35,14 +35,22 @@ import "/src/styles/post.css"
   <main>
     <article>
       <header>
-          <Image id="bg-img" src={thumb} alt={description} loading="eager" layout="full-width" priority />
+        <Image
+          id="bg-img"
+          src={thumb}
+          alt={description}
+          loading="eager"
+          layout="full-width"
+          priority
+        />
         <div id="hero-text">
-          <h1 style={`view-transition-name: ${post.data.title.replace(/\s/g, '')}`}
-           >{title}</h1>
-          <p>
-            {description}
+          <h1 transition:name={`${post.data.title.replace(/\s/g, "")}`}>
+            {title}
+          </h1>
+          <p >
+            <span transition:name={`desc-${post.id.replace(/\s/g, "")}`}>{description}</span>
             <br />
-            <time datetime={date.toISOString()}>
+            <time datetime={date.toISOString()} transition:name={`date-${post.id.replace(/\s/g, "")}`}>
               {
                 date.toLocaleDateString("en-US", {
                   year: "numeric",
@@ -58,7 +66,7 @@ import "/src/styles/post.css"
                   const href = `/tags/${encodeURIComponent(tag)}/`;
                   return (
                     <>
-                      <!-- prettier-ignore -->
+                    <!-- prettier-ignore -->
                       <a href={href}>{tag}</a>{i < tags.length - 1 ? ", " : ""}
                     </>
                   );
@@ -129,7 +137,7 @@ import "/src/styles/post.css"
       font-size: 1.5rem;
     }
 
-        li {
+    li {
       overflow: hidden;
 
       font-size: 1rem;
@@ -148,6 +156,5 @@ import "/src/styles/post.css"
       overflow-y: scroll;
       width: 250px;
     }
-
   }
 </style>
