@@ -52,7 +52,7 @@ const { posts } = Astro.props as {
                   day: "numeric",
                 })}
               </time>
-              <h2>
+              <h2 transition:name={`${post.data.title.replace(/\s/g, "")}`}>
                 {post.data.title} {post.data.draft ? "(WIP)" : ""}
               </h2>
               <p>{post.data.description}</p>

@@ -37,7 +37,8 @@ import "/src/styles/post.css"
       <header>
           <Image id="bg-img" src={thumb} alt={description} loading="eager" layout="full-width" priority />
         <div id="hero-text">
-          <h1>{title}</h1>
+          <h1 style={`view-transition-name: ${post.data.title.replace(/\s/g, '')}`}
+           >{title}</h1>
           <p>
             {description}
             <br />
