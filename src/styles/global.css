@@ -31,7 +31,6 @@
     max-width: 50vw;
     margin: 0 auto;
     padding: 0 50px;
-    border-top: 1px var(--tan) solid;
   }
 
   blockquote {
