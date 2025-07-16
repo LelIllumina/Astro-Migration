@@ -1,31 +1,34 @@
 ---
 const currentUrl = Astro.url.pathname;
+
+interface Link {
+  label: string;
+  url: string;
+}
+
+const links: Link[] = [
+  { label: "Main", url: "/" },
+  { label: "About", url: "/about/" },
+  { label: "Music", url: "/music/" },
+  { label: "Blogs", url: "/blogs/" },
+  { label: "Guides", url: "/guides/" },
+  { label: "eroWeb", url: "/eroWeb/" },
+  { label: "Guestbook", url: "https://lel.atabook.org" },
+];
 ---
 
 <header>
   <nav>
-    <a href="/" aria-current={currentUrl === "/" ? "page" : undefined}>Main</a>
-    <a
-      href="/about/"
-      aria-current={currentUrl === "/about/" ? "page" : undefined}>About</a
-    >
-    <a
-      href="/music/"
-      aria-current={currentUrl === "/music/" ? "page" : undefined}>Music</a
-    >
-    <a
-      href="/blogs/"
-      aria-current={currentUrl === "/blogs/" ? "page" : undefined}>Blogs</a
-    >
-    <a
-      href="/guides/"
-      aria-current={currentUrl === "/guides/" ? "page" : undefined}>Guides</a
-    >
-    <a
-      href="/eroWeb/"
-      aria-current={currentUrl === "/eroWeb/" ? "page" : undefined}>eroWeb</a
-    >
-    <a href="https://lel.atabook.org">Guestbook</a>
+    {
+      links.map((link) => (
+        <a
+          href={link.url}
+          aria-current={currentUrl === link.url ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
   </nav>
   <div id="navbar-handle">⌄</div>
 </header>
@@ -56,6 +59,7 @@ const currentUrl = Astro.url.pathname;
     display: flex;
     justify-content: space-between;
 
+    width: max(500px, 90vw);
     margin: 15px auto auto;
 
     opacity: 0;
