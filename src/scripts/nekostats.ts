@@ -1,12 +1,4 @@
-export default async function fetchNekostats(
-  username: string,
-): Promise<NekostatsResponse> {
-  const response = await fetch(`https://nekoweb.org/api/site/info/${username}`);
-
-  const data = await response.json();
-
-  return data;
-}
+// Types
 
 export interface NekostatsResponse {
   id: number;
@@ -18,26 +10,41 @@ export interface NekostatsResponse {
   created_at: number;
   updated_at: number;
 }
+
+function getRequiredElement<T extends HTMLElement>(id: string): T {
+  const el = document.getElementById(id);
+  if (!el) throw new Error(`Element with id "${id}" not found`);
+  return el as T;
+}
+
+// Main
+
+async function fetchNekostats(username: string): Promise<NekostatsResponse> {
+  const response = await fetch(`https://nekoweb.org/api/site/info/${username}`);
+
+  const data = await response.json();
+
+  return data;
+}
+
 (async () => {
   try {
     const json = await fetchNekostats("lel");
 
-    const updated = new Date(json.updated_at).toLocaleDateString(); // Formats Last Updated text
-    const created = new Date(json.created_at).toLocaleDateString(); // Formats Creation Date text
-    (document.getElementById("created") as HTMLParagraphElement).innerHTML =
-      `<em>Created</em>: <time datetime="${created}">${created}</time>`;
-    (document.getElementById("updated") as HTMLParagraphElement).innerHTML =
-      `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
-    // document.getElementById("visitors").innerHTML =
-    //   `<em>Visits</em>: ${json.views}`;
-    (document.getElementById("followers") as HTMLParagraphElement).innerHTML =
-      `<em>Followers</em>: ${json.followers}`;
+    const updated = new Date(json.updated_at).toLocaleDateString();
+    const created = new Date(json.created_at).toLocaleDateString();
+    const createdEl = getRequiredElement<HTMLParagraphElement>("created");
+    const updatedEl = getRequiredElement<HTMLParagraphElement>("updated");
+    const followersEl = getRequiredElement<HTMLParagraphElement>("followers");
 
-    const container = document.getElementById(
-      "views-counter",
-    ) as HTMLDivElement;
+    createdEl.innerHTML = `<em>Created</em>: <time datetime="${created}">${created}</time>`;
+    updatedEl.innerHTML = `<em>Updated</em>: <time datetime="${updated}">${updated}</time>`;
+    followersEl.innerHTML = `<em>Followers</em>: ${json.followers}`;
+
+    const viewsContainer = getRequiredElement<HTMLDivElement>("views-counter");
+
     const digits = json.views.toString().split(""); // Split the number into individual digits
-    container.innerHTML = ""; // Clear previous content
+    viewsContainer.innerHTML = ""; // Clear previous content
 
     for (let i = 0; i < digits.length; i++) {
       const digit = digits[i];
@@ -48,41 +55,27 @@ export interface NekostatsResponse {
       img.height = 100;
       img.width = 45;
 
-      container.appendChild(img);
+      viewsContainer.appendChild(img);
     }
   } catch (error: unknown) {
     console.error(error);
 
-    const container = document.getElementById(
-      "views-counter",
-    ) as HTMLDivElement;
-    const subtitle = document.getElementById("subtitle") as HTMLDivElement;
+    const viewsContainer = getRequiredElement<HTMLDivElement>("views-counter");
+
+    const subtitle = getRequiredElement<HTMLDivElement>("subtitle");
 
     subtitle.innerHTML = "Script failed Noooooo";
-    container.innerHTML = "";
+    viewsContainer.innerHTML = "";
 
     let status = "Unknown";
     if (error instanceof Error) {
       if (error.message.startsWith("HTTP Error:")) {
         status = error.message.split(": ")[1];
+        console.error(status);
       }
     } else {
       // Handle the case where error is not an instance of Error
       console.error("Unknown error", error);
-    }
-
-    const numbers = status.split("");
-
-    for (let i = 0; i < numbers.length; i++) {
-      const num = numbers[i];
-
-      const img = document.createElement("img");
-      img.src = `/images/numbers/${num}.gif`;
-      img.alt = num;
-      img.height = 100;
-      img.width = 45;
-
-      container.appendChild(img);
     }
   }
 })();
