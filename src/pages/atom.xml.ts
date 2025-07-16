@@ -34,7 +34,7 @@ export async function GET(context: APIContext) {
       id: context.site + `/blogs/${post.id}/`,
       title: post.data.title,
       image: encodeURI(
-        `${context.site}_astro/${post.data.thumb.src.split("/").pop()}`
+        `${context.site}_astro/${post.data.thumb.src.split("/").pop()}`,
       ),
       date: post.data.date,
       published: post.data.date,
@@ -54,7 +54,7 @@ export async function GET(context: APIContext) {
       id: context.site + `/guides/${post.id}/`,
       title: post.data.title,
       image: encodeURI(
-        `${context.site}_astro/${post.data.thumb.src.split("/").pop()}`
+        `${context.site}_astro/${post.data.thumb.src.split("/").pop()}`,
       ),
       date: post.data.date,
       published: post.data.date,

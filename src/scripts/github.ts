@@ -1,5 +1,5 @@
 fetch(
-  "https://api.github.com/repos/LelIllumina/Astro-Migration/commits?per_page=1"
+  "https://api.github.com/repos/LelIllumina/Astro-Migration/commits?per_page=1",
 )
   .then((res) => res.json())
   .then((res) => {
@@ -15,7 +15,7 @@ fetch(
           day: "2-digit",
           month: "2-digit",
           year: "2-digit",
-        }
+        },
       )}`;
     (document.getElementById("commit-link") as HTMLAnchorElement).href =
       `https://github.com/LelIllumina/NueNekos/commit/${sha}`;
