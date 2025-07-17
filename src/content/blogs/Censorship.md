@@ -49,3 +49,15 @@ These serve no purpose besides bypassing automatic moderation, which essence its
 Not exactly. Content should be censored for people who would actually benefit from it, the aforementioned traumatized PTSD patients, people with conditions like Hemophobia, minors, etc. I don't mind Nudity, but I wouldn't want kids watching hardcore lesbian pegging. Censorship should be opt-in, an accessibility feature rather than a means to form beliefs, If you're uncomfortable with slurs and swears just turn on a filter that hides them. Don't turn the whole social media platform into a kindergarten.
 
 Personally I don't like gore, but I rather opt in to censor that, rather than have it be hidden from everyone. This might seem contradictory to the point I made in the first section of this blog, but I rather spend my mental strength on people actually suffering rather than someone cutting off his testicles in a post on r/NSFL.
+
+---
+
+## Offtopic
+
+I looked around a bunch of different images to find a good one for the thumbnail but these were also candidates:
+
+![Eye Bar](@assets/images/blog/censorship/27686bd3f117bc2649926a40db725483.jpg)
+![Reimu](@assets/images/blog/censorship/ca8998075dd23f66c2c3d8816347a78f.jpg)
+![Boblox](@assets/images/blog/censorship/images.jpeg)
+![Sauced](@assets/images/blog/censorship/RDT_20250717_1614248326489148835507461.jpg)
+![mf](@assets/images/blog/censorship/RDT_20250717_1615173813514550441387354.jpg)
