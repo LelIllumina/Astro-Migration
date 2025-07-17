@@ -6,6 +6,7 @@ thumb: eto-bleh.gif
 tags:
   - Blog
   - Stupid
+  - Me
 keywords:
   - Stupid
   - Shitass

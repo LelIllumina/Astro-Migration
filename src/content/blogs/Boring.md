@@ -5,7 +5,7 @@ date: 2025-02-02
 thumb: SaintLelsVCR.png
 tags:
   - Blog
-  - General
+  - Me
 keywords:
   - Boring
   - Uninteresting
