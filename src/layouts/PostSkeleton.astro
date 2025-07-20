@@ -18,6 +18,7 @@ import "@styles/post.css";
 
 import { render } from "astro:content";
 import { Image } from "astro:assets";
+import FigureImage from "@components/FigureImage.astro";
 
 const { post } = Astro.props;
 const {
@@ -90,7 +91,7 @@ const { Content } = await render(post);
         </div>
       </header>
       <section>
-        <Content />
+        <Content components={{img: FigureImage}}/>
         <CommentWidget />
       </section>
     </article>
