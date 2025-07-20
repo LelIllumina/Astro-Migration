@@ -16,9 +16,9 @@ import metaTags from "astro-meta-tags";
 import Icons from "unplugin-icons/vite";
 
 // Remark/Rehype
-// @ts-expect-error no declaration file
-import rehypeFigure from "@microflash/rehype-figure";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+// // @ts-expect-error no declaration file
+// import rehypeFigure from "@microflash/rehype-figure";
+// import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import emoji from "remark-emoji";
 import remarkToc from "remark-toc";
 import { remarkAlert } from "remark-github-blockquote-alert";
@@ -42,7 +42,7 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), partytown(), pageInsight(), metaTags()],
 
   markdown: {
-    rehypePlugins: [rehypeFigure, rehypeAutolinkHeadings],
+    // rehypePlugins: [rehypeFigure],
     remarkPlugins: [emoji, remarkToc, [remarkAlert, { legacyTitle: true }]],
     gfm: true,
   },
